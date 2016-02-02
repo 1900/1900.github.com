@@ -1,4 +1,42 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>C'est la vie</title><description>Never say never!</description><link>http:///</link><generator>Ghost 0.7</generator><lastBuildDate>Tue, 02 Feb 2016 08:26:51 GMT</lastBuildDate><atom:link href="http:///rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>python,使用一行命令启动http server</title><description>&lt;pre&gt;&lt;code class="language-python"&gt;python -m SimpleHTTPServer  
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>C'est la vie</title><description>Never say never!</description><link>http:///</link><generator>Ghost 0.7</generator><lastBuildDate>Tue, 02 Feb 2016 08:57:36 GMT</lastBuildDate><atom:link href="http:///rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>clojure 调用java 接口</title><description>&lt;p&gt;Java Interface  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-java"&gt;public interface ReceiverDecode {  
+    public void decodeBytes(byte[] data);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;使用 proxy &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-clojure"&gt;(proxy [ReceiverDecode] []
+  (decodeBytes[bytes]
+    (str input "with proxy")))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;使用 reify&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-clojure"&gt;(reify ReceiverDecode
+  (decodeBytes[bytes]
+    (...whatever...)))
+&lt;/code&gt;&lt;/pre&gt;</description><link>http:///clojure-diao-yong-java-jie-kou/</link><guid isPermaLink="false">3160fe98-2915-4138-94f4-e5822368e4eb</guid><category>Clojure</category><category>How To</category><dc:creator>Grizzly</dc:creator><pubDate>Tue, 02 Feb 2016 08:57:25 GMT</pubDate><content:encoded>&lt;p&gt;Java Interface  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-java"&gt;public interface ReceiverDecode {  
+    public void decodeBytes(byte[] data);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;使用 proxy &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-clojure"&gt;(proxy [ReceiverDecode] []
+  (decodeBytes[bytes]
+    (str input "with proxy")))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;使用 reify&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-clojure"&gt;(reify ReceiverDecode
+  (decodeBytes[bytes]
+    (...whatever...)))
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>python,使用一行命令启动http server</title><description>&lt;pre&gt;&lt;code class="language-python"&gt;python -m SimpleHTTPServer  
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;默认端口 8000 &lt;br&gt;
