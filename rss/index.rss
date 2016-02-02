@@ -1,4 +1,247 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>C'est la vie</title><description>Never say never!</description><link>http:///</link><generator>Ghost 0.7</generator><lastBuildDate>Tue, 02 Feb 2016 08:57:36 GMT</lastBuildDate><atom:link href="http:///rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>clojure 调用java 接口</title><description>&lt;p&gt;Java Interface  &lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>C'est la vie</title><description>Never say never!</description><link>http:///</link><generator>Ghost 0.7</generator><lastBuildDate>Tue, 02 Feb 2016 09:56:17 GMT</lastBuildDate><atom:link href="http:///rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Centos,iptables设置</title><description>&lt;p&gt;允许访问80及8080端口 &lt;br&gt;
+vim /etc/sysconfig/iptables  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;restart  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;/etc/init.d/iptables restart
+&lt;/code&gt;&lt;/pre&gt;</description><link>http:///install-mongodb-3-on-centos-2/</link><guid isPermaLink="false">90a86c1c-fe23-4ff7-8402-23b1324206f3</guid><category>Linux</category><dc:creator>Grizzly</dc:creator><pubDate>Tue, 02 Feb 2016 09:56:05 GMT</pubDate><content:encoded>&lt;p&gt;允许访问80及8080端口 &lt;br&gt;
+vim /etc/sysconfig/iptables  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;restart  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;/etc/init.d/iptables restart
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Install MongoDB 3 on Centos</title><description>&lt;p&gt;下载&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;cd /data/mongo  
+wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel62-3.0.4.tgz  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;解压&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;tar zxvf mongodb-linux-x86_64-rhel62-3.0.4.tgz  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;建立db目录和 log目录&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;mkdir -p /data/mongo/db  
+mkdir -p /data/mongo/logs  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;运行:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt; ./bin/mongod --port 37018 --dbpath /data/mongo/db --logpath /data/mongo/log/mongodb.log&lt;/code&gt;&lt;/pre&gt;</description><link>http:///install-mongodb-3-on-centos/</link><guid isPermaLink="false">657d124e-6367-4fa7-975e-cc9501dcc553</guid><category>Linux</category><category>MongoDB</category><dc:creator>Grizzly</dc:creator><pubDate>Tue, 02 Feb 2016 09:52:04 GMT</pubDate><content:encoded>&lt;p&gt;下载&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;cd /data/mongo  
+wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel62-3.0.4.tgz  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;解压&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;tar zxvf mongodb-linux-x86_64-rhel62-3.0.4.tgz  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;建立db目录和 log目录&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;mkdir -p /data/mongo/db  
+mkdir -p /data/mongo/logs  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;运行:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt; ./bin/mongod --port 37018 --dbpath /data/mongo/db --logpath /data/mongo/log/mongodb.log --fork 
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Install Nginx  On Centos</title><description>&lt;p&gt;安装依赖包&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;yum -y install pcre pcre-devel openssl openssl-devel gcc automake autoconf libtool make  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下载nginx  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;wget  http://nginx.org/download/nginx-1.9.2.tar.gz  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;解压  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;tar zxvf nginx-1.9.2.tar.gz  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;编译&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;./configure --prefix=/usr/local/nginx
+make  
+make install  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;配置 &lt;br&gt;
+开启gzip压缩 &lt;br&gt;
+vim /usr/local/nginx/config/nginx.conf&lt;/p&gt;</description><link>http:///install-nginx-on-centos/</link><guid isPermaLink="false">0b489f68-9a42-4c92-8e19-905a109b1b72</guid><category>Linux</category><category>Nginx</category><dc:creator>Grizzly</dc:creator><pubDate>Tue, 02 Feb 2016 09:46:28 GMT</pubDate><content:encoded>&lt;p&gt;安装依赖包&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;yum -y install pcre pcre-devel openssl openssl-devel gcc automake autoconf libtool make  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下载nginx  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;wget  http://nginx.org/download/nginx-1.9.2.tar.gz  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;解压  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;tar zxvf nginx-1.9.2.tar.gz  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;编译&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;./configure --prefix=/usr/local/nginx
+make  
+make install  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;配置 &lt;br&gt;
+开启gzip压缩 &lt;br&gt;
+vim /usr/local/nginx/config/nginx.conf  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;#gzip  on;
+    gzip on;
+    gzip_disable "MSIE [1-6]\.(?!.*SV1)";
+    gzip_http_version 1.1;
+    gzip_vary on;
+    gzip_proxied any;
+    gzip_comp_level 6;
+    gzip_buffers 16 8k;
+    gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/javascript text/x-
+js;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;停止nginx  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;/usr/local/nginx/sbin/nginx -s stop 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;开启nginx  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;/usr/local/nginx/sbin/nginx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;重启&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;/usr/local/nginx/sbin/nginx  -s reload  
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Install Tomcat 7  On Linux</title><description>&lt;p&gt;下载&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell "&gt;wget http://mirror.esocc.com/apache/tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63.tar.gz  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;解压&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell "&gt;tar -zxvf apache-tomcat-7.0.63.tar.gz  
+mv ./apache-tomcat-7.0.63 /usr/local  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;添加到环境变量 &lt;br&gt;
+vim /etc/profile  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell "&gt;export TOMCAT_HOME=/usr/local/apache-tomcat  
+source /etc/profile  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;开启gzip压缩,线程优化 &lt;br&gt;
+编辑 server.xml&lt;/p&gt;</description><link>http:///install-tomcat-7-on-linux/</link><guid isPermaLink="false">910fffbb-b847-4188-80f3-c61eb4ed8c82</guid><category>Linux</category><category>How To</category><dc:creator>Grizzly</dc:creator><pubDate>Tue, 02 Feb 2016 09:39:36 GMT</pubDate><content:encoded>&lt;p&gt;下载&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell "&gt;wget http://mirror.esocc.com/apache/tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63.tar.gz  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;解压&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell "&gt;tar -zxvf apache-tomcat-7.0.63.tar.gz  
+mv ./apache-tomcat-7.0.63 /usr/local  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;添加到环境变量 &lt;br&gt;
+vim /etc/profile  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell "&gt;export TOMCAT_HOME=/usr/local/apache-tomcat  
+source /etc/profile  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;开启gzip压缩,线程优化 &lt;br&gt;
+编辑 server.xml
+找到如下的行 &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;&amp;lt;Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" /&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;将其改为： &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;&amp;lt;Connector port="8080" protocol="HTTP/1.1"  
+connectionTimeout="20000"  
+redirectPort="8443"  
+maxHttpHeaderSize="8192"  
+useBodyEncodingForURI="true"  
+URIEncoding="UTF-8"  
+maxThreads="600"  
+minSpareThreads="500"  
+acceptCount="1000"  
+enableLookups="false"  
+compression="on"  
+compressionMinSize="2048"  
+noCompressionUserAgents="gozilla, traviata"  
+compressableMimeType="text/html,text/xml,text/json,text/javascript,text/css,text/plain,application/javascript,application/xml,application/xml+xhtml"  
+/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;内存优化
+vim /usr/local/apache-tomcat/bin/catalina.sh &lt;br&gt;
+cygwin=false前添加  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;JAVA_OPTS="-Xms512m -Xmx1024m -Xss128K -XX:PermSize=128m -XX:MaxPermSize=256m"  
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Install JDK On CentOS</title><description>&lt;p&gt;安装依赖包&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell "&gt;yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel vim ntsysv  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下载JDK&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell "&gt; wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/&lt;/code&gt;&lt;/pre&gt;</description><link>http:///install-jdk-on-centos-2/</link><guid isPermaLink="false">82233361-6229-4fe0-ba2d-ef7f22448290</guid><category>How To</category><category>Linux</category><dc:creator>Grizzly</dc:creator><pubDate>Tue, 02 Feb 2016 09:30:56 GMT</pubDate><content:encoded>&lt;p&gt;安装依赖包&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell "&gt;yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel vim ntsysv  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下载JDK&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell "&gt; wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.rpm" 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;安装&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell "&gt;chmod +x jdk-7u79-linux-x64.rpm  
+rpm -ivh jdk-7u79-linux-x64.rpm  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;设置环境变量 &lt;br&gt;
+vim /etc/profile &lt;br&gt;
+添加到/etc/profile最后&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell "&gt;JAVA_HOME=/usr/java/jdk1.7.0_79  
+CLASSPATH=$JAVA_HOME/lib/tools.jar  
+PATH=$JAVA_HOME/bin:$PATH export  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;source /etc/profile  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;验证&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;java -version
+
+Java(TM) SE Runtime Environment (build 1.7.0_79)  
+Java HotSpot(TM) 64-Bit Server VM (build 24.79-b02, mixed mode)  
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>clojure 调用java 接口</title><description>&lt;p&gt;Java Interface  &lt;/p&gt;
 
 &lt;pre&gt;&lt;code class="language-java"&gt;public interface ReceiverDecode {  
     public void decodeBytes(byte[] data);

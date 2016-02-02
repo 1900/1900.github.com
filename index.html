@@ -15,6 +15,7 @@
 
     <link rel="canonical" href="http:///">
     <meta name="referrer" content="origin">
+    <link rel="next" href="http:///page/2/">
     
     <meta property="og:site_name" content="C'est la vie">
     <meta property="og:type" content="website">
@@ -78,10 +79,81 @@
 
     <div class="extra-pagination inner">
     <nav class="pagination" role="navigation">
-    <span class="page-number">第 1 页 ⁄ 共 1 页</span>
+    <span class="page-number">第 1 页 ⁄ 共 2 页</span>
+        <a class="older-posts" href="/page/2/">下一页 →</a>
 </nav>
 </div>
 
+<article class="post tag-linux">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/install-mongodb-3-on-centos-2/">Centos,iptables设置</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>允许访问80及8080端口  vim /etc/sysconfig/iptables   -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW <a class="read-more" href="/install-mongodb-3-on-centos-2/">»</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/linux/">Linux</a>
+        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
+    </footer>
+</article>
+<article class="post tag-linux tag-mongodb">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/install-mongodb-3-on-centos/">Install MongoDB 3 on Centos</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>下载 cd /data/mongo   wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel62-3.0.4.tgz   解压 tar zxvf mongodb-linux-x86_64-rhel62-3. <a class="read-more" href="/install-mongodb-3-on-centos/">»</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/mongodb/">MongoDB</a>
+        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
+    </footer>
+</article>
+<article class="post tag-linux tag-nginx">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/install-nginx-on-centos/">Install Nginx  On Centos</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>安装依赖包 yum -y install pcre pcre-devel openssl openssl-devel gcc automake autoconf libtool make   下载nginx   wget  http://nginx.org/download/ng <a class="read-more" href="/install-nginx-on-centos/">»</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/nginx/">Nginx</a>
+        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
+    </footer>
+</article>
+<article class="post tag-linux tag-how-to">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/install-tomcat-7-on-linux/">Install Tomcat 7  On Linux</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>下载 wget http://mirror.esocc.com/apache/tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63.tar.gz   解压 tar -zxvf apache-tomcat-7.0.63.tar.gz <a class="read-more" href="/install-tomcat-7-on-linux/">»</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/how-to/">How To</a>
+        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
+    </footer>
+</article>
+<article class="post tag-how-to tag-linux">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/install-jdk-on-centos-2/">Install JDK On CentOS</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>安装依赖包 yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib- <a class="read-more" href="/install-jdk-on-centos-2/">»</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/how-to/">How To</a>, <a href="/tag/linux/">Linux</a>
+        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
+    </footer>
+</article>
 <article class="post tag-clojure tag-how-to">
     <header class="post-header">
         <h2 class="post-title"><a href="/clojure-diao-yong-java-jie-kou/">clojure 调用java 接口</a></h2>
@@ -152,51 +224,10 @@
         <time class="post-date" datetime="2016-01-29">2016年01月29日</time>
     </footer>
 </article>
-<article class="post tag-clojure tag-how-to">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/byte-collection-to-string-on-clojure/">How to convert byte to string and  convert string to byte on Clojure</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Byte,String 在clojure中互转： (ns test   (:require [clojure.string]             [clojure.stacktrace]             [clojure.tools.logging :as log] <a class="read-more" href="/byte-collection-to-string-on-clojure/">»</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/clojure/">Clojure</a>, <a href="/tag/how-to/">How To</a>
-        <time class="post-date" datetime="2016-01-29">2016年01月29日</time>
-    </footer>
-</article>
-<article class="post tag-emacs">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/emacssu-cha-shou-ce/">Emacs速查手册</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>环境配置 基础概念 基本命令 副模式命令 文件操作命令 光标移动命令 文本删除命令 文本块常用操作步骤 文本块操作命令 段落重排 编辑技巧 递增查找命令 查找－替换操作 窗口命令 缓冲区命令 书签 Shell交互 环境配置 Emacs启动时会寻找主目录的~/.emacs配置文件 <a class="read-more" href="/emacssu-cha-shou-ce/">»</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/emacs/">Emacs</a>
-        <time class="post-date" datetime="2016-01-27">2016年01月27日</time>
-    </footer>
-</article>
-<article class="post tag-getting-started-2">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/welcome-to-ghost-2/">Welcome to Ghost</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>You're live! Nice. We've put together a little post to introduce you to the Ghost editor and get you started. You can manage your content by <a class="read-more" href="/welcome-to-ghost-2/">»</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/getting-started-2/">Getting Started</a>
-        <time class="post-date" datetime="2016-01-25">2016年01月25日</time>
-    </footer>
-</article>
 
 <nav class="pagination" role="navigation">
-    <span class="page-number">第 1 页 ⁄ 共 1 页</span>
+    <span class="page-number">第 1 页 ⁄ 共 2 页</span>
+        <a class="older-posts" href="/page/2/">下一页 →</a>
 </nav>
 
 </main>
