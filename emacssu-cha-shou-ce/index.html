@@ -1,0 +1,640 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Emacs速查手册</title>
+    <meta name="description" content="Emacs速查手册">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=38655a7bc9">
+
+    <link rel="canonical" href="http:///emacssu-cha-shou-ce/">
+    <meta name="referrer" content="origin">
+    
+    <meta property="og:site_name" content="C'est la vie">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Emacs速查手册">
+    <meta property="og:description" content="Emacs速查手册">
+    <meta property="og:url" content="http:///emacssu-cha-shou-ce/">
+    <meta property="article:published_time" content="2016-01-27T09:58:08.595Z">
+    <meta property="article:modified_time" content="2016-01-29T08:22:21.682Z">
+    <meta property="article:tag" content="Emacs">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Emacs速查手册">
+    <meta name="twitter:description" content="Emacs速查手册">
+    <meta name="twitter:url" content="http:///emacssu-cha-shou-ce/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "C'est la vie",
+    "author": {
+        "@type": "Person",
+        "name": "Grizzly",
+        "url": "http:///author/grizzly",
+        "sameAs": null,
+        "description": "Never say never!"
+    },
+    "headline": "Emacs速查手册",
+    "url": "http:///emacssu-cha-shou-ce/",
+    "datePublished": "2016-01-27T09:58:08.595Z",
+    "dateModified": "2016-01-29T08:22:21.682Z",
+    "keywords": "Emacs",
+    "description": "Emacs速查手册"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7">
+    <link rel="alternate" type="application/rss+xml" title="C'est la vie" href="http:///rss/index.rss">
+</head>
+<body class="post-template tag-emacs nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">菜单</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">关闭</span>
+    </a>
+    <ul>
+            <li class="nav-home" role="presentation"><a href="http://1900.github.io/">Home</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="http:///rss/index.rss">订阅</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">菜单</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-emacs">
+
+        <header class="post-header">
+            <h1 class="post-title">Emacs速查手册</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-01-27">2016年01月27日</time>  标签：<a href="/tag/emacs/">Emacs</a>
+            </section>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 1900.github.io 468*60 -->
+<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="8642310708"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </header>
+
+        <section class="post-content">
+            <ul>
+<li><a href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">环境配置</a></li>
+<li><a href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5">基础概念</a></li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4">基本命令</a></li>
+<li><a href="#%E5%89%AF%E6%A8%A1%E5%BC%8F%E5%91%BD%E4%BB%A4">副模式命令</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4">文件操作命令</a></li>
+<li><a href="#%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8%E5%91%BD%E4%BB%A4">光标移动命令</a></li>
+<li><a href="#%E6%96%87%E6%9C%AC%E5%88%A0%E9%99%A4%E5%91%BD%E4%BB%A4">文本删除命令</a></li>
+<li><a href="#%E6%96%87%E6%9C%AC%E5%9D%97%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4">文本块常用操作步骤</a></li>
+<li><a href="#%E6%96%87%E6%9C%AC%E5%9D%97%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4">文本块操作命令</a></li>
+<li><a href="#%E6%AE%B5%E8%90%BD%E9%87%8D%E6%8E%92">段落重排</a></li>
+<li><a href="#%E7%BC%96%E8%BE%91%E6%8A%80%E5%B7%A7">编辑技巧</a></li>
+<li><a href="#%E9%80%92%E5%A2%9E%E6%9F%A5%E6%89%BE%E5%91%BD%E4%BB%A4">递增查找命令</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE%EF%BC%8D%E6%9B%BF%E6%8D%A2%E6%93%8D%E4%BD%9C">查找－替换操作</a></li>
+<li><a href="#%E7%AA%97%E5%8F%A3%E5%91%BD%E4%BB%A4">窗口命令</a></li>
+<li><a href="#%E7%BC%93%E5%86%B2%E5%8C%BA%E5%91%BD%E4%BB%A4">缓冲区命令</a></li>
+<li><a href="#%E4%B9%A6%E7%AD%BE">书签</a></li>
+<li><a href="#Shell%E4%BA%A4%E4%BA%92">Shell交互</a></li>
+</ul>
+
+<h2 id="">环境配置</h2>
+
+<p>Emacs启动时会寻找主目录的~/.emacs配置文件，大部分插件都需要在此文件中配置。</p>
+
+<h3 id="">基本定制</h3>
+
+<pre><code>;; 去掉菜单
+(menu-bar-mode -1)
+;; 显示代码的行号
+;; 若需要临时显示，可使用M-x linum-mode 切换
+(global-linum-mode 1)
+</code></pre>
+
+<h3 id="">包管理器安装</h3>
+
+<pre><code>;;启用包管理
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+</code></pre>
+
+<h4 id="">更新包内容</h4>
+
+<p><code>M-x package-refresh-contents RET</code></p>
+
+<h3 id="solarized">安装solarized主题</h3>
+
+<p>参考<a href="https://github.com/sellout/emacs-color-theme-solarized">github/emacs-color-theme-solarized</a></p>
+
+<p>将emacs-color-theme-solarized目录加入到Emacs的custom-theme-load-path，或从包管理器安装：</p>
+
+<pre><code>package-install color-theme-solarized
+</code></pre>
+
+<p>再将下面一行增加到初始化文件中：</p>
+
+<pre><code>(load-theme 'solarized-[light|dark] t)
+</code></pre>
+
+<p>重新加载初始化文件，或重启Emacs。</p>
+
+<h3 id="magit">magit</h3>
+
+<p>参考<a href="https://github.com/magit/magit">github/magit</a>或<a href="http://magit.github.io/master/magit.html">magit手册</a>。</p>
+
+<p>M-x package-install 安装命令：<code>M-x package-install RET magit RET</code></p>
+
+<ul>
+<li>M-x magit-status - 执行<code>git status</code>并进入magit操作主界面（配合<code>projectile</code>可以使用快捷键<code>C-c p v</code>）</li>
+<li>?               - 帮助</li>
+<li>q               - 退出</li>
+<li>s               - stage</li>
+<li>i               - ignore</li>
+<li>l               - 进入日志选项</li>
+<li>c               - 进入commit选项</li>
+<li>C-c C-c       - 提交</li>
+</ul>
+
+<h3 id="erlang">Erlang模式</h3>
+
+<p><a href="http://www.erlang.org/doc/apps/tools/erlang_mode_chapter.html">Erlang模式</a>内置于OTP发行版中。
+命令<code>M-x erlang-mode RET</code>可将当前缓冲区切换为Erlang主模式。
+正确安装erlang模式后，编辑.erl或.hrl文档时会自动切换到该主模式。</p>
+
+<p>详细的配置说明在<a href="http://www.erlang.org/doc/man/erlang.el.html">erlang模式手册</a>。</p>
+
+<h4 id="">安装和配置</h4>
+
+<pre><code>;; erlang模式
+;; 设置自动模板中的邮箱
+(setq user-mail-address "homeway.xue@gmail.com")
+(setq load-path (cons "~/erlang/erts/r17/lib/tools-2.6.14/emacs/" load-path))
+(setq erlang-root-dir "~/erlang/erts/r17")
+(setq exec-path (cons "~/erlang/erts/r17/bin/" exec-path))
+;; 一个不错的初始化配置
+(require 'erlang-start) 
+</code></pre>
+
+<p>这个配置中使用的erlang是通过kerl配置的，通过kerl编译并安装了erlang之后，在shell启动文件中增加了如下配置行：</p>
+
+<pre><code># start erlang with kerl
+. /Users/homeway/erlang/erts/r17/activate                                             
+</code></pre>
+
+<h4 id="">注释</h4>
+
+<ul>
+<li>C-c C-c 将标记区域注释</li>
+<li>C-u 3 C-c C-c 使用%%%标记注释</li>
+<li>C-c C-u 取消注释</li>
+</ul>
+
+<h4 id="">编辑函数子句</h4>
+
+<ul>
+<li>C-c C-j 生成新的函数子句</li>
+<li>C-c C-y 拷贝函数子句的参数</li>
+</ul>
+
+<h4 id="">模板</h4>
+
+<p>命令系列：<code>tempo...</code></p>
+
+<ul>
+<li>简单模板 - If, Case, Receive, Receive After, Receive Loop</li>
+<li>源文件头 - Module, Author, Small Header, Normal Header, Large Header</li>
+<li>Small Server - 不带OTP的Server模板</li>
+<li>Application - OTP application</li>
+<li>Supervisor - OTP supervisor</li>
+<li>Superbisor Brigge - OTP supervisor bridge</li>
+<li>gen<em>server - OTP gen</em>server</li>
+<li>gen<em>event - OTP gen</em>event</li>
+<li>gen<em>fsm - OTP gen</em>fsm</li>
+<li>Library模块 - 不实现进程的模块</li>
+<li>Corba回调 - Corba回调模块</li>
+<li>Erlang test suite - OTP测试模块生成</li>
+</ul>
+
+<h4 id="shell">Shell</h4>
+
+<pre><code>erlang-shell - 启动新的shell
+C-c C-z      - 显示Erlang shell（如果不存在就新建一个）
+C-up/M-p     - 历史中上一个命令
+C-down/M-n   - 历史中下一个命令
+</code></pre>
+
+<p>默认的shell启动后并没有增加必要的启动选项，因此需要手工补充。
+常见的内容包括：</p>
+
+<ul>
+<li>需要使用<code>code:add:path</code>命令添加的路径，如：</li>
+<li>需要手工启动的applicationerlang-shell附件选项的手工添加方法：</li>
+</ul>
+
+<h4 id="">编译</h4>
+
+<pre><code>C-c C-k      - 编译当前缓冲区中的模块
+C-c C-l      - 显示编译结果（并进入结果所在窗口）
+C-u C-x`     - 开始从头解析编译结果，并移至第一个出错行
+C-x`         - 移动到下一个出错行
+</code></pre>
+
+<h3 id="direddetail">dired-detail</h3>
+
+<p>为了避免dired显示太多内容，可以使用<a href="http://www.emacswiki.org/emacs/dired-details.el">dired-details</a>插件。</p>
+
+<h4 id="">配置</h4>
+
+<pre><code>;;prevent dired too much info
+(add-to-list 'load-path "~/.emacs.d/dired-details")
+(require 'dired-details)
+(dired-details-install) 
+</code></pre>
+
+<h4 id="">临时切换</h4>
+
+<pre><code>;;   ) - dired-details-show
+;;   ( - dired-details-hide
+</code></pre>
+
+<h3 id="projectle">projectle</h3>
+
+<p>通过projectle的配置，可以在git项目中做深层文件查找，项目文件目录比较复杂时仍可得心应手。
+配合安装以下包可以更进一步：</p>
+
+<ul>
+<li>helm-projectile 快速切换项目等</li>
+<li>ido 简化文件名搜索</li>
+<li>recentf 列举最近访问过的文件（内置的包）</li>
+</ul>
+
+<h4 id="">安装</h4>
+
+<p>参见<a href="https://github.com/bbatsov/projectile">github上的projectile项目</a>。</p>
+
+<ul>
+<li>C-c p C-h   查看帮助：列举projectile命令</li>
+<li>C-c p f     查看项目中的文件</li>
+<li>C-c p d     打开单个目录</li>
+<li>C-c p D     打开目录列表（配合dired-detail可以切换长显示和短显示）</li>
+<li>C-c p !     在项目根目录执行shell命令</li>
+<li>C-c p v     <code>vc-dir</code>指令，如果是git则自动执行<code>magit-status</code></li>
+</ul>
+
+<h2 id="">基础概念</h2>
+
+<h3 id="">文件缓冲区</h3>
+
+<p>虽然缓冲区看起来和文件非常相像，但它只是一个临时性的工作区域，里面可能包含的是文件的一份副本。</p>
+
+<h3 id="">插入点</h3>
+
+<p>光标前的位置就是插入点。</p>
+
+<h3 id="">删除环</h3>
+
+<p>被某些命令（<code>C-k</code>等）删除的文本将进入删除环，以供<code>C-y</code>或<code>M-y</code>粘贴操作使用。</p>
+
+<h3 id="">默认快捷键约定</h3>
+
+<ul>
+<li>最常用的命令，C-{n}</li>
+<li>次常用的命令，M-{n}</li>
+<li>其他常用命令，C-x {something} RETURN</li>
+<li>特殊命令，    C-c {something} RETURN</li>
+<li>全命令执行，  M-x {long-command-name} RETURN</li>
+</ul>
+
+<h2 id="">基本命令</h2>
+
+<ul>
+<li>C-x C-c            退出</li>
+<li>M-x [full-command] 执行全名命令</li>
+<li>C-x C-h            查询所有C-x命令</li>
+<li>C-c C-h            查询所有C-c命令</li>
+<li>C-g                取消命令 </li>
+</ul>
+
+<h2 id="">副模式命令</h2>
+
+<ul>
+<li>自动换行模式（auto-fill mode）</li>
+<li>改写模式（overwrite mode）</li>
+<li>自动保存模式（auto-save mode），定期保存到临时文件</li>
+<li>行号模式（line number mode）</li>
+<li>临时标记模式（transient mark mode）</li>
+</ul>
+
+<h2 id="">文件操作命令</h2>
+
+<ul>
+<li>C-x C-f   find-file                查找文件并在新的缓冲区打开</li>
+<li>C-x C-v   find-alternate-file      读入另一个文件，并替换当前缓冲区</li>
+<li>C-x C-s   save-buffer              从缓冲区保存文件到磁盘</li>
+<li>C-x C-w   write-file               把缓冲区写入到另一个文件</li>
+<li>C-x C-c   save-buffers-kill-emacs  退出Emacs</li>
+<li>C-h       help-command</li>
+</ul>
+
+<h2 id="">光标移动命令</h2>
+
+<ul>
+<li>C-f   forward-char</li>
+<li>C-b   backward-char</li>
+<li>C-p   previous-line</li>
+<li>C-n   next-line</li>
+<li>M-f   forward-word</li>
+<li>M-b   backward-word</li>
+<li>C-a   beginning-of-line</li>
+<li>C-e   end-of-line</li>
+<li>C-v   scroll-up</li>
+<li>M-v   scroll-down</li>
+<li>M-&lt;   beginning-of-buffer</li>
+<li>M-&gt;   end-of-buffer</li>
+<li>goto-line</li>
+<li>M-{n} digit-argument 重复执行n次后续命令</li>
+<li>C-u {n} universal-argument 重复执行n次后续命令（省略n时重复4次或16次）</li>
+</ul>
+
+<h2 id="">文本删除命令</h2>
+
+<ul>
+<li>C-d   delete-char</li>
+<li>DEL   delete-backward-char</li>
+<li>M-d   kill-word</li>
+<li>M-DEL backward-kill-word 删除光标前面的单词</li>
+<li>M-z   一直删除到指定字母</li>
+<li>C-k   kill-line</li>
+<li>M-k   kill-sentence</li>
+<li>C-y   yank 粘贴删除环中第一个文本</li>
+<li>M-y   循环粘贴删除环中其他文本，来替代C-y所粘贴的文本</li>
+<li>C-x u 撤销上一次命令（如删除命令或输入命令）</li>
+<li>C-w   kill-region 删除文本块</li>
+</ul>
+
+<h2 id="">文本块常用操作步骤</h2>
+
+<h3 id="">标记文本块</h3>
+
+<ol>
+<li>移动光标到文本块开始位置  </li>
+<li>C-@设置标记  </li>
+<li>移动光标到结束位置  </li>
+<li>（如有必要）C-x C-x检验标记范围是否正确  </li>
+</ol>
+
+<h3 id="">删除文本块</h3>
+
+<ol>
+<li>标记好准备删除的文本块  </li>
+<li>C-w 删除（进入删除环）  </li>
+</ol>
+
+<h3 id="">移动文本</h3>
+
+<ol>
+<li>删除文本块  </li>
+<li>移动光标到插入点  </li>
+<li>C-y插入文本块  </li>
+</ol>
+
+<h3 id="">复制文本</h3>
+
+<ol>
+<li>标记文本  </li>
+<li>M-w复制文本  </li>
+<li>移动光标到插入点  </li>
+<li>C-y插入文本块</li>
+</ol>
+
+<h2 id="">文本块操作命令</h2>
+
+<ul>
+<li>C-@     set-mark-command</li>
+<li>C-x C-x exchange-point-and-mark</li>
+<li>C-w     kill-region</li>
+<li>M-w     kill-ring-save 将文本块复制到删除环上</li>
+<li>M-h     mark-paragraph 选择段落</li>
+<li>C-x C-p mark-page 标记页面</li>
+<li>C-x h   mark-whole-buffer 全选</li>
+<li>M-y     yank-pop 在用过C-y命令以后寻找删除环上的其他文本块</li>
+</ul>
+
+<h2 id="">段落重排</h2>
+
+<ul>
+<li>M-q fill-paragraph 重排段落</li>
+<li>fill-region 重排文本块</li>
+</ul>
+
+<h2 id="">编辑技巧</h2>
+
+<ul>
+<li>C-t     transpose-chars</li>
+<li>M-t     transpose-words</li>
+<li>C-x C-t transpose-lines</li>
+<li>M-c     capitalize-word 切换首字母为大写</li>
+<li>M-u     upcase-word     转换为大写</li>
+<li>M-l     downcase-word   转换为小写</li>
+<li>C-x u   undo</li>
+<li>revert-buffer 撤销上次存盘之后的所有修改</li>
+<li>C-x ESC ESC 重复执行上一次复杂命令</li>
+<li>C-q <tab> 输入Tab键（C-q后面的键盘输入会作为原始输入）</tab></li>
+</ul>
+
+<h2 id="">递增查找命令</h2>
+
+<ul>
+<li>C-s isearch-forward</li>
+<li>C-r isearch-backward</li>
+<li>RETURN 退出查找操作</li>
+<li>C-g keyboard-quit 取消查找命令</li>
+<li>C-s C-w 把光标位置处的单词用作查找字符串</li>
+<li>C-s C-s 重复刚才的查找操作</li>
+<li>ESC C-s  向前正则查找</li>
+<li>ESC C-r  反向正则查找</li>
+</ul>
+
+<h2 id="">查找－替换操作</h2>
+
+<ul>
+<li>ESC %     开始查找－替换操作</li>
+<li>y        用新字符串替换查询到的字符串，然后前进到下一个位置</li>
+<li>n        不替换；前进到下一个位置</li>
+<li>.        在当前位置替换后退出查询</li>
+<li>,        替换并显示替换情况，再按空格或y才移动到下一个位置</li>
+<li>q        退出查询</li>
+<li>C-r      进入递归编辑状态</li>
+<li>C-w      删除此处内容，并进入递归编辑状态（好做其他修改）</li>
+<li>ESC C-c  退出递归状态</li>
+</ul>
+
+<h2 id="">窗口命令</h2>
+
+<ul>
+<li>C-x o    other-window</li>
+<li>C-x 0    delete-window</li>
+<li>C-x 1    delete-other-window</li>
+<li>C-x 2    在下面打开窗口</li>
+<li>C-x 3    在右侧打开窗口</li>
+<li>C-x ^    enlarge-window 价高当前窗口</li>
+<li>shrink-window  压低当前窗口</li>
+<li>C-x }    enlarge-window-horizontally 加宽当前窗口</li>
+<li>C-x {    shrink-window-horizontally  压窄当前窗口</li>
+<li>ESC C-v  scroll-other-window 对其他窗口做卷屏操作</li>
+<li>C-x 4 f  find-file-other-window 在其他窗口打开一个文件</li>
+<li>C-x 4 b  swith-to-buffer-other-window 在其他窗口里选择一个缓冲区</li>
+</ul>
+
+<h2 id="">缓冲区命令</h2>
+
+<ul>
+<li>C-x b    switch-to-buffer</li>
+<li>C-x C-b  list-buffer</li>
+<li>d       待删标记</li>
+<li>s       待存标记</li>
+<li>u       去除操作标记</li>
+<li>x       执行批量缓冲区操作</li>
+<li>f       窗口内打开缓冲区内容</li>
+<li>o       在新窗口打开缓冲区内容</li>
+<li>q       退出</li>
+<li>C-x k    kill-buffer</li>
+<li>rename-buffer</li>
+<li>C-x left/right  切换缓冲区</li>
+</ul>
+
+<h2 id="">书签</h2>
+
+<ul>
+<li>C-x r l  bookmark-menu-list</li>
+<li>d       标记待删除书签</li>
+<li>r       重命名书签</li>
+<li>s       保存全部书签</li>
+<li>f       显示光标位置的书签</li>
+<li>u       去掉书签上的待操作标记</li>
+<li>q       退出</li>
+<li>C-x r m  bookmark-set 在当前光标位置处设置一个书签</li>
+<li>C-x r b  bookmark-jump 跳到书签指示位置</li>
+</ul>
+
+<h2 id="shell">Shell交互  </h2>
+
+<ul>
+<li>C-z        临时退出到shell</li>
+<li>jobs</li>
+<li>fg         从shell返回到emacs</li>
+<li>ESC !      执行一次shell命令</li>
+<li>shell</li>
+</ul>
+
+<p>来源:
+<a href="https://github.com/homeway/hotmoon_docs/blob/master/emacs.md#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">https://github.com/homeway/hotmoon_docs/blob/master/emacs.md#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE</a></p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 1900.github.io 468 text only -->
+<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="1119043901"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </section>
+
+        <footer class="post-footer">
+
+
+
+            <section class="author">
+                <h4><a href="/author/grizzly/">Grizzly</a></h4>
+
+                    <p>Never say never!</p>
+                <div class="author-meta">
+                    
+                    
+                </div>
+            </section>
+
+			<section class="ads">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 1900.github.io 728 -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="4072510300"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br>
+</section>
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+            </section>
+		<section class="post-comments">
+        <div class="ds-thread" data-thread-key="emacssu-cha-shou-ce" data-title="Emacs速查手册" data-url="http:///emacssu-cha-shou-ce/"></div>
+		<script type="text/javascript">
+var duoshuoQuery = {short_name:"1900"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+    </section>
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+    <a class="read-next-story no-cover" href="/byte-collection-to-string-on-clojure/">
+        <section class="post">
+            <h2>How to convert byte to string and  convert string to byte on Clojure</h2>
+            <p>Byte,String 在clojure中互转： (ns test   (:require [clojure.string]             [clojure.stacktrace]             [clojure.tools.logging :as log]             )) (defn- string-to-bytes [s] (.getBytes…</p>
+        </section>
+    </a>
+    <a class="read-next-story prev no-cover" href="/welcome-to-ghost-2/">
+        <section class="post">
+            <h2>Welcome to Ghost</h2>
+            <p>You're live! Nice. We've put together a little post to introduce you to the Ghost editor and get you…</p>
+        </section>
+    </a>
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="http://">C'est la vie</a> © 2016</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a> &amp; <a href="http://www.ghostchina.com">GhostChina</a></section>
+        </footer>
+
+    </div>
+
+    
+
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/fitvids/1.1.0/jquery.fitvids.min.js"></script>
+    <script src="/assets/js/index.js?v=38655a7bc9"></script>
+
+</body>

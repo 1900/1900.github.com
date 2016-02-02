@@ -1,0 +1,280 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>clojure - Leiningen</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=38655a7bc9">
+
+    <link rel="canonical" href="http:///clojure-leiningen/">
+    <meta name="referrer" content="origin">
+    
+    <meta property="og:site_name" content="C'est la vie">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="clojure - Leiningen">
+    <meta property="og:description" content="Leiningen是一个命令行工具，用来解决Clojure项目的包管理、依赖、打包、部署等问题。 安装   1.Download the lein script (or on Windows lein.bat)    2.Place it on your $PATH where your shell can find it (eg. ~/bin)    3.Set it to be executable (chmod a+x ~/bin/...">
+    <meta property="og:url" content="http:///clojure-leiningen/">
+    <meta property="og:image" content="http:///content/images/2016/02/lein.png">
+    <meta property="article:published_time" content="2016-02-02T07:54:30.112Z">
+    <meta property="article:modified_time" content="2016-02-02T08:21:53.278Z">
+    <meta property="article:tag" content="Clojure">
+    <meta property="article:tag" content="Lein">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="clojure - Leiningen">
+    <meta name="twitter:description" content="Leiningen是一个命令行工具，用来解决Clojure项目的包管理、依赖、打包、部署等问题。 安装   1.Download the lein script (or on Windows lein.bat)    2.Place it on your $PATH where your shell can find it (eg. ~/bin)    3.Set it to be executable (chmod a+x ~/bin/...">
+    <meta name="twitter:url" content="http:///clojure-leiningen/">
+    <meta name="twitter:image:src" content="http:///content/images/2016/02/lein.png">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "C'est la vie",
+    "author": {
+        "@type": "Person",
+        "name": "Grizzly",
+        "url": "http:///author/grizzly",
+        "sameAs": null,
+        "description": "Never say never!"
+    },
+    "headline": "clojure - Leiningen",
+    "url": "http:///clojure-leiningen/",
+    "datePublished": "2016-02-02T07:54:30.112Z",
+    "dateModified": "2016-02-02T08:21:53.278Z",
+    "image": "http:///content/images/2016/02/lein.png",
+    "keywords": "Clojure, Lein",
+    "description": "Leiningen是一个命令行工具，用来解决Clojure项目的包管理、依赖、打包、部署等问题。 安装   1.Download the lein script (or on Windows lein.bat)    2.Place it on your $PATH where your shell can find it (eg. ~/bin)    3.Set it to be executable (chmod a+x ~/bin/..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7">
+    <link rel="alternate" type="application/rss+xml" title="C'est la vie" href="http:///rss/index.rss">
+</head>
+<body class="post-template tag-clojure tag-lein nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">菜单</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">关闭</span>
+    </a>
+    <ul>
+            <li class="nav-home" role="presentation"><a href="http://1900.github.io/">Home</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="http:///rss/index.rss">订阅</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head " style="background-image: url(/content/images/2016/02/lein.png)">
+    <nav class="main-nav overlay clearfix">
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">菜单</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-clojure tag-lein">
+
+        <header class="post-header">
+            <h1 class="post-title">clojure - Leiningen</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-02-02">2016年02月02日</time>  标签：<a href="/tag/clojure/">Clojure</a>, <a href="/tag/lein/">Lein</a>
+            </section>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 1900.github.io 468*60 -->
+<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="8642310708"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </header>
+
+        <section class="post-content">
+            <p>Leiningen是一个命令行工具，用来解决Clojure项目的包管理、依赖、打包、部署等问题。</p>
+
+<p>安装</p>
+
+<blockquote>
+  <p>1.Download the <a href="https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein">lein script</a> (or on Windows <a href="https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein.bat">lein.bat</a>) <br>
+  2.Place it on your $PATH where your shell can find it (eg. ~/bin) <br>
+  3.Set it to be executable (chmod a+x ~/bin/lein) <br>
+  4.Run it (lein) and it will download the self-install package. <br>
+  You can check your <a href="https://github.com/technomancy/leiningen/wiki/Packaging">package manager</a> as well, but be sure you get version 2.x. There's also an <a href="http://leiningen-win-installer.djpowell.net/">installer for Windows users</a>.</p>
+</blockquote>
+
+<p>lein --version  </p>
+
+<pre><code class="language-clojure">Leiningen 2.5.0 on Java 1.8.0_20 Java HotSpot(TM) 64-Bit Server VM  
+</code></pre>
+
+<p>lein -h  </p>
+
+<pre><code class="language-clojure">Leiningen is a tool for working with Clojure projects.
+
+Several tasks are available:  
+change              Rewrite project.clj by applying a function.  
+check               Check syntax and warn on reflection.  
+classpath           Print the classpath of the current project.  
+clean               Remove all files from project's target-path.  
+compile             Compile Clojure source into .class files.  
+deploy              Build and deploy jar to remote repository.  
+deps                Download all dependencies.  
+do                  Higher-order task to perform other tasks in succession.  
+exec                Execute Clojure S-expresions from command-line or scripts.  
+help                Display a list of tasks or help for a given task.  
+install             Install the current project to the local repository.  
+jar                 Package up all the project's files into a jar file.  
+javac               Compile Java source files.  
+midje               Runs both Midje and clojure.test tests.  
+new                 Generate project scaffolding based on a template.  
+plugin              DEPRECATED. Please use the :user profile instead.  
+pom                 Write a pom.xml file to disk for Maven interoperability.  
+release             Perform :release-tasks.  
+repl                Start a repl session either with the current project or standalone.  
+retest              Run only the test namespaces which failed last time around.  
+ritz                Launch ritz server for Emacs to connect.  
+ritz-hornetq        Start a nrepl session over HornetQ.  
+ritz-in             Jack in to a ritz backed Clojure SLIME session from Emacs.  
+ritz-nrepl          Start a nrepl session either with the current project or standalone.  
+run                 Run a -main function with optional command-line arguments.  
+search              Search remote maven repositories for matching jars.  
+show-profiles       List all available profiles or display one if given an argument.  
+test                Run the project's tests.  
+trampoline          Run a task without nesting the project's JVM inside Leiningen's.  
+uberjar             Package up the project files and dependencies into a jar file.  
+update-in           Perform arbitrary transformations on your project map.  
+upgrade             Upgrade Leiningen to specified version or latest stable.  
+vcs                 Interact with the version control system.  
+version             Print version for Leiningen and the current JVM.  
+with-profile        Apply the given task with the profile(s) specified.  
+</code></pre>
+
+<p>新建项目</p>
+
+<pre><code class="language-clojure  ">lein new project  
+</code></pre>
+
+<p>下载依赖库</p>
+
+<pre><code class="language-clojure  ">lein deps  
+</code></pre>
+
+<p>lein uberjar</p>
+
+<p>生成jar包</p>
+
+<pre><code class="language-clojure  ">lein uberjar  
+</code></pre>
+
+<p>生成 maven 的 pom.xml文件</p>
+
+<pre><code class="language-clojure  ">lein pom  
+</code></pre>
+
+<p>测试</p>
+
+<pre><code class="language-clojure  ">lein test (namespace)  
+</code></pre>
+
+<p>导入工程到IDEA <br>
+先 lein pom
+然后 idea -&gt; import project -&gt; 选择 pom.xml  </p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 1900.github.io 468 text only -->
+<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="1119043901"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </section>
+
+        <footer class="post-footer">
+
+
+
+            <section class="author">
+                <h4><a href="/author/grizzly/">Grizzly</a></h4>
+
+                    <p>Never say never!</p>
+                <div class="author-meta">
+                    
+                    
+                </div>
+            </section>
+
+			<section class="ads">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 1900.github.io 728 -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="4072510300"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br>
+</section>
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+            </section>
+		<section class="post-comments">
+        <div class="ds-thread" data-thread-key="clojure-leiningen" data-title="clojure - Leiningen" data-url="http:///clojure-leiningen/"></div>
+		<script type="text/javascript">
+var duoshuoQuery = {short_name:"1900"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+    </section>
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+    <a class="read-next-story no-cover" href="/python-shi-yong-yi-xing-ming-ling-qi-dong-http-server/">
+        <section class="post">
+            <h2>python,使用一行命令启动http server</h2>
+            <p>python -m SimpleHTTPServer   默认端口 8000  指定端口   python -m SimpleHTTPServer 888…</p>
+        </section>
+    </a>
+    <a class="read-next-story prev no-cover" href="/use-clj-time/">
+        <section class="post">
+            <h2>clj-time 简单使用</h2>
+            <p>clj-time 是一个Clojure语言的日期和时间处理库，封装自 Joda Time 库。 (ns test.test-clj   (:use [clj-time.format])   (:require [clj-time.local :as loc]             [clj-time.format…</p>
+        </section>
+    </a>
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="http://">C'est la vie</a> © 2016</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a> &amp; <a href="http://www.ghostchina.com">GhostChina</a></section>
+        </footer>
+
+    </div>
+
+    
+
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/fitvids/1.1.0/jquery.fitvids.min.js"></script>
+    <script src="/assets/js/index.js?v=38655a7bc9"></script>
+
+</body>

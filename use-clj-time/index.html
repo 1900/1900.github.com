@@ -1,0 +1,248 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>clj-time 简单使用</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=38655a7bc9">
+
+    <link rel="canonical" href="http:///use-clj-time/">
+    <meta name="referrer" content="origin">
+    
+    <meta property="og:site_name" content="C'est la vie">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="clj-time 简单使用">
+    <meta property="og:description" content='clj-time 是一个Clojure语言的日期和时间处理库，封装自 Joda Time 库。 (ns test.test-clj   (:use [clj-time.format])   (:require [clj-time.local :as loc]             [clj-time.format :as fmt])) (def local-date (loc/format-local-time (loc/local-now) :basic-date)) (def local-time (fmt/unparse (fmt/formatter-local "HHmmssSSS") (loc/local-now))) (println "date:" local-date...'>
+    <meta property="og:url" content="http:///use-clj-time/">
+    <meta property="article:published_time" content="2016-02-01T09:10:44.340Z">
+    <meta property="article:modified_time" content="2016-02-01T09:10:44.313Z">
+    <meta property="article:tag" content="Clojure">
+    <meta property="article:tag" content="How To">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="clj-time 简单使用">
+    <meta name="twitter:description" content='clj-time 是一个Clojure语言的日期和时间处理库，封装自 Joda Time 库。 (ns test.test-clj   (:use [clj-time.format])   (:require [clj-time.local :as loc]             [clj-time.format :as fmt])) (def local-date (loc/format-local-time (loc/local-now) :basic-date)) (def local-time (fmt/unparse (fmt/formatter-local "HHmmssSSS") (loc/local-now))) (println "date:" local-date...'>
+    <meta name="twitter:url" content="http:///use-clj-time/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "C'est la vie",
+    "author": {
+        "@type": "Person",
+        "name": "Grizzly",
+        "url": "http:///author/grizzly",
+        "sameAs": null,
+        "description": "Never say never!"
+    },
+    "headline": "clj-time 简单使用",
+    "url": "http:///use-clj-time/",
+    "datePublished": "2016-02-01T09:10:44.340Z",
+    "dateModified": "2016-02-01T09:10:44.313Z",
+    "keywords": "Clojure, How To",
+    "description": "clj-time 是一个Clojure语言的日期和时间处理库，封装自 Joda Time 库。 (ns test.test-clj   (:use [clj-time.format])   (:require [clj-time.local :as loc]             [clj-time.format :as fmt])) (def local-date (loc/format-local-time (loc/local-now) :basic-date)) (def local-time (fmt/unparse (fmt/formatter-local &quot;HHmmssSSS&quot;) (loc/local-now))) (println &quot;date:&quot; local-date..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7">
+    <link rel="alternate" type="application/rss+xml" title="C'est la vie" href="http:///rss/index.rss">
+</head>
+<body class="post-template tag-clojure tag-how-to nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">菜单</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">关闭</span>
+    </a>
+    <ul>
+            <li class="nav-home" role="presentation"><a href="http://1900.github.io/">Home</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="http:///rss/index.rss">订阅</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">菜单</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-clojure tag-how-to">
+
+        <header class="post-header">
+            <h1 class="post-title">clj-time 简单使用</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-02-01">2016年02月01日</time>  标签：<a href="/tag/clojure/">Clojure</a>, <a href="/tag/how-to/">How To</a>
+            </section>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 1900.github.io 468*60 -->
+<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="8642310708"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </header>
+
+        <section class="post-content">
+            <p><a href="https://github.com/clj-time/clj-time">clj-time</a> 是一个Clojure语言的日期和时间处理库，封装自 Joda Time 库。</p>
+
+<pre><code class="language-clojure">(ns test.test-clj
+  (:use [clj-time.format])
+  (:require [clj-time.local :as loc]
+            [clj-time.format :as fmt]))
+
+(def local-date (loc/format-local-time (loc/local-now) :basic-date))
+(def local-time (fmt/unparse (fmt/formatter-local "HHmmssSSS") (loc/local-now)))
+
+(println "date:" local-date "time:" local-time)
+(show-formatters)
+</code></pre>
+
+<pre><code class="language-clojure">date: 20160201 time: 165945623  
+:basic-date                             20160201
+:basic-date-time                        20160201T085945.627Z
+:basic-date-time-no-ms                  20160201T085945Z
+:basic-ordinal-date                     2016032
+:basic-ordinal-date-time                2016032T085945.627Z
+:basic-ordinal-date-time-no-ms          2016032T085945Z
+:basic-t-time                           T085945.627Z
+:basic-t-time-no-ms                     T085945Z
+:basic-time                             085945.627Z
+:basic-time-no-ms                       085945Z
+:basic-week-date                        2016W051
+:basic-week-date-time                   2016W051T085945.627Z
+:basic-week-date-time-no-ms             2016W051T085945Z
+:date                                   2016-02-01
+:date-hour                              2016-02-01T08
+:date-hour-minute                       2016-02-01T08:59
+:date-hour-minute-second                2016-02-01T08:59:45
+:date-hour-minute-second-fraction       2016-02-01T08:59:45.627
+:date-hour-minute-second-ms             2016-02-01T08:59:45.627
+:date-time                              2016-02-01T08:59:45.627Z
+:date-time-no-ms                        2016-02-01T08:59:45Z
+:hour                                   08
+:hour-minute                            08:59
+:hour-minute-second                     08:59:45
+:hour-minute-second-fraction            08:59:45.627
+:hour-minute-second-ms                  08:59:45.627
+:mysql                                  2016-02-01 08:59:45
+:ordinal-date                           2016-032
+:ordinal-date-time                      2016-032T08:59:45.627Z
+:ordinal-date-time-no-ms                2016-032T08:59:45Z
+:rfc822                                 星期一, 01 二月 2016 08:59:45 +0000
+:t-time                                 T08:59:45.627Z
+:t-time-no-ms                           T08:59:45Z
+:time                                   08:59:45.627Z
+:time-no-ms                             08:59:45Z
+:week-date                              2016-W05-1
+:week-date-time                         2016-W05-1T08:59:45.627Z
+:week-date-time-no-ms                   2016-W05-1T08:59:45Z
+:weekyear                               2016
+:weekyear-week                          2016-W05
+:weekyear-week-day                      2016-W05-1
+:year                                   2016
+:year-month                             2016-02
+:year-month-day                         2016-02-01
+</code></pre>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 1900.github.io 468 text only -->
+<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="1119043901"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </section>
+
+        <footer class="post-footer">
+
+
+
+            <section class="author">
+                <h4><a href="/author/grizzly/">Grizzly</a></h4>
+
+                    <p>Never say never!</p>
+                <div class="author-meta">
+                    
+                    
+                </div>
+            </section>
+
+			<section class="ads">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 1900.github.io 728 -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="4072510300"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br>
+</section>
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+            </section>
+		<section class="post-comments">
+        <div class="ds-thread" data-thread-key="use-clj-time" data-title="clj-time 简单使用" data-url="http:///use-clj-time/"></div>
+		<script type="text/javascript">
+var duoshuoQuery = {short_name:"1900"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+    </section>
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+    <a class="read-next-story " style="background-image: url(/content/images/2016/02/lein.png)" href="/clojure-leiningen/">
+        <section class="post">
+            <h2>clojure - Leiningen</h2>
+            <p>Leiningen是一个命令行工具，用来解决Clojure项目的包管理、依赖、打包、部署等问题。 安装   1.Download the lein script (or on Windows lein.bat)    2.Place it…</p>
+        </section>
+    </a>
+    <a class="read-next-story prev no-cover" href="/clojure-file-reader-writer/">
+        <section class="post">
+            <h2>Clojure 读写文件</h2>
+            <p>Clojure读取文件 简单读文件(slurp)   Clojure IO标准库 使用java io   写文件 简单写文件(split)   Clojure IO 写文件   Clojure读取文件   Clojure读取文件 简单读文件(slurp) 最简单的读取文件可以采用slurp,主要作用是读取文件并以字符串的形式返回文件内容，…</p>
+        </section>
+    </a>
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="http://">C'est la vie</a> © 2016</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a> &amp; <a href="http://www.ghostchina.com">GhostChina</a></section>
+        </footer>
+
+    </div>
+
+    
+
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/fitvids/1.1.0/jquery.fitvids.min.js"></script>
+    <script src="/assets/js/index.js?v=38655a7bc9"></script>
+
+</body>
