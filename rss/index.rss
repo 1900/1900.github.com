@@ -1,1182 +1,444 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>C'est la vie</title><description>Never say never!</description><link>http:///</link><generator>Ghost 0.7</generator><lastBuildDate>Tue, 02 Feb 2016 09:56:17 GMT</lastBuildDate><atom:link href="http:///rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Centos,iptables设置</title><description>&lt;p&gt;允许访问80及8080端口 &lt;br&gt;
-vim /etc/sysconfig/iptables  &lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>C'est la vie</title><description>Never say never!</description><link>http:///</link><generator>Ghost 0.7</generator><lastBuildDate>Wed, 03 Feb 2016 09:52:25 GMT</lastBuildDate><atom:link href="http:///rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>使用Python备份mysql</title><description>&lt;pre&gt;&lt;code class="language-python"&gt;#!/usr/bin/env python
+import osimport time
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
--A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+username = root  
+password = 123456  
+hostname = localhost
+
+filestamp = time.strftime('%Y-%m-%d')
+
+database_list_command="mysql -u %s -p%s -h %s --silent -N -e 'show databases'" % (username, password, hostname)for database in os.popen(database_list_command).readlines():  
+database = database.strip(&lt;/code&gt;&lt;/pre&gt;</description><link>http:///use-python-script-backup-mysql-data/</link><guid isPermaLink="false">04a304b5-a187-4819-be8c-fdf0b000a1c1</guid><category>Python</category><category>MySQL</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 09:51:09 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code class="language-python"&gt;#!/usr/bin/env python
+import osimport time
+
+username = root  
+password = 123456  
+hostname = localhost
+
+filestamp = time.strftime('%Y-%m-%d')
+
+database_list_command="mysql -u %s -p%s -h %s --silent -N -e 'show databases'" % (username, password, hostname)for database in os.popen(database_list_command).readlines():  
+database = database.strip()  
+if database == 'information_schema':  
+    continue
+    filename = "/backups/mysql/%s-%s.sql" % (database, filestamp)
+    os.popen("mysqldump -u %s -p%s -h %s -e --opt -c %s | gzip -c &amp;gt; %s.gz" % (username, password, hostname, database, filename))
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>linux结束在线的登录用户</title><description>&lt;p&gt;查明登陆端口 &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;who  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;restart  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;/etc/init.d/iptables restart
-&lt;/code&gt;&lt;/pre&gt;</description><link>http:///install-mongodb-3-on-centos-2/</link><guid isPermaLink="false">90a86c1c-fe23-4ff7-8402-23b1324206f3</guid><category>Linux</category><dc:creator>Grizzly</dc:creator><pubDate>Tue, 02 Feb 2016 09:56:05 GMT</pubDate><content:encoded>&lt;p&gt;允许访问80及8080端口 &lt;br&gt;
-vim /etc/sysconfig/iptables  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
--A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+&lt;pre&gt;&lt;code class="language-shell"&gt;root pts/1 Feb 8 00:06 (192.168.1.58)  
+root pts/2 Feb 8 04:15 (192.168.1.60)  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;restart  &lt;/p&gt;
+&lt;p&gt;通知该用户将要关闭他：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;/etc/init.d/iptables restart
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Install MongoDB 3 on Centos</title><description>&lt;p&gt;下载&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-shell"&gt;# echo "I will close your connection" &amp;gt; /dev/pts/2
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;cd /data/mongo  
-wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel62-3.0.4.tgz  
+&lt;p&gt;关闭用户连接&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;fuser -k /dev/pts/2  
+&lt;/code&gt;&lt;/pre&gt;</description><link>http:///linuxguan-bi-zai-xian-deng-lu-yong-hu/</link><guid isPermaLink="false">4ce343a3-c254-4c7a-8a63-721faabdc9d0</guid><category>Linux</category><category>Shell Tips</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 09:43:12 GMT</pubDate><content:encoded>&lt;p&gt;查明登陆端口 &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;who  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;root pts/1 Feb 8 00:06 (192.168.1.58)  
+root pts/2 Feb 8 04:15 (192.168.1.60)  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;通知该用户将要关闭他：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;# echo "I will close your connection" &amp;gt; /dev/pts/2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;关闭用户连接&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;fuser -k /dev/pts/2  
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>shell,使用wget整站抓取</title><description>&lt;pre&gt;&lt;code class="language-shell"&gt;wget -r -p -np -k http://baidu.com/  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;-r  递归
+-p --page-requisites
+-np --no-parent
+-k  下载的HTML页面中的链接转换为相对链接即本地链接&lt;/p&gt;</description><link>http:///wget/</link><guid isPermaLink="false">891d623d-3d3d-4855-ae7e-739ae9f7ede6</guid><category>Shell Tips</category><category>Linux</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 09:39:01 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code class="language-shell"&gt;wget -r -p -np -k http://baidu.com/  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;-r  递归
+-p --page-requisites
+-np --no-parent
+-k  下载的HTML页面中的链接转换为相对链接即本地链接&lt;/p&gt;</content:encoded></item><item><title>利用Python和gmail发送邮件</title><description>&lt;pre&gt;&lt;code class="language-python"&gt;import smtplib  
+import sys  
+import email.mime.text  
+# my test mail
+mail_username='from@gmail.com'  
+mail_password='123456'  
+from_addr = mail_username  
+to_addrs=('to@gmail.com')
+
+# HOST &amp;amp; PORT
+HOST = 'smtp.gmail.com'  
+PORT = 25
+
+# Create SMTP Object
+smtp = smtplib.SMTP()  
+print 'connecting ...'
+
+# show the debug log&lt;/code&gt;&lt;/pre&gt;</description><link>http:///li-yong-pythonhe-gmailfa-song-you-jian/</link><guid isPermaLink="false">99d60a94-3016-4c80-be92-e275721c5696</guid><category>Python</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 09:36:48 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code class="language-python"&gt;import smtplib  
+import sys  
+import email.mime.text  
+# my test mail
+mail_username='from@gmail.com'  
+mail_password='123456'  
+from_addr = mail_username  
+to_addrs=('to@gmail.com')
+
+# HOST &amp;amp; PORT
+HOST = 'smtp.gmail.com'  
+PORT = 25
+
+# Create SMTP Object
+smtp = smtplib.SMTP()  
+print 'connecting ...'
+
+# show the debug log
+smtp.set_debuglevel(1)
+
+# connet
+try:  
+    print smtp.connect(HOST,PORT)
+except:  
+    print 'CONNECT ERROR ****'
+    # gmail uses ssl
+    smtp.starttls()
+    # login with username &amp;amp; password
+    try:
+        print 'loginning ...'
+        smtp.login(mail_username,mail_password)
+    except:
+        print 'LOGIN ERROR ****'
+        # fill content with MIMEText's object
+        msg = email.mime.text.MIMEText('text')
+        msg['From'] = from_addr
+        msg['To'] = ';'.join(to_addrs)
+        msg['Subject']='hello , today is a special day'
+        print msg.as_string()
+        smtp.sendmail(from_addr,to_addrs,msg.as_string())
+        smtp.quit()### unterminated keywords ###
+    try
+    try
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Linux,使用mysqldump导出数据时对sql文件进行压缩</title><description>&lt;pre&gt;&lt;code&gt;mysqldump -h192.168.1.222 -ubackup -pbackup kds trank  
+| gzip &amp;gt; $backupdir/back.sql.gz
+&lt;/code&gt;&lt;/pre&gt;</description><link>http:///linux-shi-yong-mysqldumpdao-chu-shu-ju-shi-dui-sqlwen-jian-jin-xing-ya-suo/</link><guid isPermaLink="false">2df265a0-3bcb-42b6-8f13-fc238c027e90</guid><category>Linux</category><category>MySQL</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 09:29:06 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code&gt;mysqldump -h192.168.1.222 -ubackup -pbackup kds trank  
+| gzip &amp;gt; $backupdir/back.sql.gz
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Shell,mysql开启远程访问</title><description>&lt;pre&gt;&lt;code class="language-shell"&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;允许局域网内192.168.访问&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.%.%' IDENTIFIED BY 'root' WITH GRANT OPTION;  
+FLUSH PRIVILEGES;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;修改/etc/mysql/my.cnf,注释bind-address  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;#bind-address = 127.0.0.1
+&lt;/code&gt;&lt;/pre&gt;</description><link>http:///shell-mysqlkai-qi-yuan-cheng-fang-wen/</link><guid isPermaLink="false">2e10c45c-4df7-4c90-b5c7-cd4dbd44f9a3</guid><category>Linux</category><category>MySQL</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 09:24:29 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code class="language-shell"&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;允许局域网内192.168.访问&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.%.%' IDENTIFIED BY 'root' WITH GRANT OPTION;  
+FLUSH PRIVILEGES;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;修改/etc/mysql/my.cnf,注释bind-address  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;#bind-address = 127.0.0.1
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Linux,centos rpm安装时指定路径</title><description>&lt;p&gt;参数 --prefix&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt; rpm -ivh --prefix=/usr/local/dir/ rpmfile**.rpm 
+&lt;/code&gt;&lt;/pre&gt;</description><link>http:///linux-centos-rpman-zhuang-shi-zhi-ding-lu-jing/</link><guid isPermaLink="false">25962784-3383-4575-9dd4-213667ce9068</guid><category>Linux</category><category>Shell Tips</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 09:18:40 GMT</pubDate><content:encoded>&lt;p&gt;参数 --prefix&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt; rpm -ivh --prefix=/usr/local/dir/ rpmfile**.rpm 
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Linux,清空buffer cache</title><description>&lt;pre&gt;&lt;code class="language-shell"&gt;sync &amp;amp;&amp;amp; echo 3 &amp;gt; /proc/sys/vm/drop_caches  
+&lt;/code&gt;&lt;/pre&gt;</description><link>http:///clean-linux-buffer-cache/</link><guid isPermaLink="false">3508b109-80b2-43ce-a13b-742c3a35ba0a</guid><category>Linux</category><category>Shell Tips</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 09:01:51 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code class="language-shell"&gt;sync &amp;amp;&amp;amp; echo 3 &amp;gt; /proc/sys/vm/drop_caches  
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Shell,使用find,rm删除指定天数前的文件</title><description>&lt;p&gt;eg. &lt;br&gt;
+删除/root/Backup目录下30天前的文件&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;find /root/Backup -mtime +30 -name "*.*" -exec rm -rf {} \;  
+&lt;/code&gt;&lt;/pre&gt;</description><link>http:///shell-shi-yong-find-rmshan-chu-zhi-ding-tian-shu-qian-de-wen-jian/</link><guid isPermaLink="false">c1e6a3eb-7964-4c04-8cc7-bc1359ebeee3</guid><category>Linux</category><category>Shell Tips</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 08:59:04 GMT</pubDate><content:encoded>&lt;p&gt;eg. &lt;br&gt;
+删除/root/Backup目录下30天前的文件&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;find /root/Backup -mtime +30 -name "*.*" -exec rm -rf {} \;  
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Shell,根据程序名结束进程</title><description>&lt;pre&gt;&lt;code class="language-shell"&gt;kill -9 `ps -aef | grep 'qoute' | grep -v grep | awk '{print $2}'`  
+&lt;/code&gt;&lt;/pre&gt;</description><link>http:///sh-2/</link><guid isPermaLink="false">8bf3a451-d064-4100-b2e2-c4c3e0533cb6</guid><category>Linux</category><category>Shell Tips</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 08:53:50 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code class="language-shell"&gt;kill -9 `ps -aef | grep 'qoute' | grep -v grep | awk '{print $2}'`  
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Linux,常见文件压缩及解压</title><description>&lt;h5 id="bz2"&gt;.bz2&lt;/h5&gt;
+
+&lt;p&gt;解压&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;tar xjvf package.tar.bz2  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;压缩&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;tar cjvf package.tar.bz2 package-dir  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id="tar"&gt;.tar&lt;/h5&gt;
+
+&lt;p&gt;解包&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell "&gt;tar xvf FileName.tar  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;打包&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;tar cvf FileName.tar package-dir  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id="gz"&gt;.gz&lt;/h5&gt;
+
+&lt;p&gt;解压 &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;gunzip FileName.gz  
+gzip -d FileName.gz  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;压缩 &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;gzip FileName  
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;解压&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;tar zxvf mongodb-linux-x86_64-rhel62-3.0.4.tgz  
+&lt;pre&gt;&lt;code class="language-shell"&gt;tar zxvf FileName.tar.gz  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;建立db目录和 log目录&lt;/p&gt;
+&lt;p&gt;压缩&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;mkdir -p /data/mongo/db  
-mkdir -p /data/mongo/logs  
+&lt;pre&gt;&lt;code class="language-shell"&gt;tar zcvf FileName.tar.gz&lt;/code&gt;&lt;/pre&gt;</description><link>http:///linux-zip-and-unzip/</link><guid isPermaLink="false">edce0e7f-1556-4175-9793-021b3e8f3d47</guid><category>Linux</category><category>Shell Tips</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 08:51:09 GMT</pubDate><content:encoded>&lt;h5 id="bz2"&gt;.bz2&lt;/h5&gt;
+
+&lt;p&gt;解压&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;tar xjvf package.tar.bz2  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;运行:&lt;/p&gt;
+&lt;p&gt;压缩&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-shell"&gt; ./bin/mongod --port 37018 --dbpath /data/mongo/db --logpath /data/mongo/log/mongodb.log&lt;/code&gt;&lt;/pre&gt;</description><link>http:///install-mongodb-3-on-centos/</link><guid isPermaLink="false">657d124e-6367-4fa7-975e-cc9501dcc553</guid><category>Linux</category><category>MongoDB</category><dc:creator>Grizzly</dc:creator><pubDate>Tue, 02 Feb 2016 09:52:04 GMT</pubDate><content:encoded>&lt;p&gt;下载&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-shell"&gt;tar cjvf package.tar.bz2 package-dir  
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;cd /data/mongo  
-wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel62-3.0.4.tgz  
+&lt;h5 id="tar"&gt;.tar&lt;/h5&gt;
+
+&lt;p&gt;解包&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell "&gt;tar xvf FileName.tar  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;打包&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;tar cvf FileName.tar package-dir  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id="gz"&gt;.gz&lt;/h5&gt;
+
+&lt;p&gt;解压 &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;gunzip FileName.gz  
+gzip -d FileName.gz  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;压缩 &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;gzip FileName  
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;解压&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;tar zxvf mongodb-linux-x86_64-rhel62-3.0.4.tgz  
+&lt;pre&gt;&lt;code class="language-shell"&gt;tar zxvf FileName.tar.gz  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;建立db目录和 log目录&lt;/p&gt;
+&lt;p&gt;压缩&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;mkdir -p /data/mongo/db  
-mkdir -p /data/mongo/logs  
+&lt;pre&gt;&lt;code class="language-shell"&gt;tar zcvf FileName.tar.gz DirName  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;运行:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt; ./bin/mongod --port 37018 --dbpath /data/mongo/db --logpath /data/mongo/log/mongodb.log --fork 
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Install Nginx  On Centos</title><description>&lt;p&gt;安装依赖包&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;yum -y install pcre pcre-devel openssl openssl-devel gcc automake autoconf libtool make  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;下载nginx  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;wget  http://nginx.org/download/nginx-1.9.2.tar.gz  
-&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="bz"&gt;.bz&lt;/h5&gt;
 
 &lt;p&gt;解压  &lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;tar zxvf nginx-1.9.2.tar.gz  
+&lt;pre&gt;&lt;code class="language-shell"&gt;bzip2 -d FileName.bz  
+bunzip2 FileName.bz  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;编译&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;./configure --prefix=/usr/local/nginx
-make  
-make install  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;配置 &lt;br&gt;
-开启gzip压缩 &lt;br&gt;
-vim /usr/local/nginx/config/nginx.conf&lt;/p&gt;</description><link>http:///install-nginx-on-centos/</link><guid isPermaLink="false">0b489f68-9a42-4c92-8e19-905a109b1b72</guid><category>Linux</category><category>Nginx</category><dc:creator>Grizzly</dc:creator><pubDate>Tue, 02 Feb 2016 09:46:28 GMT</pubDate><content:encoded>&lt;p&gt;安装依赖包&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;yum -y install pcre pcre-devel openssl openssl-devel gcc automake autoconf libtool make  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;下载nginx  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;wget  http://nginx.org/download/nginx-1.9.2.tar.gz  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;解压  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;tar zxvf nginx-1.9.2.tar.gz  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;编译&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;./configure --prefix=/usr/local/nginx
-make  
-make install  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;配置 &lt;br&gt;
-开启gzip压缩 &lt;br&gt;
-vim /usr/local/nginx/config/nginx.conf  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;#gzip  on;
-    gzip on;
-    gzip_disable "MSIE [1-6]\.(?!.*SV1)";
-    gzip_http_version 1.1;
-    gzip_vary on;
-    gzip_proxied any;
-    gzip_comp_level 6;
-    gzip_buffers 16 8k;
-    gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/javascript text/x-
-js;  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;停止nginx  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;/usr/local/nginx/sbin/nginx -s stop 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;开启nginx  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;/usr/local/nginx/sbin/nginx
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;重启&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;/usr/local/nginx/sbin/nginx  -s reload  
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Install Tomcat 7  On Linux</title><description>&lt;p&gt;下载&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell "&gt;wget http://mirror.esocc.com/apache/tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63.tar.gz  
-&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="tarbz"&gt;.tar.bz&lt;/h5&gt;
 
 &lt;p&gt;解压&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-shell "&gt;tar -zxvf apache-tomcat-7.0.63.tar.gz  
-mv ./apache-tomcat-7.0.63 /usr/local  
+&lt;pre&gt;&lt;code class="language-shell"&gt;tar jxvf FileName.tar.bz  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;添加到环境变量 &lt;br&gt;
-vim /etc/profile  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell "&gt;export TOMCAT_HOME=/usr/local/apache-tomcat  
-source /etc/profile  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;开启gzip压缩,线程优化 &lt;br&gt;
-编辑 server.xml&lt;/p&gt;</description><link>http:///install-tomcat-7-on-linux/</link><guid isPermaLink="false">910fffbb-b847-4188-80f3-c61eb4ed8c82</guid><category>Linux</category><category>How To</category><dc:creator>Grizzly</dc:creator><pubDate>Tue, 02 Feb 2016 09:39:36 GMT</pubDate><content:encoded>&lt;p&gt;下载&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell "&gt;wget http://mirror.esocc.com/apache/tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63.tar.gz  
-&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="z"&gt;.Z&lt;/h5&gt;
 
 &lt;p&gt;解压&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-shell "&gt;tar -zxvf apache-tomcat-7.0.63.tar.gz  
-mv ./apache-tomcat-7.0.63 /usr/local  
+&lt;pre&gt;&lt;code class="language-shell"&gt;uncompress FileName.Z  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;添加到环境变量 &lt;br&gt;
-vim /etc/profile  &lt;/p&gt;
+&lt;p&gt;压缩&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-shell "&gt;export TOMCAT_HOME=/usr/local/apache-tomcat  
-source /etc/profile  
+&lt;pre&gt;&lt;code class="language-shell"&gt;compress FileName  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;开启gzip压缩,线程优化 &lt;br&gt;
-编辑 server.xml
-找到如下的行 &lt;/p&gt;
+&lt;h5 id="tarz"&gt;.tar.Z&lt;/h5&gt;
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;&amp;lt;Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" /&amp;gt;  
+&lt;p&gt;解压&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;tar Zxvf FileName.tar.Z  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;将其改为： &lt;/p&gt;
+&lt;p&gt;压缩&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;&amp;lt;Connector port="8080" protocol="HTTP/1.1"  
-connectionTimeout="20000"  
-redirectPort="8443"  
-maxHttpHeaderSize="8192"  
-useBodyEncodingForURI="true"  
-URIEncoding="UTF-8"  
-maxThreads="600"  
-minSpareThreads="500"  
-acceptCount="1000"  
-enableLookups="false"  
-compression="on"  
-compressionMinSize="2048"  
-noCompressionUserAgents="gozilla, traviata"  
-compressableMimeType="text/html,text/xml,text/json,text/javascript,text/css,text/plain,application/javascript,application/xml,application/xml+xhtml"  
-/&amp;gt;
+&lt;pre&gt;&lt;code class="language-shell "&gt;tar Zcvf FileName.tar.Z DirName  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;内存优化
-vim /usr/local/apache-tomcat/bin/catalina.sh &lt;br&gt;
-cygwin=false前添加  &lt;/p&gt;
+&lt;h5 id="zip"&gt;.zip&lt;/h5&gt;
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;JAVA_OPTS="-Xms512m -Xmx1024m -Xss128K -XX:PermSize=128m -XX:MaxPermSize=256m"  
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Install JDK On CentOS</title><description>&lt;p&gt;安装依赖包&lt;/p&gt;
+&lt;p&gt;解压&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-shell "&gt;yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel vim ntsysv  
+&lt;pre&gt;&lt;code class="language-shell"&gt;unzip FileName.zip  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;下载JDK&lt;/p&gt;
+&lt;p&gt;压缩&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-shell "&gt; wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/&lt;/code&gt;&lt;/pre&gt;</description><link>http:///install-jdk-on-centos-2/</link><guid isPermaLink="false">82233361-6229-4fe0-ba2d-ef7f22448290</guid><category>How To</category><category>Linux</category><dc:creator>Grizzly</dc:creator><pubDate>Tue, 02 Feb 2016 09:30:56 GMT</pubDate><content:encoded>&lt;p&gt;安装依赖包&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell "&gt;yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel vim ntsysv  
+&lt;pre&gt;&lt;code class="language-shell"&gt;zip FileName.zip DirName  
+zip -r FileName.zip DirName  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;下载JDK&lt;/p&gt;
+&lt;p&gt;-r 递归&lt;/p&gt;</content:encoded></item><item><title>Linux,查看mysql执行sql时资源占用</title><description>&lt;p&gt;打开profiling 功能：set profiling = 1； &lt;br&gt;
+执行要分析的sql；  &lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-shell "&gt; wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.rpm" 
+&lt;pre&gt;&lt;code class="language-shell"&gt;show profiles；  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;安装&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell "&gt;chmod +x jdk-7u79-linux-x64.rpm  
-rpm -ivh jdk-7u79-linux-x64.rpm  
+&lt;pre&gt;&lt;code class="language-shell"&gt;SHOW profile CPU,BLOCK IO io FOR query Query_ID；  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;设置环境变量 &lt;br&gt;
-vim /etc/profile &lt;br&gt;
-添加到/etc/profile最后&lt;/p&gt;
+&lt;p&gt;当前查询&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-shell "&gt;JAVA_HOME=/usr/java/jdk1.7.0_79  
-CLASSPATH=$JAVA_HOME/lib/tools.jar  
-PATH=$JAVA_HOME/bin:$PATH export  
+&lt;pre&gt;&lt;code class="language-shell"&gt;show processlist;  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;source /etc/profile  
+&lt;p&gt;所有&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;show full processlist;  
+&lt;/code&gt;&lt;/pre&gt;</description><link>http:///linux-cha-kan-mysqlzhi-xing-sqlshi-zi-yuan-zhan-yong/</link><guid isPermaLink="false">0a77cfa3-4ac7-4220-80a0-ad47eb442d23</guid><category>MySQL</category><category>Linux</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 08:46:35 GMT</pubDate><content:encoded>&lt;p&gt;打开profiling 功能：set profiling = 1； &lt;br&gt;
+执行要分析的sql；  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;show profiles；  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;验证&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;java -version
-
-Java(TM) SE Runtime Environment (build 1.7.0_79)  
-Java HotSpot(TM) 64-Bit Server VM (build 24.79-b02, mixed mode)  
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>clojure 调用java 接口</title><description>&lt;p&gt;Java Interface  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-java"&gt;public interface ReceiverDecode {  
-    public void decodeBytes(byte[] data);
-}
+&lt;pre&gt;&lt;code class="language-shell"&gt;SHOW profile CPU,BLOCK IO io FOR query Query_ID；  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;使用 proxy &lt;/p&gt;
+&lt;p&gt;当前查询&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-clojure"&gt;(proxy [ReceiverDecode] []
-  (decodeBytes[bytes]
-    (str input "with proxy")))
+&lt;pre&gt;&lt;code class="language-shell"&gt;show processlist;  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;使用 reify&lt;/p&gt;
+&lt;p&gt;所有&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-clojure"&gt;(reify ReceiverDecode
-  (decodeBytes[bytes]
-    (...whatever...)))
-&lt;/code&gt;&lt;/pre&gt;</description><link>http:///clojure-diao-yong-java-jie-kou/</link><guid isPermaLink="false">3160fe98-2915-4138-94f4-e5822368e4eb</guid><category>Clojure</category><category>How To</category><dc:creator>Grizzly</dc:creator><pubDate>Tue, 02 Feb 2016 08:57:25 GMT</pubDate><content:encoded>&lt;p&gt;Java Interface  &lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-shell"&gt;show full processlist;  
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Linux,远程会话管理工具screen的基本使用</title><description>&lt;p&gt;新建一个叫new的session&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-java"&gt;public interface ReceiverDecode {  
-    public void decodeBytes(byte[] data);
-}
+&lt;pre&gt;&lt;code class="language-shell"&gt;screen -S new  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;使用 proxy &lt;/p&gt;
+&lt;p&gt;
+列出当前所有的session&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-clojure"&gt;(proxy [ReceiverDecode] []
-  (decodeBytes[bytes]
-    (str input "with proxy")))
+&lt;pre&gt;&lt;code class="language-shell"&gt;screen -ls  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;使用 reify&lt;/p&gt;
+&lt;p&gt;回到new这个session&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-clojure"&gt;(reify ReceiverDecode
-  (decodeBytes[bytes]
-    (...whatever...)))
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>python,使用一行命令启动http server</title><description>&lt;pre&gt;&lt;code class="language-python"&gt;python -m SimpleHTTPServer  
+&lt;pre&gt;&lt;code class="language-shell"&gt;screen -r new  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;默认端口 8000 &lt;br&gt;
-指定端口  &lt;/p&gt;
+&lt;p&gt;结束当前session并回到new这个session&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-python"&gt;python -m SimpleHTTPServer 888  
-&lt;/code&gt;&lt;/pre&gt;</description><link>http:///python-shi-yong-yi-xing-ming-ling-qi-dong-http-server/</link><guid isPermaLink="false">3dc9e53f-001e-4931-85bf-1205796e6a27</guid><category>Python</category><dc:creator>Grizzly</dc:creator><pubDate>Tue, 02 Feb 2016 08:26:36 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code class="language-python"&gt;python -m SimpleHTTPServer  
+&lt;pre&gt;&lt;code class="language-shell"&gt;screen -d -r yourname  
+&lt;/code&gt;&lt;/pre&gt;</description><link>http:///linux-yuan-cheng-hui-hua-guan-li-gong-ju-screende-ji-ben-shi-yong/</link><guid isPermaLink="false">dbdfce3e-f711-4459-96cc-ff9fa8533292</guid><category>Linux</category><category>Shell Tips</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 08:40:54 GMT</pubDate><content:encoded>&lt;p&gt;新建一个叫new的session&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;screen -S new  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;默认端口 8000 &lt;br&gt;
-指定端口  &lt;/p&gt;
+&lt;p&gt;
+列出当前所有的session&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-python"&gt;python -m SimpleHTTPServer 888  
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>clojure - Leiningen</title><description>&lt;p&gt;Leiningen是一个命令行工具，用来解决Clojure项目的包管理、依赖、打包、部署等问题。&lt;/p&gt;
-
-&lt;p&gt;安装&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;1.Download the &lt;a href="https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein"&gt;lein script&lt;/a&gt; (or on Windows &lt;a href="https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein.bat"&gt;lein.bat&lt;/a&gt;) &lt;br&gt;
-  2.Place it on your $PATH where your shell can find it (eg. ~/bin) &lt;br&gt;
-  3.Set it to be executable (chmod a+x ~/bin/lein) &lt;br&gt;
-  4.Run it (lein) and it will download the&lt;/p&gt;&lt;/blockquote&gt;</description><link>http:///clojure-leiningen/</link><guid isPermaLink="false">4a5f878f-84c7-4db1-a44a-d2cd10681d0d</guid><category>Clojure</category><category>Lein</category><dc:creator>Grizzly</dc:creator><pubDate>Tue, 02 Feb 2016 07:54:30 GMT</pubDate><media:content url="http:///content/images/2016/02/lein.png" medium="image"/><content:encoded>&lt;img src="http:///content/images/2016/02/lein.png" alt="clojure - Leiningen"&gt;&lt;p&gt;Leiningen是一个命令行工具，用来解决Clojure项目的包管理、依赖、打包、部署等问题。&lt;/p&gt;
-
-&lt;p&gt;安装&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;1.Download the &lt;a href="https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein"&gt;lein script&lt;/a&gt; (or on Windows &lt;a href="https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein.bat"&gt;lein.bat&lt;/a&gt;) &lt;br&gt;
-  2.Place it on your $PATH where your shell can find it (eg. ~/bin) &lt;br&gt;
-  3.Set it to be executable (chmod a+x ~/bin/lein) &lt;br&gt;
-  4.Run it (lein) and it will download the self-install package. &lt;br&gt;
-  You can check your &lt;a href="https://github.com/technomancy/leiningen/wiki/Packaging"&gt;package manager&lt;/a&gt; as well, but be sure you get version 2.x. There's also an &lt;a href="http://leiningen-win-installer.djpowell.net/"&gt;installer for Windows users&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;lein --version  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-clojure"&gt;Leiningen 2.5.0 on Java 1.8.0_20 Java HotSpot(TM) 64-Bit Server VM  
+&lt;pre&gt;&lt;code class="language-shell"&gt;screen -ls  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;lein -h  &lt;/p&gt;
+&lt;p&gt;回到new这个session&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-clojure"&gt;Leiningen is a tool for working with Clojure projects.
-
-Several tasks are available:  
-change              Rewrite project.clj by applying a function.  
-check               Check syntax and warn on reflection.  
-classpath           Print the classpath of the current project.  
-clean               Remove all files from project's target-path.  
-compile             Compile Clojure source into .class files.  
-deploy              Build and deploy jar to remote repository.  
-deps                Download all dependencies.  
-do                  Higher-order task to perform other tasks in succession.  
-exec                Execute Clojure S-expresions from command-line or scripts.  
-help                Display a list of tasks or help for a given task.  
-install             Install the current project to the local repository.  
-jar                 Package up all the project's files into a jar file.  
-javac               Compile Java source files.  
-midje               Runs both Midje and clojure.test tests.  
-new                 Generate project scaffolding based on a template.  
-plugin              DEPRECATED. Please use the :user profile instead.  
-pom                 Write a pom.xml file to disk for Maven interoperability.  
-release             Perform :release-tasks.  
-repl                Start a repl session either with the current project or standalone.  
-retest              Run only the test namespaces which failed last time around.  
-ritz                Launch ritz server for Emacs to connect.  
-ritz-hornetq        Start a nrepl session over HornetQ.  
-ritz-in             Jack in to a ritz backed Clojure SLIME session from Emacs.  
-ritz-nrepl          Start a nrepl session either with the current project or standalone.  
-run                 Run a -main function with optional command-line arguments.  
-search              Search remote maven repositories for matching jars.  
-show-profiles       List all available profiles or display one if given an argument.  
-test                Run the project's tests.  
-trampoline          Run a task without nesting the project's JVM inside Leiningen's.  
-uberjar             Package up the project files and dependencies into a jar file.  
-update-in           Perform arbitrary transformations on your project map.  
-upgrade             Upgrade Leiningen to specified version or latest stable.  
-vcs                 Interact with the version control system.  
-version             Print version for Leiningen and the current JVM.  
-with-profile        Apply the given task with the profile(s) specified.  
+&lt;pre&gt;&lt;code class="language-shell"&gt;screen -r new  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;新建项目&lt;/p&gt;
+&lt;p&gt;结束当前session并回到new这个session&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-clojure  "&gt;lein new project  
+&lt;pre&gt;&lt;code class="language-shell"&gt;screen -d -r yourname  
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Linux,命令后台执行的方法</title><description>&lt;pre&gt;&lt;code class="language-shell"&gt;nohup command &amp;gt; out.log 2&amp;gt;&amp;amp;1 &amp;amp;  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;下载依赖库&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-clojure  "&gt;lein deps  
+&lt;p&gt;nohup的作用是将进程的父进程设置为1，即init进程，这样终端关闭时，不会影响该进程。 &lt;br&gt;
+使用2&gt;&amp;amp;1将标准错误输出也重定向到标准输出中，因为预定义的STDIN，STDOUT，STDERR分别是0，1，2。&lt;/p&gt;</description><link>http:///linux-ming-ling-hou-tai-zhi-xing-de-fang-fa/</link><guid isPermaLink="false">fd0c4ceb-4216-4e08-a648-c08a641eb720</guid><category>Linux</category><category>Shell Tips</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 08:33:38 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code class="language-shell"&gt;nohup command &amp;gt; out.log 2&amp;gt;&amp;amp;1 &amp;amp;  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;lein uberjar&lt;/p&gt;
+&lt;p&gt;nohup的作用是将进程的父进程设置为1，即init进程，这样终端关闭时，不会影响该进程。 &lt;br&gt;
+使用2&gt;&amp;amp;1将标准错误输出也重定向到标准输出中，因为预定义的STDIN，STDOUT，STDERR分别是0，1，2。&lt;/p&gt;</content:encoded></item><item><title>Linux,debian网络配置</title><description>&lt;p&gt;gedit /etc/network/interfaces  &lt;/p&gt;
 
-&lt;p&gt;生成jar包&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-shell"&gt;auto lo   #开机自动激活  
+iface lo inet loopback #配置lo回环接口
 
-&lt;pre&gt;&lt;code class="language-clojure  "&gt;lein uberjar  
+mapping hotplug  
+script grep  
+map eth0 eth0
+
+auto eth0   #开机自动激活eth0接口  
+iface eth0 inet static   #接口eth0的静态配置  
+address 192.168.10.237   #IP地址  
+netmask 255.255.255.0    #子网掩码  
+network 192.168.10.0     #网络地址  
+gateway 192.168.10.1&lt;/code&gt;&lt;/pre&gt;</description><link>http:///linux-debianwang-luo-pei-zhi/</link><guid isPermaLink="false">704dbfff-21f4-4346-b7dd-26c94535a8e5</guid><category>Linux</category><category>Debian</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 08:31:36 GMT</pubDate><content:encoded>&lt;p&gt;gedit /etc/network/interfaces  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-shell"&gt;auto lo   #开机自动激活  
+iface lo inet loopback #配置lo回环接口
+
+mapping hotplug  
+script grep  
+map eth0 eth0
+
+auto eth0   #开机自动激活eth0接口  
+iface eth0 inet static   #接口eth0的静态配置  
+address 192.168.10.237   #IP地址  
+netmask 255.255.255.0    #子网掩码  
+network 192.168.10.0     #网络地址  
+gateway 192.168.10.1     #网关  
+broadcast 192.168.10.255 #广播地址  
+dns-nameservers 202.96.134.133  #DNS解析服务器IP地址
+
+auto eth0:1                                           #eth0 接口配置第2个IP地址  
+iface eth0:1 inet static  
+address 192.168.1.111  
+netmask 255.255.255.0  
+gateway 192.168.1.1  
+dns-nameservers 202.96.134.133
+
+auto wlan0    #开机自动激活无线网卡  
+iface wlan0 inet dhcp  #自动配置I  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;生成 maven 的 pom.xml文件&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-clojure  "&gt;lein pom  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;测试&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-clojure  "&gt;lein test (namespace)  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;导入工程到IDEA &lt;br&gt;
-先 lein pom
-然后 idea -&gt; import project -&gt; 选择 pom.xml  &lt;/p&gt;</content:encoded></item><item><title>clj-time 简单使用</title><description>&lt;p&gt;&lt;a href="https://github.com/clj-time/clj-time"&gt;clj-time&lt;/a&gt; 是一个Clojure语言的日期和时间处理库，封装自 Joda Time 库。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-clojure"&gt;(ns test.test-clj
-  (:use [clj-time.format])
-  (:require [clj-time.local :as loc]
-            [clj-time.format :as fmt]))
-
-(def local-date (loc/format-local-time (loc/local-now) :basic-date))
-(def local-time (fmt/unparse (fmt/formatter-local "HHmmssSSS") (loc/local-now)))
-
-(println "date:" local-date "time:" local-time)
-(show-formatters)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class="language-clojure"&gt;date: 20160201 time: 165945623  
-:basic-date                             20160201
-:basic-date-time&lt;/code&gt;&lt;/pre&gt;</description><link>http:///use-clj-time/</link><guid isPermaLink="false">8e7f531b-7aa2-4995-be8b-c2c0d5a69508</guid><category>Clojure</category><category>How To</category><dc:creator>Grizzly</dc:creator><pubDate>Mon, 01 Feb 2016 09:10:44 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href="https://github.com/clj-time/clj-time"&gt;clj-time&lt;/a&gt; 是一个Clojure语言的日期和时间处理库，封装自 Joda Time 库。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-clojure"&gt;(ns test.test-clj
-  (:use [clj-time.format])
-  (:require [clj-time.local :as loc]
-            [clj-time.format :as fmt]))
-
-(def local-date (loc/format-local-time (loc/local-now) :basic-date))
-(def local-time (fmt/unparse (fmt/formatter-local "HHmmssSSS") (loc/local-now)))
-
-(println "date:" local-date "time:" local-time)
-(show-formatters)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class="language-clojure"&gt;date: 20160201 time: 165945623  
-:basic-date                             20160201
-:basic-date-time                        20160201T085945.627Z
-:basic-date-time-no-ms                  20160201T085945Z
-:basic-ordinal-date                     2016032
-:basic-ordinal-date-time                2016032T085945.627Z
-:basic-ordinal-date-time-no-ms          2016032T085945Z
-:basic-t-time                           T085945.627Z
-:basic-t-time-no-ms                     T085945Z
-:basic-time                             085945.627Z
-:basic-time-no-ms                       085945Z
-:basic-week-date                        2016W051
-:basic-week-date-time                   2016W051T085945.627Z
-:basic-week-date-time-no-ms             2016W051T085945Z
-:date                                   2016-02-01
-:date-hour                              2016-02-01T08
-:date-hour-minute                       2016-02-01T08:59
-:date-hour-minute-second                2016-02-01T08:59:45
-:date-hour-minute-second-fraction       2016-02-01T08:59:45.627
-:date-hour-minute-second-ms             2016-02-01T08:59:45.627
-:date-time                              2016-02-01T08:59:45.627Z
-:date-time-no-ms                        2016-02-01T08:59:45Z
-:hour                                   08
-:hour-minute                            08:59
-:hour-minute-second                     08:59:45
-:hour-minute-second-fraction            08:59:45.627
-:hour-minute-second-ms                  08:59:45.627
-:mysql                                  2016-02-01 08:59:45
-:ordinal-date                           2016-032
-:ordinal-date-time                      2016-032T08:59:45.627Z
-:ordinal-date-time-no-ms                2016-032T08:59:45Z
-:rfc822                                 星期一, 01 二月 2016 08:59:45 +0000
-:t-time                                 T08:59:45.627Z
-:t-time-no-ms                           T08:59:45Z
-:time                                   08:59:45.627Z
-:time-no-ms                             08:59:45Z
-:week-date                              2016-W05-1
-:week-date-time                         2016-W05-1T08:59:45.627Z
-:week-date-time-no-ms                   2016-W05-1T08:59:45Z
-:weekyear                               2016
-:weekyear-week                          2016-W05
-:weekyear-week-day                      2016-W05-1
-:year                                   2016
-:year-month                             2016-02
-:year-month-day                         2016-02-01
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Clojure 读写文件</title><description>&lt;h6 id="clojure"&gt;Clojure读取文件&lt;/h6&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http:///clojure-file-reader-writer/#简单读文件"&gt;简单读文件(slurp)&lt;/a&gt;  &lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///clojure-file-reader-writer/#Clojure IO标准库"&gt;Clojure IO标准库&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///clojure-file-reader-writer/#使用java io"&gt;使用java io&lt;/a&gt;  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h6 id=""&gt;写文件&lt;/h6&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http:///clojure-file-reader-writer/#简单写文件"&gt;简单写文件(split)&lt;/a&gt;  &lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///clojure-file-reader-writer/#Clojure IO 写文件"&gt;Clojure IO 写文件&lt;/a&gt;  &lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///clojure-file-reader-writer/#Clojure读取文件"&gt;Clojure读取文件&lt;/a&gt;  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id="clojure"&gt;Clojure读取文件&lt;/h5&gt;
-
-&lt;p&gt;&lt;span id="简单读文件"&gt;简单读文件(slurp)&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;最简单的读取文件可以采用slurp,主要作用是读取文件并以字符串的形式返回文件内容，因为其将文件直接存入内存，此方法适用于小文件的读取。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;   (slurp "test.file")
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;在repl里面可以直接打印出字符串内容。&lt;/p&gt;
-
-&lt;p&gt;&lt;span id="Clojure IO标准库"&gt;Clojure IO标准库&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;Clojure中的文件io包装在标准库clojure.java.io包中，我们用reader进行文件读取。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(ns reader.read-file
-  (:require [clojure.java.io :as io]))
-
-(def testfile (io/file "E:/hack/clojure-cook/src/reader/snake.&lt;/code&gt;&lt;/pre&gt;</description><link>http:///clojure-file-reader-writer/</link><guid isPermaLink="false">79316ff3-c4c5-491e-8c79-b73ebbef0d05</guid><category>Clojure</category><dc:creator>Grizzly</dc:creator><pubDate>Fri, 29 Jan 2016 08:16:31 GMT</pubDate><content:encoded>&lt;h6 id="clojure"&gt;Clojure读取文件&lt;/h6&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http:///clojure-file-reader-writer/#简单读文件"&gt;简单读文件(slurp)&lt;/a&gt;  &lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///clojure-file-reader-writer/#Clojure IO标准库"&gt;Clojure IO标准库&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///clojure-file-reader-writer/#使用java io"&gt;使用java io&lt;/a&gt;  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h6 id=""&gt;写文件&lt;/h6&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http:///clojure-file-reader-writer/#简单写文件"&gt;简单写文件(split)&lt;/a&gt;  &lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///clojure-file-reader-writer/#Clojure IO 写文件"&gt;Clojure IO 写文件&lt;/a&gt;  &lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///clojure-file-reader-writer/#Clojure读取文件"&gt;Clojure读取文件&lt;/a&gt;  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id="clojure"&gt;Clojure读取文件&lt;/h5&gt;
-
-&lt;p&gt;&lt;span id="简单读文件"&gt;简单读文件(slurp)&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;最简单的读取文件可以采用slurp,主要作用是读取文件并以字符串的形式返回文件内容，因为其将文件直接存入内存，此方法适用于小文件的读取。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;   (slurp "test.file")
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;在repl里面可以直接打印出字符串内容。&lt;/p&gt;
-
-&lt;p&gt;&lt;span id="Clojure IO标准库"&gt;Clojure IO标准库&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;Clojure中的文件io包装在标准库clojure.java.io包中，我们用reader进行文件读取。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(ns reader.read-file
-  (:require [clojure.java.io :as io]))
-
-(def testfile (io/file "E:/hack/clojure-cook/src/reader/snake.clj"))
-(with-open [rdr (io/input-stream testfile)]
-  (loop  [c (.read rdr)]
-    (if (not= c -1)
-      (do 
-        (+ x c)
-        (recur (.read rdr))))))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这段代码里用到了两个重要的函数，file和reader。file函数主要获取java.io.File对象。可以使用以下方法来获取file对象。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(ns reader.file-demo
-  (:require [clojure.java.io :as io]))
-
-(def f (io/file "E:/hack/clojure-cook/src/reader/snake.clj"))
-
-(def data-f 
-  (io/file 
-   (io/resource "snake.clj)))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;其中resource是从项目读取资源，需要在project.clj中配置资源的文件夹：&lt;/p&gt;
-
-&lt;p&gt;:resource-paths ["E:/hack/clojure-cook/src/reader"]
-使用java io&lt;/p&gt;
-
-&lt;p&gt;除了读取本地文件，也可以读取网络信息，比如：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(ns reader.file-demo
-  (:require [clojure.java.io :as io])
-  (:import (java.net URL)
-           (java.io InputStreamReader BufferedReader)))
-
-
-(defn fetch-url[address]
-  (with-open [stream (.openStream (URL. address))]
-    (let [buf (BufferedReader.
-               (InputStreamReader. stream))]
-      (apply str (line-seq buf)))))
-
-(fetch-url "http://www.baidu.com")
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id=""&gt;写文件&lt;/h5&gt;
-
-&lt;p&gt;&lt;span id="简单写文件"&gt;简单写文件(split)&lt;/span&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(ns reader.file-demo
-  (:require [clojure.java.io :as io]))
-(def out (io/file "demo.file"))
-(spit out "test file")
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;spit是和slurp相对应的函数，只能进行极小且简单的文件处理，如果进行复杂的文件处理还需要使用Clojure IO库，或者java IO库。&lt;/p&gt;
-
-&lt;p&gt;&lt;span id="Clojure IO 写文件"&gt;Clojure IO 写文件(split)&lt;/span&gt;   &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(ns reader.file-demo
-  (:require [clojure.java.io :as io]))
-
-(def out (io/file "demo.file"))
-
-(defn write-file [content]
-  (with-open [w (io/writer out)]
-    (.write w content)))
-
-(write-file "test file second")
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;来源: &lt;a href="http://blog.brucefeng.info/post/clojure-readwrite-file#toc_5"&gt;http://blog.brucefeng.info/post/clojure-readwrite-file#toc_5&lt;/a&gt;&lt;/p&gt;
-
-&lt;h6 id=""&gt;补充&lt;/h6&gt;
-
-&lt;p&gt;使用slurp抓取网页内容及制定编码  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; (slurp "http://163.com" :encoding  "gb2312")
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;使用reader提高读取效率&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-clojure"&gt;(require '[clojure.java.io :as io])
-(with-open [r (io/reader "file.txt")]
-  (doseq [liene (line-seq r)]
-    (println line)))  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;使用with-open对多文件操作&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-clojure"&gt;(with-open [r (io/reader "file.txt")
-            w (io/writer "file1.txt")]
-  (doseq [line (line-seq r)]
-    (.write w (str line "\n"))))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;二进制读取&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-clojure"&gt;(with-open [input (new java.io.FileInputStream "image.png")
-            output (new java.io.ByteArrayOutputStream)]
-    (io/copy input output)
-    (.toByteArray output))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;二进制写入&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-clojure"&gt;(with-open [output (new java.io.FileOutputStream "file.bin")]
-   (.write output (.getBytes "abcdefg")))
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>How to convert byte to string and  convert string to byte on Clojure</title><description>&lt;p&gt;&lt;strong&gt;Byte,String&lt;/strong&gt; 在clojure中互转：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language- clojure"&gt;(ns test
-  (:require [clojure.string]
-            [clojure.stacktrace]
-            [clojure.tools.logging :as log]
-            ))
-(defn- string-to-bytes [s] (.getBytes s))
-(defn- bytes-to-string [b] (String. b))
-
-(def test (string-to-bytes "abcdefg"))
-(println (apply str (bytes-to-string test)))
-&lt;/code&gt;&lt;/pre&gt;</description><link>http:///byte-collection-to-string-on-clojure/</link><guid isPermaLink="false">b64eef58-8bb7-4bbd-a9a4-11f39ae6774b</guid><category>Clojure</category><category>How To</category><dc:creator>Grizzly</dc:creator><pubDate>Fri, 29 Jan 2016 07:44:26 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;Byte,String&lt;/strong&gt; 在clojure中互转：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language- clojure"&gt;(ns test
-  (:require [clojure.string]
-            [clojure.stacktrace]
-            [clojure.tools.logging :as log]
-            ))
-(defn- string-to-bytes [s] (.getBytes s))
-(defn- bytes-to-string [b] (String. b))
-
-(def test (string-to-bytes "abcdefg"))
-(println (apply str (bytes-to-string test)))
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Emacs速查手册</title><description>Emacs速查手册</description><link>http:///emacssu-cha-shou-ce/</link><guid isPermaLink="false">788b4988-6fd0-4896-b33c-aed17fd636d6</guid><category>Emacs</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 27 Jan 2016 09:58:08 GMT</pubDate><content:encoded>&lt;ul&gt;
-&lt;li&gt;&lt;a href="http:///emacssu-cha-shou-ce/#环境配置"&gt;环境配置&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///emacssu-cha-shou-ce/#基础概念"&gt;基础概念&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///emacssu-cha-shou-ce/#基本命令"&gt;基本命令&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///emacssu-cha-shou-ce/#副模式命令"&gt;副模式命令&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///emacssu-cha-shou-ce/#文件操作命令"&gt;文件操作命令&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///emacssu-cha-shou-ce/#光标移动命令"&gt;光标移动命令&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///emacssu-cha-shou-ce/#文本删除命令"&gt;文本删除命令&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///emacssu-cha-shou-ce/#文本块常用操作步骤"&gt;文本块常用操作步骤&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///emacssu-cha-shou-ce/#文本块操作命令"&gt;文本块操作命令&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///emacssu-cha-shou-ce/#段落重排"&gt;段落重排&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///emacssu-cha-shou-ce/#编辑技巧"&gt;编辑技巧&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///emacssu-cha-shou-ce/#递增查找命令"&gt;递增查找命令&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///emacssu-cha-shou-ce/#查找－替换操作"&gt;查找－替换操作&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///emacssu-cha-shou-ce/#窗口命令"&gt;窗口命令&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///emacssu-cha-shou-ce/#缓冲区命令"&gt;缓冲区命令&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///emacssu-cha-shou-ce/#书签"&gt;书签&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http:///emacssu-cha-shou-ce/#Shell交互"&gt;Shell交互&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=""&gt;环境配置&lt;/h2&gt;
-
-&lt;p&gt;Emacs启动时会寻找主目录的~/.emacs配置文件，大部分插件都需要在此文件中配置。&lt;/p&gt;
-
-&lt;h3 id=""&gt;基本定制&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;;; 去掉菜单
-(menu-bar-mode -1)
-;; 显示代码的行号
-;; 若需要临时显示，可使用M-x linum-mode 切换
-(global-linum-mode 1)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=""&gt;包管理器安装&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;;;启用包管理
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=""&gt;更新包内容&lt;/h4&gt;
-
-&lt;p&gt;&lt;code&gt;M-x package-refresh-contents RET&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id="solarized"&gt;安装solarized主题&lt;/h3&gt;
-
-&lt;p&gt;参考&lt;a href="https://github.com/sellout/emacs-color-theme-solarized"&gt;github/emacs-color-theme-solarized&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;将emacs-color-theme-solarized目录加入到Emacs的custom-theme-load-path，或从包管理器安装：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;package-install color-theme-solarized
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;再将下面一行增加到初始化文件中：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(load-theme 'solarized-[light|dark] t)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;重新加载初始化文件，或重启Emacs。&lt;/p&gt;
-
-&lt;h3 id="magit"&gt;magit&lt;/h3&gt;
-
-&lt;p&gt;参考&lt;a href="https://github.com/magit/magit"&gt;github/magit&lt;/a&gt;或&lt;a href="http://magit.github.io/master/magit.html"&gt;magit手册&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;M-x package-install 安装命令：&lt;code&gt;M-x package-install RET magit RET&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;M-x magit-status - 执行&lt;code&gt;git status&lt;/code&gt;并进入magit操作主界面（配合&lt;code&gt;projectile&lt;/code&gt;可以使用快捷键&lt;code&gt;C-c p v&lt;/code&gt;）&lt;/li&gt;
-&lt;li&gt;?               - 帮助&lt;/li&gt;
-&lt;li&gt;q               - 退出&lt;/li&gt;
-&lt;li&gt;s               - stage&lt;/li&gt;
-&lt;li&gt;i               - ignore&lt;/li&gt;
-&lt;li&gt;l               - 进入日志选项&lt;/li&gt;
-&lt;li&gt;c               - 进入commit选项&lt;/li&gt;
-&lt;li&gt;C-c C-c       - 提交&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id="erlang"&gt;Erlang模式&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href="http://www.erlang.org/doc/apps/tools/erlang_mode_chapter.html"&gt;Erlang模式&lt;/a&gt;内置于OTP发行版中。
-命令&lt;code&gt;M-x erlang-mode RET&lt;/code&gt;可将当前缓冲区切换为Erlang主模式。
-正确安装erlang模式后，编辑.erl或.hrl文档时会自动切换到该主模式。&lt;/p&gt;
-
-&lt;p&gt;详细的配置说明在&lt;a href="http://www.erlang.org/doc/man/erlang.el.html"&gt;erlang模式手册&lt;/a&gt;。&lt;/p&gt;
-
-&lt;h4 id=""&gt;安装和配置&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;;; erlang模式
-;; 设置自动模板中的邮箱
-(setq user-mail-address "homeway.xue@gmail.com")
-(setq load-path (cons "~/erlang/erts/r17/lib/tools-2.6.14/emacs/" load-path))
-(setq erlang-root-dir "~/erlang/erts/r17")
-(setq exec-path (cons "~/erlang/erts/r17/bin/" exec-path))
-;; 一个不错的初始化配置
-(require 'erlang-start) 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这个配置中使用的erlang是通过kerl配置的，通过kerl编译并安装了erlang之后，在shell启动文件中增加了如下配置行：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# start erlang with kerl
-. /Users/homeway/erlang/erts/r17/activate                                             
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=""&gt;注释&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;C-c C-c 将标记区域注释&lt;/li&gt;
-&lt;li&gt;C-u 3 C-c C-c 使用%%%标记注释&lt;/li&gt;
-&lt;li&gt;C-c C-u 取消注释&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=""&gt;编辑函数子句&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;C-c C-j 生成新的函数子句&lt;/li&gt;
-&lt;li&gt;C-c C-y 拷贝函数子句的参数&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=""&gt;模板&lt;/h4&gt;
-
-&lt;p&gt;命令系列：&lt;code&gt;tempo...&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;简单模板 - If, Case, Receive, Receive After, Receive Loop&lt;/li&gt;
-&lt;li&gt;源文件头 - Module, Author, Small Header, Normal Header, Large Header&lt;/li&gt;
-&lt;li&gt;Small Server - 不带OTP的Server模板&lt;/li&gt;
-&lt;li&gt;Application - OTP application&lt;/li&gt;
-&lt;li&gt;Supervisor - OTP supervisor&lt;/li&gt;
-&lt;li&gt;Superbisor Brigge - OTP supervisor bridge&lt;/li&gt;
-&lt;li&gt;gen&lt;em&gt;server - OTP gen&lt;/em&gt;server&lt;/li&gt;
-&lt;li&gt;gen&lt;em&gt;event - OTP gen&lt;/em&gt;event&lt;/li&gt;
-&lt;li&gt;gen&lt;em&gt;fsm - OTP gen&lt;/em&gt;fsm&lt;/li&gt;
-&lt;li&gt;Library模块 - 不实现进程的模块&lt;/li&gt;
-&lt;li&gt;Corba回调 - Corba回调模块&lt;/li&gt;
-&lt;li&gt;Erlang test suite - OTP测试模块生成&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id="shell"&gt;Shell&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;erlang-shell - 启动新的shell
-C-c C-z      - 显示Erlang shell（如果不存在就新建一个）
-C-up/M-p     - 历史中上一个命令
-C-down/M-n   - 历史中下一个命令
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;默认的shell启动后并没有增加必要的启动选项，因此需要手工补充。
-常见的内容包括：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;需要使用&lt;code&gt;code:add:path&lt;/code&gt;命令添加的路径，如：&lt;/li&gt;
-&lt;li&gt;需要手工启动的applicationerlang-shell附件选项的手工添加方法：&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=""&gt;编译&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;C-c C-k      - 编译当前缓冲区中的模块
-C-c C-l      - 显示编译结果（并进入结果所在窗口）
-C-u C-x`     - 开始从头解析编译结果，并移至第一个出错行
-C-x`         - 移动到下一个出错行
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id="direddetail"&gt;dired-detail&lt;/h3&gt;
-
-&lt;p&gt;为了避免dired显示太多内容，可以使用&lt;a href="http://www.emacswiki.org/emacs/dired-details.el"&gt;dired-details&lt;/a&gt;插件。&lt;/p&gt;
-
-&lt;h4 id=""&gt;配置&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;;;prevent dired too much info
-(add-to-list 'load-path "~/.emacs.d/dired-details")
-(require 'dired-details)
-(dired-details-install) 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=""&gt;临时切换&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;;;   ) - dired-details-show
-;;   ( - dired-details-hide
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id="projectle"&gt;projectle&lt;/h3&gt;
-
-&lt;p&gt;通过projectle的配置，可以在git项目中做深层文件查找，项目文件目录比较复杂时仍可得心应手。
-配合安装以下包可以更进一步：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;helm-projectile 快速切换项目等&lt;/li&gt;
-&lt;li&gt;ido 简化文件名搜索&lt;/li&gt;
-&lt;li&gt;recentf 列举最近访问过的文件（内置的包）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=""&gt;安装&lt;/h4&gt;
-
-&lt;p&gt;参见&lt;a href="https://github.com/bbatsov/projectile"&gt;github上的projectile项目&lt;/a&gt;。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;C-c p C-h   查看帮助：列举projectile命令&lt;/li&gt;
-&lt;li&gt;C-c p f     查看项目中的文件&lt;/li&gt;
-&lt;li&gt;C-c p d     打开单个目录&lt;/li&gt;
-&lt;li&gt;C-c p D     打开目录列表（配合dired-detail可以切换长显示和短显示）&lt;/li&gt;
-&lt;li&gt;C-c p !     在项目根目录执行shell命令&lt;/li&gt;
-&lt;li&gt;C-c p v     &lt;code&gt;vc-dir&lt;/code&gt;指令，如果是git则自动执行&lt;code&gt;magit-status&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=""&gt;基础概念&lt;/h2&gt;
-
-&lt;h3 id=""&gt;文件缓冲区&lt;/h3&gt;
-
-&lt;p&gt;虽然缓冲区看起来和文件非常相像，但它只是一个临时性的工作区域，里面可能包含的是文件的一份副本。&lt;/p&gt;
-
-&lt;h3 id=""&gt;插入点&lt;/h3&gt;
-
-&lt;p&gt;光标前的位置就是插入点。&lt;/p&gt;
-
-&lt;h3 id=""&gt;删除环&lt;/h3&gt;
-
-&lt;p&gt;被某些命令（&lt;code&gt;C-k&lt;/code&gt;等）删除的文本将进入删除环，以供&lt;code&gt;C-y&lt;/code&gt;或&lt;code&gt;M-y&lt;/code&gt;粘贴操作使用。&lt;/p&gt;
-
-&lt;h3 id=""&gt;默认快捷键约定&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;最常用的命令，C-{n}&lt;/li&gt;
-&lt;li&gt;次常用的命令，M-{n}&lt;/li&gt;
-&lt;li&gt;其他常用命令，C-x {something} RETURN&lt;/li&gt;
-&lt;li&gt;特殊命令，    C-c {something} RETURN&lt;/li&gt;
-&lt;li&gt;全命令执行，  M-x {long-command-name} RETURN&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=""&gt;基本命令&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;C-x C-c            退出&lt;/li&gt;
-&lt;li&gt;M-x [full-command] 执行全名命令&lt;/li&gt;
-&lt;li&gt;C-x C-h            查询所有C-x命令&lt;/li&gt;
-&lt;li&gt;C-c C-h            查询所有C-c命令&lt;/li&gt;
-&lt;li&gt;C-g                取消命令 &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=""&gt;副模式命令&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;自动换行模式（auto-fill mode）&lt;/li&gt;
-&lt;li&gt;改写模式（overwrite mode）&lt;/li&gt;
-&lt;li&gt;自动保存模式（auto-save mode），定期保存到临时文件&lt;/li&gt;
-&lt;li&gt;行号模式（line number mode）&lt;/li&gt;
-&lt;li&gt;临时标记模式（transient mark mode）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=""&gt;文件操作命令&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;C-x C-f   find-file                查找文件并在新的缓冲区打开&lt;/li&gt;
-&lt;li&gt;C-x C-v   find-alternate-file      读入另一个文件，并替换当前缓冲区&lt;/li&gt;
-&lt;li&gt;C-x C-s   save-buffer              从缓冲区保存文件到磁盘&lt;/li&gt;
-&lt;li&gt;C-x C-w   write-file               把缓冲区写入到另一个文件&lt;/li&gt;
-&lt;li&gt;C-x C-c   save-buffers-kill-emacs  退出Emacs&lt;/li&gt;
-&lt;li&gt;C-h       help-command&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=""&gt;光标移动命令&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;C-f   forward-char&lt;/li&gt;
-&lt;li&gt;C-b   backward-char&lt;/li&gt;
-&lt;li&gt;C-p   previous-line&lt;/li&gt;
-&lt;li&gt;C-n   next-line&lt;/li&gt;
-&lt;li&gt;M-f   forward-word&lt;/li&gt;
-&lt;li&gt;M-b   backward-word&lt;/li&gt;
-&lt;li&gt;C-a   beginning-of-line&lt;/li&gt;
-&lt;li&gt;C-e   end-of-line&lt;/li&gt;
-&lt;li&gt;C-v   scroll-up&lt;/li&gt;
-&lt;li&gt;M-v   scroll-down&lt;/li&gt;
-&lt;li&gt;M-&amp;lt;   beginning-of-buffer&lt;/li&gt;
-&lt;li&gt;M-&gt;   end-of-buffer&lt;/li&gt;
-&lt;li&gt;goto-line&lt;/li&gt;
-&lt;li&gt;M-{n} digit-argument 重复执行n次后续命令&lt;/li&gt;
-&lt;li&gt;C-u {n} universal-argument 重复执行n次后续命令（省略n时重复4次或16次）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=""&gt;文本删除命令&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;C-d   delete-char&lt;/li&gt;
-&lt;li&gt;DEL   delete-backward-char&lt;/li&gt;
-&lt;li&gt;M-d   kill-word&lt;/li&gt;
-&lt;li&gt;M-DEL backward-kill-word 删除光标前面的单词&lt;/li&gt;
-&lt;li&gt;M-z   一直删除到指定字母&lt;/li&gt;
-&lt;li&gt;C-k   kill-line&lt;/li&gt;
-&lt;li&gt;M-k   kill-sentence&lt;/li&gt;
-&lt;li&gt;C-y   yank 粘贴删除环中第一个文本&lt;/li&gt;
-&lt;li&gt;M-y   循环粘贴删除环中其他文本，来替代C-y所粘贴的文本&lt;/li&gt;
-&lt;li&gt;C-x u 撤销上一次命令（如删除命令或输入命令）&lt;/li&gt;
-&lt;li&gt;C-w   kill-region 删除文本块&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=""&gt;文本块常用操作步骤&lt;/h2&gt;
-
-&lt;h3 id=""&gt;标记文本块&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;移动光标到文本块开始位置  &lt;/li&gt;
-&lt;li&gt;C-@设置标记  &lt;/li&gt;
-&lt;li&gt;移动光标到结束位置  &lt;/li&gt;
-&lt;li&gt;（如有必要）C-x C-x检验标记范围是否正确  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=""&gt;删除文本块&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;标记好准备删除的文本块  &lt;/li&gt;
-&lt;li&gt;C-w 删除（进入删除环）  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=""&gt;移动文本&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;删除文本块  &lt;/li&gt;
-&lt;li&gt;移动光标到插入点  &lt;/li&gt;
-&lt;li&gt;C-y插入文本块  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=""&gt;复制文本&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;标记文本  &lt;/li&gt;
-&lt;li&gt;M-w复制文本  &lt;/li&gt;
-&lt;li&gt;移动光标到插入点  &lt;/li&gt;
-&lt;li&gt;C-y插入文本块&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=""&gt;文本块操作命令&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;C-@     set-mark-command&lt;/li&gt;
-&lt;li&gt;C-x C-x exchange-point-and-mark&lt;/li&gt;
-&lt;li&gt;C-w     kill-region&lt;/li&gt;
-&lt;li&gt;M-w     kill-ring-save 将文本块复制到删除环上&lt;/li&gt;
-&lt;li&gt;M-h     mark-paragraph 选择段落&lt;/li&gt;
-&lt;li&gt;C-x C-p mark-page 标记页面&lt;/li&gt;
-&lt;li&gt;C-x h   mark-whole-buffer 全选&lt;/li&gt;
-&lt;li&gt;M-y     yank-pop 在用过C-y命令以后寻找删除环上的其他文本块&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=""&gt;段落重排&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;M-q fill-paragraph 重排段落&lt;/li&gt;
-&lt;li&gt;fill-region 重排文本块&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=""&gt;编辑技巧&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;C-t     transpose-chars&lt;/li&gt;
-&lt;li&gt;M-t     transpose-words&lt;/li&gt;
-&lt;li&gt;C-x C-t transpose-lines&lt;/li&gt;
-&lt;li&gt;M-c     capitalize-word 切换首字母为大写&lt;/li&gt;
-&lt;li&gt;M-u     upcase-word     转换为大写&lt;/li&gt;
-&lt;li&gt;M-l     downcase-word   转换为小写&lt;/li&gt;
-&lt;li&gt;C-x u   undo&lt;/li&gt;
-&lt;li&gt;revert-buffer 撤销上次存盘之后的所有修改&lt;/li&gt;
-&lt;li&gt;C-x ESC ESC 重复执行上一次复杂命令&lt;/li&gt;
-&lt;li&gt;C-q &lt;tab&gt; 输入Tab键（C-q后面的键盘输入会作为原始输入）&lt;/tab&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=""&gt;递增查找命令&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;C-s isearch-forward&lt;/li&gt;
-&lt;li&gt;C-r isearch-backward&lt;/li&gt;
-&lt;li&gt;RETURN 退出查找操作&lt;/li&gt;
-&lt;li&gt;C-g keyboard-quit 取消查找命令&lt;/li&gt;
-&lt;li&gt;C-s C-w 把光标位置处的单词用作查找字符串&lt;/li&gt;
-&lt;li&gt;C-s C-s 重复刚才的查找操作&lt;/li&gt;
-&lt;li&gt;ESC C-s  向前正则查找&lt;/li&gt;
-&lt;li&gt;ESC C-r  反向正则查找&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=""&gt;查找－替换操作&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;ESC %     开始查找－替换操作&lt;/li&gt;
-&lt;li&gt;y        用新字符串替换查询到的字符串，然后前进到下一个位置&lt;/li&gt;
-&lt;li&gt;n        不替换；前进到下一个位置&lt;/li&gt;
-&lt;li&gt;.        在当前位置替换后退出查询&lt;/li&gt;
-&lt;li&gt;,        替换并显示替换情况，再按空格或y才移动到下一个位置&lt;/li&gt;
-&lt;li&gt;q        退出查询&lt;/li&gt;
-&lt;li&gt;C-r      进入递归编辑状态&lt;/li&gt;
-&lt;li&gt;C-w      删除此处内容，并进入递归编辑状态（好做其他修改）&lt;/li&gt;
-&lt;li&gt;ESC C-c  退出递归状态&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=""&gt;窗口命令&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;C-x o    other-window&lt;/li&gt;
-&lt;li&gt;C-x 0    delete-window&lt;/li&gt;
-&lt;li&gt;C-x 1    delete-other-window&lt;/li&gt;
-&lt;li&gt;C-x 2    在下面打开窗口&lt;/li&gt;
-&lt;li&gt;C-x 3    在右侧打开窗口&lt;/li&gt;
-&lt;li&gt;C-x ^    enlarge-window 价高当前窗口&lt;/li&gt;
-&lt;li&gt;shrink-window  压低当前窗口&lt;/li&gt;
-&lt;li&gt;C-x }    enlarge-window-horizontally 加宽当前窗口&lt;/li&gt;
-&lt;li&gt;C-x {    shrink-window-horizontally  压窄当前窗口&lt;/li&gt;
-&lt;li&gt;ESC C-v  scroll-other-window 对其他窗口做卷屏操作&lt;/li&gt;
-&lt;li&gt;C-x 4 f  find-file-other-window 在其他窗口打开一个文件&lt;/li&gt;
-&lt;li&gt;C-x 4 b  swith-to-buffer-other-window 在其他窗口里选择一个缓冲区&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=""&gt;缓冲区命令&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;C-x b    switch-to-buffer&lt;/li&gt;
-&lt;li&gt;C-x C-b  list-buffer&lt;/li&gt;
-&lt;li&gt;d       待删标记&lt;/li&gt;
-&lt;li&gt;s       待存标记&lt;/li&gt;
-&lt;li&gt;u       去除操作标记&lt;/li&gt;
-&lt;li&gt;x       执行批量缓冲区操作&lt;/li&gt;
-&lt;li&gt;f       窗口内打开缓冲区内容&lt;/li&gt;
-&lt;li&gt;o       在新窗口打开缓冲区内容&lt;/li&gt;
-&lt;li&gt;q       退出&lt;/li&gt;
-&lt;li&gt;C-x k    kill-buffer&lt;/li&gt;
-&lt;li&gt;rename-buffer&lt;/li&gt;
-&lt;li&gt;C-x left/right  切换缓冲区&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=""&gt;书签&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;C-x r l  bookmark-menu-list&lt;/li&gt;
-&lt;li&gt;d       标记待删除书签&lt;/li&gt;
-&lt;li&gt;r       重命名书签&lt;/li&gt;
-&lt;li&gt;s       保存全部书签&lt;/li&gt;
-&lt;li&gt;f       显示光标位置的书签&lt;/li&gt;
-&lt;li&gt;u       去掉书签上的待操作标记&lt;/li&gt;
-&lt;li&gt;q       退出&lt;/li&gt;
-&lt;li&gt;C-x r m  bookmark-set 在当前光标位置处设置一个书签&lt;/li&gt;
-&lt;li&gt;C-x r b  bookmark-jump 跳到书签指示位置&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id="shell"&gt;Shell交互  &lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;C-z        临时退出到shell&lt;/li&gt;
-&lt;li&gt;jobs&lt;/li&gt;
-&lt;li&gt;fg         从shell返回到emacs&lt;/li&gt;
-&lt;li&gt;ESC !      执行一次shell命令&lt;/li&gt;
-&lt;li&gt;shell&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;来源:
-&lt;a href="https://github.com/homeway/hotmoon_docs/blob/master/emacs.md#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"&gt;https://github.com/homeway/hotmoon_docs/blob/master/emacs.md#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Welcome to Ghost</title><description>&lt;p&gt;You're live! Nice. We've put together a little post to introduce you to the Ghost editor and get you started. You can manage your content by signing in to the admin area at &lt;code&gt;&amp;lt;your blog URL&amp;gt;/ghost/&lt;/code&gt;. When you arrive, you can select this post from a list&lt;/p&gt;</description><link>http:///welcome-to-ghost-2/</link><guid isPermaLink="false">f38a113d-940f-44f6-96f2-647ccfb3ce0e</guid><category>Getting Started</category><dc:creator>Grizzly</dc:creator><pubDate>Mon, 25 Jan 2016 04:29:54 GMT</pubDate><content:encoded>&lt;p&gt;You're live! Nice. We've put together a little post to introduce you to the Ghost editor and get you started. You can manage your content by signing in to the admin area at &lt;code&gt;&amp;lt;your blog URL&amp;gt;/ghost/&lt;/code&gt;. When you arrive, you can select this post from a list on the left and see a preview of it on the right. Click the little pencil icon at the top of the preview to edit this post and read the next section!&lt;/p&gt;
-
-&lt;h2 id="gettingstarted"&gt;Getting Started&lt;/h2&gt;
-
-&lt;p&gt;Ghost uses something called Markdown for writing. Essentially, it's a shorthand way to manage your post formatting as you write!&lt;/p&gt;
-
-&lt;p&gt;Writing in Markdown is really easy. In the left hand panel of Ghost, you simply write as you normally would. Where appropriate, you can use &lt;em&gt;shortcuts&lt;/em&gt; to &lt;strong&gt;style&lt;/strong&gt; your content. For example, a list:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Item number one&lt;/li&gt;
-&lt;li&gt;Item number two
-&lt;ul&gt;&lt;li&gt;A nested item&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;A final item&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;or with numbers!&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Remember to buy some milk  &lt;/li&gt;
-&lt;li&gt;Drink the milk  &lt;/li&gt;
-&lt;li&gt;Tweet that I remembered to buy the milk, and drank it&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id="links"&gt;Links&lt;/h3&gt;
-
-&lt;p&gt;Want to link to a source? No problem. If you paste in a URL, like &lt;a href="http://ghost.org"&gt;http://ghost.org&lt;/a&gt; - it'll automatically be linked up. But if you want to customise your anchor text, you can do that too! Here's a link to &lt;a href="http://ghost.org"&gt;the Ghost website&lt;/a&gt;. Neat.&lt;/p&gt;
-
-&lt;h3 id="whataboutimages"&gt;What about Images?&lt;/h3&gt;
-
-&lt;p&gt;Images work too! Already know the URL of the image you want to include in your article? Simply paste it in like this to make it show up:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="https://ghost.org/images/ghost.png" alt="The Ghost Logo"&gt;&lt;/p&gt;
-
-&lt;p&gt;Not sure which image you want to use yet? That's ok too. Leave yourself a descriptive placeholder and keep writing. Come back later and drag and drop the image in to upload:&lt;/p&gt;
-
-&lt;h3 id="quoting"&gt;Quoting&lt;/h3&gt;
-
-&lt;p&gt;Sometimes a link isn't enough, you want to quote someone on what they've said. Perhaps you've started using a new blogging platform and feel the sudden urge to share their slogan? A quote might be just the way to do it!&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Ghost - Just a blogging platform&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id="workingwithcode"&gt;Working with Code&lt;/h3&gt;
-
-&lt;p&gt;Got a streak of geek? We've got you covered there, too. You can write inline &lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt; blocks really easily with back ticks. Want to show off something more comprehensive? 4 spaces of indentation gets you there.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;.awesome-thing {
-    display: block;
-    width: 100%;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id="readyforabreak"&gt;Ready for a Break?&lt;/h3&gt;
-
-&lt;p&gt;Throw 3 or more dashes down on any new line and you've got yourself a fancy new divider. Aw yeah.&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;h3 id="advancedusage"&gt;Advanced Usage&lt;/h3&gt;
-
-&lt;p&gt;There's one fantastic secret about Markdown. If you want, you can write plain old HTML and it'll still work! Very flexible.&lt;/p&gt;
-
-&lt;p&gt;&lt;input type="text" placeholder="I'm an input field!"&gt;&lt;/p&gt;
-
-&lt;p&gt;That should be enough to get you started. Have fun - and let us know what you think :)&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;/etc/init.d/networking restart  &lt;/p&gt;</content:encoded></item></channel></rss>

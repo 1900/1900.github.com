@@ -11,10 +11,11 @@
 
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=38655a7bc9">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=a720bb6013">
 
     <link rel="canonical" href="http:///tag/linux/">
     <meta name="referrer" content="origin">
+    <link rel="next" href="http:///tag/linux/page/2/">
     
     <meta property="og:site_name" content="C'est la vie">
     <meta property="og:type" content="website">
@@ -64,7 +65,7 @@
         <div class="main-header-content inner">
             <h1 class="page-title">Linux</h1>
             <h2 class="page-description">
-                    共 5 篇文章
+                    共 40 篇文章
             </h2>
         </div>
     </div>
@@ -74,83 +75,155 @@
 
     <div class="extra-pagination inner">
     <nav class="pagination" role="navigation">
-    <span class="page-number">第 1 页 ⁄ 共 1 页</span>
+    <span class="page-number">第 1 页 ⁄ 共 4 页</span>
+        <a class="older-posts" href="/tag/linux/page/2/">下一页 →</a>
 </nav>
 </div>
 
-<article class="post tag-linux">
+<article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/install-mongodb-3-on-centos-2/">Centos,iptables设置</a></h2>
+        <h2 class="post-title"><a href="/linuxguan-bi-zai-xian-deng-lu-yong-hu/">linux结束在线的登录用户</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>允许访问80及8080端口  vim /etc/sysconfig/iptables   -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW <a class="read-more" href="/install-mongodb-3-on-centos-2/">»</a></p>
+        <p>查明登陆端口  who   root pts/1 Feb 8 00:06 (192.168.1.58)   root pts/2 Feb 8 04:15 (192.168.1.60)   通知该用户将要关闭他： # echo "I will close your connecti <a class="read-more" href="/linuxguan-bi-zai-xian-deng-lu-yong-hu/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>
-        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
-<article class="post tag-linux tag-mongodb">
+<article class="post tag-shell-tips tag-linux">
     <header class="post-header">
-        <h2 class="post-title"><a href="/install-mongodb-3-on-centos/">Install MongoDB 3 on Centos</a></h2>
+        <h2 class="post-title"><a href="/wget/">shell,使用wget整站抓取</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>下载 cd /data/mongo   wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel62-3.0.4.tgz   解压 tar zxvf mongodb-linux-x86_64-rhel62-3. <a class="read-more" href="/install-mongodb-3-on-centos/">»</a></p>
+        <p>wget -r -p -np -k http://baidu.com/   -r  递归 -p --page-requisites -np --no-parent -k  下载的HTML页面中的链接转换为相对链接即本地链接 <a class="read-more" href="/wget/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/mongodb/">MongoDB</a>
-        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
+         标签：<a href="/tag/shell-tips/">Shell Tips</a>, <a href="/tag/linux/">Linux</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
-<article class="post tag-linux tag-nginx">
+<article class="post tag-linux tag-mysql">
     <header class="post-header">
-        <h2 class="post-title"><a href="/install-nginx-on-centos/">Install Nginx  On Centos</a></h2>
+        <h2 class="post-title"><a href="/linux-shi-yong-mysqldumpdao-chu-shu-ju-shi-dui-sqlwen-jian-jin-xing-ya-suo/">Linux,使用mysqldump导出数据时对sql文件进行压缩</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>安装依赖包 yum -y install pcre pcre-devel openssl openssl-devel gcc automake autoconf libtool make   下载nginx   wget  http://nginx.org/download/ng <a class="read-more" href="/install-nginx-on-centos/">»</a></p>
+        <p>mysqldump -h192.168.1.222 -ubackup -pbackup kds trank   | gzip &gt; $backupdir/back.sql.gz <a class="read-more" href="/linux-shi-yong-mysqldumpdao-chu-shu-ju-shi-dui-sqlwen-jian-jin-xing-ya-suo/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/nginx/">Nginx</a>
-        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/mysql/">MySQL</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
-<article class="post tag-linux tag-how-to">
+<article class="post tag-linux tag-mysql">
     <header class="post-header">
-        <h2 class="post-title"><a href="/install-tomcat-7-on-linux/">Install Tomcat 7  On Linux</a></h2>
+        <h2 class="post-title"><a href="/shell-mysqlkai-qi-yuan-cheng-fang-wen/">Shell,mysql开启远程访问</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>下载 wget http://mirror.esocc.com/apache/tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63.tar.gz   解压 tar -zxvf apache-tomcat-7.0.63.tar.gz <a class="read-more" href="/install-tomcat-7-on-linux/">»</a></p>
+        <p>GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;   允许局域网内192.168.访问 GRANT ALL PRIVILEGES ON *.* TO 'root'@' <a class="read-more" href="/shell-mysqlkai-qi-yuan-cheng-fang-wen/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/how-to/">How To</a>
-        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/mysql/">MySQL</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
-<article class="post tag-how-to tag-linux">
+<article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/install-jdk-on-centos-2/">Install JDK On CentOS</a></h2>
+        <h2 class="post-title"><a href="/linux-centos-rpman-zhuang-shi-zhi-ding-lu-jing/">Linux,centos rpm安装时指定路径</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>安装依赖包 yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib- <a class="read-more" href="/install-jdk-on-centos-2/">»</a></p>
+        <p>参数 --prefix  rpm -ivh --prefix=/usr/local/dir/ rpmfile**.rpm <a class="read-more" href="/linux-centos-rpman-zhuang-shi-zhi-ding-lu-jing/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/how-to/">How To</a>, <a href="/tag/linux/">Linux</a>
-        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+    </footer>
+</article>
+<article class="post tag-linux tag-shell-tips">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/clean-linux-buffer-cache/">Linux,清空buffer cache</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>sync &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches <a class="read-more" href="/clean-linux-buffer-cache/">»</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+    </footer>
+</article>
+<article class="post tag-linux tag-shell-tips">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/shell-shi-yong-find-rmshan-chu-zhi-ding-tian-shu-qian-de-wen-jian/">Shell,使用find,rm删除指定天数前的文件</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>eg.  删除/root/Backup目录下30天前的文件 find /root/Backup -mtime +30 -name "*.*" -exec rm -rf {} \; <a class="read-more" href="/shell-shi-yong-find-rmshan-chu-zhi-ding-tian-shu-qian-de-wen-jian/">»</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+    </footer>
+</article>
+<article class="post tag-linux tag-shell-tips">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/sh-2/">Shell,根据程序名结束进程</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>kill -9 `ps -aef | grep 'qoute' | grep -v grep | awk '{print $2}'` <a class="read-more" href="/sh-2/">»</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+    </footer>
+</article>
+<article class="post tag-linux tag-shell-tips">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/linux-zip-and-unzip/">Linux,常见文件压缩及解压</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>.bz2 解压 tar xjvf package.tar.bz2   压缩 tar cjvf package.tar.bz2 package-dir   .tar 解包 tar xvf FileName.tar   打包 tar cvf FileName.tar package- <a class="read-more" href="/linux-zip-and-unzip/">»</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+    </footer>
+</article>
+<article class="post tag-mysql tag-linux">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/linux-cha-kan-mysqlzhi-xing-sqlshi-zi-yuan-zhan-yong/">Linux,查看mysql执行sql时资源占用</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>打开profiling 功能：set profiling = 1；  执行要分析的sql；   show profiles；   SHOW profile CPU,BLOCK IO io FOR query Query_ID；   当前查询 show processlist; <a class="read-more" href="/linux-cha-kan-mysqlzhi-xing-sqlshi-zi-yuan-zhan-yong/">»</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/mysql/">MySQL</a>, <a href="/tag/linux/">Linux</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
 
 <nav class="pagination" role="navigation">
-    <span class="page-number">第 1 页 ⁄ 共 1 页</span>
+    <span class="page-number">第 1 页 ⁄ 共 4 页</span>
+        <a class="older-posts" href="/tag/linux/page/2/">下一页 →</a>
 </nav>
 
 </main>
@@ -167,7 +240,7 @@
 
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/fitvids/1.1.0/jquery.fitvids.min.js"></script>
-    <script src="/assets/js/index.js?v=38655a7bc9"></script>
+    <script src="/assets/js/index.js?v=a720bb6013"></script>
 	<script>
 var _hmt = _hmt || [];
 (function() {
