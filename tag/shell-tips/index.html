@@ -1,30 +1,31 @@
-
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <title>Shell Tips - Page 1 - C'est la vie</title>
-    <meta name="description" content="">
+    <title>Shell Tips - Page 1 - C&#x27;est la vie</title>
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=a720bb6013">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=c50500171f" />
 
-    <link rel="canonical" href="http:///tag/shell-tips/">
-    <meta name="referrer" content="origin">
-    <link rel="next" href="http:///tag/shell-tips/page/2/">
+    <link rel="canonical" href="http:///tag/shell-tips/" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="http:///tag/shell-tips/page/2/" />
     
-    <meta property="og:site_name" content="C'est la vie">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Shell Tips - Page 1 - C'est la vie">
-    <meta property="og:url" content="http:///tag/shell-tips/">
+    <meta property="og:site_name" content="C'est la vie" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Shell Tips - Page 1 - C&#x27;est la vie" />
+    <meta property="og:url" content="http:///tag/shell-tips/" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Shell Tips - Page 1 - C'est la vie">
-    <meta name="twitter:url" content="http:///tag/shell-tips/">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Shell Tips - Page 1 - C&#x27;est la vie" />
+    <meta name="twitter:url" content="http:///tag/shell-tips/" />
     
     <script type="application/ld+json">
 {
@@ -36,8 +37,8 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 0.7">
-    <link rel="alternate" type="application/rss+xml" title="C'est la vie" href="http:///rss/index.rss">
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="C&#x27;est la vie" href="http:///rss/" />
 </head>
 <body class="tag-template tag-shell-tips nav-closed">
 
@@ -48,8 +49,12 @@
     </a>
     <ul>
             <li class="nav-home" role="presentation"><a href="http://1900.github.io/">Home</a></li>
+            <li class="nav-java" role="presentation"><a href="http://1900.github.io/tag/java/">Java</a></li>
+            <li class="nav-clojure" role="presentation"><a href="http://1900.github.io/tag/clojure/">Clojure</a></li>
+            <li class="nav-python" role="presentation"><a href="http://1900.github.io/tag/python/">Python</a></li>
+            <li class="nav-linux" role="presentation"><a href="http://1900.github.io/tag/linux/">Linux</a></li>
     </ul>
-    <a class="subscribe-button icon-feed" href="http:///rss/index.rss">订阅</a>
+    <a class="subscribe-button icon-feed" href="http:///rss/">订阅</a>
 </div>
 <span class="nav-cover"></span>
 
@@ -65,7 +70,7 @@
         <div class="main-header-content inner">
             <h1 class="page-title">Shell Tips</h1>
             <h2 class="page-description">
-                    共 29 篇文章
+                    共 41 篇文章
             </h2>
         </div>
     </div>
@@ -75,162 +80,162 @@
 
     <div class="extra-pagination inner">
     <nav class="pagination" role="navigation">
-    <span class="page-number">第 1 页 ⁄ 共 3 页</span>
-        <a class="older-posts" href="/tag/shell-tips/page/2/">下一页 →</a>
+    <span class="page-number">第 1 页 &frasl; 共 5 页</span>
+        <a class="older-posts" href="/tag/shell-tips/page/2/">下一页 &rarr;</a>
 </nav>
 </div>
 
 <article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/linuxguan-bi-zai-xian-deng-lu-yong-hu/">linux结束在线的登录用户</a></h2>
+        <h2 class="post-title"><a href="/shell-shi-yong-findpi-liang-shan-chu-shi-zhi-ding-wen-jian-ge-shu/">shell,使用find批量删除时指定文件个数</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>查明登陆端口  who   root pts/1 Feb 8 00:06 (192.168.1.58)   root pts/2 Feb 8 04:15 (192.168.1.60)   通知该用户将要关闭他： # echo "I will close your connecti <a class="read-more" href="/linuxguan-bi-zai-xian-deng-lu-yong-hu/">»</a></p>
+        <p>find . &gt;list | tail -10000 list | xargs rm -rf {} | xargs rm -rf  find . -name "*" -exec rm {} \; -print |head -10000 <a class="read-more" href="/shell-shi-yong-findpi-liang-shan-chu-shi-zhi-ding-wen-jian-ge-shu/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
          标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
+    </footer>
+</article>
+<article class="post tag-linux tag-shell-tips">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/shell-cha-kan-cpuji-nei-cun-zhan-yong/">shell,查看cpu及内存占用</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>top -b -n 1 |grep nginx|awk '{print "cpu:"$9"%","mem:"$10"%"}' <a class="read-more" href="/shell-cha-kan-cpuji-nei-cun-zhan-yong/">&raquo;</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
+    </footer>
+</article>
+<article class="post tag-linux tag-shell-tips">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/shell-shi-yong-touchhuo-finddui-mu-lu-de-modifyshi-jian-xiu-gai/">shell,使用touch或find对目录的Modify时间修改</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>touch -c -m -t 201602010000 /etl/home/gbuser/test/ find . -exec touch -c -m -t 201602010000 {} \; <a class="read-more" href="/shell-shi-yong-touchhuo-finddui-mu-lu-de-modifyshi-jian-xiu-gai/">&raquo;</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
     </footer>
 </article>
 <article class="post tag-shell-tips tag-linux">
     <header class="post-header">
-        <h2 class="post-title"><a href="/wget/">shell,使用wget整站抓取</a></h2>
+        <h2 class="post-title"><a href="/shell-findcha-zhao-shi-pai-chu-zi-mu-lu/">shell,find查找时排除子目录</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>wget -r -p -np -k http://baidu.com/   -r  递归 -p --page-requisites -np --no-parent -k  下载的HTML页面中的链接转换为相对链接即本地链接 <a class="read-more" href="/wget/">»</a></p>
+        <p>find . -path "./*/*" -prune -o -type f -size -10000000c -print| xargs ls -crt -ld | head -1000 <a class="read-more" href="/shell-findcha-zhao-shi-pai-chu-zi-mu-lu/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
          标签：<a href="/tag/shell-tips/">Shell Tips</a>, <a href="/tag/linux/">Linux</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
     </footer>
 </article>
 <article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/linux-centos-rpman-zhuang-shi-zhi-ding-lu-jing/">Linux,centos rpm安装时指定路径</a></h2>
+        <h2 class="post-title"><a href="/shell-shi-yong-seddui-wen-jian-fen-ge/">shell,使用sed对文件截取</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>参数 --prefix  rpm -ivh --prefix=/usr/local/dir/ rpmfile**.rpm <a class="read-more" href="/linux-centos-rpman-zhuang-shi-zhi-ding-lu-jing/">»</a></p>
+        <p>截取第1行到第200行 sed -n '1,200p' file &gt;&gt;newfile   sed -i '1,200d' file <a class="read-more" href="/shell-shi-yong-seddui-wen-jian-fen-ge/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
          标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
     </footer>
 </article>
 <article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/clean-linux-buffer-cache/">Linux,清空buffer cache</a></h2>
+        <h2 class="post-title"><a href="/shell-shi-yong-findzhi-lie-chu-wen-jian-ming/">shell,使用find只列出文件名</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>sync &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches <a class="read-more" href="/clean-linux-buffer-cache/">»</a></p>
+        <p>find . -name "*.c" -exec basename {} \; <a class="read-more" href="/shell-shi-yong-findzhi-lie-chu-wen-jian-ming/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
          标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
     </footer>
 </article>
 <article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/shell-shi-yong-find-rmshan-chu-zhi-ding-tian-shu-qian-de-wen-jian/">Shell,使用find,rm删除指定天数前的文件</a></h2>
+        <h2 class="post-title"><a href="/shell-shi-yong-ls-exportcha-zhao-ntian-qian-de-wen-jian/">Shell,使用ls,export查找n天前的文件</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>eg.  删除/root/Backup目录下30天前的文件 find /root/Backup -mtime +30 -name "*.*" -exec rm -rf {} \; <a class="read-more" href="/shell-shi-yong-find-rmshan-chu-zhi-ding-tian-shu-qian-de-wen-jian/">»</a></p>
+        <p>ls export$(date -d'15 days ago' "+%Y%m%d")*.pn.gz <a class="read-more" href="/shell-shi-yong-ls-exportcha-zhao-ntian-qian-de-wen-jian/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
          标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
+    </footer>
+</article>
+<article class="post tag-shell-tips tag-hp-unix">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/hp-unix-find/">hp unix 常用的一些命令总结</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>查找目录下的文件 find &lt;path&gt; "*" | xargs ls -l   删除文件 cd &lt;path&gt;   find . -name "*" | xargs rm{}   移动文件 find &lt;source directory&gt; -na <a class="read-more" href="/hp-unix-find/">&raquo;</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/shell-tips/">Shell Tips</a>, <a href="/tag/hp-unix/">HP UNIX</a>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
     </footer>
 </article>
 <article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/sh-2/">Shell,根据程序名结束进程</a></h2>
+        <h2 class="post-title"><a href="/shell-shi-yong-cat-sedhuo-awkshan-chu-kong-xing/">Shell,使用cat,sed或awk删除空行</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>kill -9 `ps -aef | grep 'qoute' | grep -v grep | awk '{print $2}'` <a class="read-more" href="/sh-2/">»</a></p>
+        <p>使用cat   cat filename|tr -s '\n'   使用sed sed '/^$/d' filename   sed -e '/^\n$/d' file.txt   sed '/^ *$/d' list.txt &gt;newlist.txt   使用awk aw <a class="read-more" href="/shell-shi-yong-cat-sedhuo-awkshan-chu-kong-xing/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
          标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
     </footer>
 </article>
 <article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/linux-zip-and-unzip/">Linux,常见文件压缩及解压</a></h2>
+        <h2 class="post-title"><a href="/linux-zai-debian-ubuntu-zhong-apt-getji-wgetshi-yong-dai-li/">Linux,在debian/ubuntu 中apt-get及wget使用代理</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>.bz2 解压 tar xjvf package.tar.bz2   压缩 tar cjvf package.tar.bz2 package-dir   .tar 解包 tar xvf FileName.tar   打包 tar cvf FileName.tar package- <a class="read-more" href="/linux-zip-and-unzip/">»</a></p>
+        <p>apt-get添加代理 vim /etc/apt/apt.conf   Acquire::http::proxy "http://username:password@proxy_adress:port_number";   #export http_proxy=http://us <a class="read-more" href="/linux-zai-debian-ubuntu-zhong-apt-getji-wgetshi-yong-dai-li/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
          标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
-    </footer>
-</article>
-<article class="post tag-linux tag-shell-tips">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/linux-yuan-cheng-hui-hua-guan-li-gong-ju-screende-ji-ben-shi-yong/">Linux,远程会话管理工具screen的基本使用</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>新建一个叫new的session screen -S new   列出当前所有的session screen -ls   回到new这个session screen -r new   结束当前session并回到new这个session screen -d -r yourname <a class="read-more" href="/linux-yuan-cheng-hui-hua-guan-li-gong-ju-screende-ji-ben-shi-yong/">»</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
-    </footer>
-</article>
-<article class="post tag-linux tag-shell-tips">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/linux-ming-ling-hou-tai-zhi-xing-de-fang-fa/">Linux,命令后台执行的方法</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>nohup command &gt; out.log 2&gt;&amp;1 &amp;   nohup的作用是将进程的父进程设置为1，即init进程，这样终端关闭时，不会影响该进程。  使用2&gt;&amp;1将标准错误输出也重定向到标准输出中，因为预定义的STDIN，STDOUT <a class="read-more" href="/linux-ming-ling-hou-tai-zhi-xing-de-fang-fa/">»</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
-    </footer>
-</article>
-<article class="post tag-linux tag-shell-tips">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/shell-shi-yong-findpi-liang-jie-ya-suo/">Shell,使用find批量解压缩</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>find -maxdepth 1 -name "*.tar.gz"|xargs -i tar zxvf {} <a class="read-more" href="/shell-shi-yong-findpi-liang-jie-ya-suo/">»</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
     </footer>
 </article>
 
 <nav class="pagination" role="navigation">
-    <span class="page-number">第 1 页 ⁄ 共 3 页</span>
-        <a class="older-posts" href="/tag/shell-tips/page/2/">下一页 →</a>
+    <span class="page-number">第 1 页 &frasl; 共 5 页</span>
+        <a class="older-posts" href="/tag/shell-tips/page/2/">下一页 &rarr;</a>
 </nav>
 
 </main>
 
 
         <footer class="site-footer clearfix">
-            <section class="copyright"><a href="http://">C'est la vie</a> © 2016</section>
+            <section class="copyright"><a href="http://">C&#x27;est la vie</a> &copy; 2016</section>
             <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a> &amp; <a href="http://www.ghostchina.com">GhostChina</a></section>
         </footer>
 
@@ -240,7 +245,7 @@
 
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/fitvids/1.1.0/jquery.fitvids.min.js"></script>
-    <script src="/assets/js/index.js?v=a720bb6013"></script>
+    <script src="/assets/js/index.js?v=c50500171f"></script>
 	<script>
 var _hmt = _hmt || [];
 (function() {
@@ -252,3 +257,4 @@ var _hmt = _hmt || [];
 </script>
 
 </body>
+</html>

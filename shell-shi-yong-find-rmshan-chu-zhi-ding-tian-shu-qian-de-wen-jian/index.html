@@ -1,35 +1,36 @@
-
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <title>Shell,使用find,rm删除指定天数前的文件</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=a720bb6013">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=c50500171f" />
 
-    <link rel="canonical" href="http:///shell-shi-yong-find-rmshan-chu-zhi-ding-tian-shu-qian-de-wen-jian/">
-    <meta name="referrer" content="origin">
+    <link rel="canonical" href="http:///shell-shi-yong-find-rmshan-chu-zhi-ding-tian-shu-qian-de-wen-jian/" />
+    <meta name="referrer" content="origin" />
     
-    <meta property="og:site_name" content="C'est la vie">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Shell,使用find,rm删除指定天数前的文件">
-    <meta property="og:description" content='eg.  删除/root/Backup目录下30天前的文件 find /root/Backup -mtime +30 -name "*.*" -exec rm -rf {} \;...'>
-    <meta property="og:url" content="http:///shell-shi-yong-find-rmshan-chu-zhi-ding-tian-shu-qian-de-wen-jian/">
-    <meta property="article:published_time" content="2016-02-03T08:59:04.218Z">
-    <meta property="article:modified_time" content="2016-02-03T08:59:04.218Z">
-    <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="Shell Tips">
+    <meta property="og:site_name" content="C'est la vie" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Shell,使用find,rm删除指定天数前的文件" />
+    <meta property="og:description" content="eg.  删除/root/Backup目录下30天前的文件 find /root/Backup -mtime +30 -name &quot;*.*&quot; -exec rm -rf {} \;..." />
+    <meta property="og:url" content="http:///shell-shi-yong-find-rmshan-chu-zhi-ding-tian-shu-qian-de-wen-jian/" />
+    <meta property="article:published_time" content="2016-02-03T08:59:04.218Z" />
+    <meta property="article:modified_time" content="2016-02-03T08:59:04.218Z" />
+    <meta property="article:tag" content="Linux" />
+    <meta property="article:tag" content="Shell Tips" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Shell,使用find,rm删除指定天数前的文件">
-    <meta name="twitter:description" content='eg.  删除/root/Backup目录下30天前的文件 find /root/Backup -mtime +30 -name "*.*" -exec rm -rf {} \;...'>
-    <meta name="twitter:url" content="http:///shell-shi-yong-find-rmshan-chu-zhi-ding-tian-shu-qian-de-wen-jian/">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Shell,使用find,rm删除指定天数前的文件" />
+    <meta name="twitter:description" content="eg.  删除/root/Backup目录下30天前的文件 find /root/Backup -mtime +30 -name &quot;*.*&quot; -exec rm -rf {} \;..." />
+    <meta name="twitter:url" content="http:///shell-shi-yong-find-rmshan-chu-zhi-ding-tian-shu-qian-de-wen-jian/" />
     
     <script type="application/ld+json">
 {
@@ -52,8 +53,8 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 0.7">
-    <link rel="alternate" type="application/rss+xml" title="C'est la vie" href="http:///rss/index.rss">
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="C&#x27;est la vie" href="http:///rss/" />
 </head>
 <body class="post-template tag-linux tag-shell-tips nav-closed">
 
@@ -64,8 +65,12 @@
     </a>
     <ul>
             <li class="nav-home" role="presentation"><a href="http://1900.github.io/">Home</a></li>
+            <li class="nav-java" role="presentation"><a href="http://1900.github.io/tag/java/">Java</a></li>
+            <li class="nav-clojure" role="presentation"><a href="http://1900.github.io/tag/clojure/">Clojure</a></li>
+            <li class="nav-python" role="presentation"><a href="http://1900.github.io/tag/python/">Python</a></li>
+            <li class="nav-linux" role="presentation"><a href="http://1900.github.io/tag/linux/">Linux</a></li>
     </ul>
-    <a class="subscribe-button icon-feed" href="http:///rss/index.rss">订阅</a>
+    <a class="subscribe-button icon-feed" href="http:///rss/">订阅</a>
 </div>
 <span class="nav-cover"></span>
 
@@ -91,21 +96,27 @@
             </section>
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 1900.github.io 468*60 -->
-<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="8642310708"></ins>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-5302593884439812"
+     data-ad-slot="8642310708"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
         </header>
 
         <section class="post-content">
-            <p>eg. <br>
+            <p>eg. <br />
 删除/root/Backup目录下30天前的文件</p>
 
 <pre><code class="language-shell">find /root/Backup -mtime +30 -name "*.*" -exec rm -rf {} \;  
 </code></pre>
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 1900.github.io 468 text only -->
-<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="1119043901"></ins>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-5302593884439812"
+     data-ad-slot="1119043901"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -128,7 +139,10 @@
 			<section class="ads">
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 1900.github.io 728 -->
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="4072510300"></ins>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-5302593884439812"
+     data-ad-slot="4072510300"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -164,13 +178,13 @@ var duoshuoQuery = {short_name:"1900"};
     <a class="read-next-story no-cover" href="/clean-linux-buffer-cache/">
         <section class="post">
             <h2>Linux,清空buffer cache</h2>
-            <p>sync &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches…</p>
+            <p>sync &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches&hellip;</p>
         </section>
     </a>
     <a class="read-next-story prev no-cover" href="/sh-2/">
         <section class="post">
             <h2>Shell,根据程序名结束进程</h2>
-            <p>kill -9 `ps -aef | grep 'qoute' | grep -v grep | awk '{print $2}'`…</p>
+            <p>kill -9 `ps -aef | grep 'qoute' | grep -v grep | awk '{print $2}'`&hellip;</p>
         </section>
     </a>
 </aside>
@@ -178,7 +192,7 @@ var duoshuoQuery = {short_name:"1900"};
 
 
         <footer class="site-footer clearfix">
-            <section class="copyright"><a href="http://">C'est la vie</a> © 2016</section>
+            <section class="copyright"><a href="http://">C&#x27;est la vie</a> &copy; 2016</section>
             <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a> &amp; <a href="http://www.ghostchina.com">GhostChina</a></section>
         </footer>
 
@@ -188,7 +202,7 @@ var duoshuoQuery = {short_name:"1900"};
 
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/fitvids/1.1.0/jquery.fitvids.min.js"></script>
-    <script src="/assets/js/index.js?v=a720bb6013"></script>
+    <script src="/assets/js/index.js?v=c50500171f"></script>
 	<script>
 var _hmt = _hmt || [];
 (function() {
@@ -200,3 +214,4 @@ var _hmt = _hmt || [];
 </script>
 
 </body>
+</html>

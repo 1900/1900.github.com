@@ -1,35 +1,36 @@
-
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <title>shell,使用wget整站抓取</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=a720bb6013">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=c50500171f" />
 
-    <link rel="canonical" href="http:///wget/">
-    <meta name="referrer" content="origin">
+    <link rel="canonical" href="http:///wget/" />
+    <meta name="referrer" content="origin" />
     
-    <meta property="og:site_name" content="C'est la vie">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="shell,使用wget整站抓取">
-    <meta property="og:description" content="wget -r -p -np -k http://baidu.com/   -r  递归 -p --page-requisites -np --no-parent -k  下载的HTML页面中的链接转换为相对链接即本地链接...">
-    <meta property="og:url" content="http:///wget/">
-    <meta property="article:published_time" content="2016-02-03T09:39:01.253Z">
-    <meta property="article:modified_time" content="2016-02-03T09:39:01.251Z">
-    <meta property="article:tag" content="Shell Tips">
-    <meta property="article:tag" content="Linux">
+    <meta property="og:site_name" content="C'est la vie" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="shell,使用wget整站抓取" />
+    <meta property="og:description" content="wget -r -p -np -k http://baidu.com/   -r  递归 -p --page-requisites -np --no-parent -k  下载的HTML页面中的链接转换为相对链接即本地链接..." />
+    <meta property="og:url" content="http:///wget/" />
+    <meta property="article:published_time" content="2016-02-03T09:39:01.253Z" />
+    <meta property="article:modified_time" content="2016-02-03T09:39:01.251Z" />
+    <meta property="article:tag" content="Shell Tips" />
+    <meta property="article:tag" content="Linux" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="shell,使用wget整站抓取">
-    <meta name="twitter:description" content="wget -r -p -np -k http://baidu.com/   -r  递归 -p --page-requisites -np --no-parent -k  下载的HTML页面中的链接转换为相对链接即本地链接...">
-    <meta name="twitter:url" content="http:///wget/">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="shell,使用wget整站抓取" />
+    <meta name="twitter:description" content="wget -r -p -np -k http://baidu.com/   -r  递归 -p --page-requisites -np --no-parent -k  下载的HTML页面中的链接转换为相对链接即本地链接..." />
+    <meta name="twitter:url" content="http:///wget/" />
     
     <script type="application/ld+json">
 {
@@ -52,8 +53,8 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 0.7">
-    <link rel="alternate" type="application/rss+xml" title="C'est la vie" href="http:///rss/index.rss">
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="C&#x27;est la vie" href="http:///rss/" />
 </head>
 <body class="post-template tag-shell-tips tag-linux nav-closed">
 
@@ -64,8 +65,12 @@
     </a>
     <ul>
             <li class="nav-home" role="presentation"><a href="http://1900.github.io/">Home</a></li>
+            <li class="nav-java" role="presentation"><a href="http://1900.github.io/tag/java/">Java</a></li>
+            <li class="nav-clojure" role="presentation"><a href="http://1900.github.io/tag/clojure/">Clojure</a></li>
+            <li class="nav-python" role="presentation"><a href="http://1900.github.io/tag/python/">Python</a></li>
+            <li class="nav-linux" role="presentation"><a href="http://1900.github.io/tag/linux/">Linux</a></li>
     </ul>
-    <a class="subscribe-button icon-feed" href="http:///rss/index.rss">订阅</a>
+    <a class="subscribe-button icon-feed" href="http:///rss/">订阅</a>
 </div>
 <span class="nav-cover"></span>
 
@@ -91,7 +96,10 @@
             </section>
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 1900.github.io 468*60 -->
-<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="8642310708"></ins>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-5302593884439812"
+     data-ad-slot="8642310708"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -107,7 +115,10 @@
 -k  下载的HTML页面中的链接转换为相对链接即本地链接</p>
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 1900.github.io 468 text only -->
-<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="1119043901"></ins>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-5302593884439812"
+     data-ad-slot="1119043901"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -130,7 +141,10 @@
 			<section class="ads">
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 1900.github.io 728 -->
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="4072510300"></ins>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-5302593884439812"
+     data-ad-slot="4072510300"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -166,13 +180,13 @@ var duoshuoQuery = {short_name:"1900"};
     <a class="read-next-story no-cover" href="/linuxguan-bi-zai-xian-deng-lu-yong-hu/">
         <section class="post">
             <h2>linux结束在线的登录用户</h2>
-            <p>查明登陆端口  who   root pts/1 Feb 8 00:06 (192.168.1.58)   root pts/2 Feb 8 04:…</p>
+            <p>查明登陆端口  who   root pts/1 Feb 3 01:16 (192.168.1.58)   root pts/2 Feb 3 05:&hellip;</p>
         </section>
     </a>
     <a class="read-next-story prev no-cover" href="/li-yong-pythonhe-gmailfa-song-you-jian/">
         <section class="post">
             <h2>利用Python和gmail发送邮件</h2>
-            <p>import smtplib   import sys   import email.mime.text   # my test mail mail_username='from@gmail.com'   mail_password='123456'…</p>
+            <p>import smtplib   import sys   import email.mime.text   # my test mail mail_username='from@gmail.com'   mail_password='123456'&hellip;</p>
         </section>
     </a>
 </aside>
@@ -180,7 +194,7 @@ var duoshuoQuery = {short_name:"1900"};
 
 
         <footer class="site-footer clearfix">
-            <section class="copyright"><a href="http://">C'est la vie</a> © 2016</section>
+            <section class="copyright"><a href="http://">C&#x27;est la vie</a> &copy; 2016</section>
             <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a> &amp; <a href="http://www.ghostchina.com">GhostChina</a></section>
         </footer>
 
@@ -190,7 +204,7 @@ var duoshuoQuery = {short_name:"1900"};
 
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/fitvids/1.1.0/jquery.fitvids.min.js"></script>
-    <script src="/assets/js/index.js?v=a720bb6013"></script>
+    <script src="/assets/js/index.js?v=c50500171f"></script>
 	<script>
 var _hmt = _hmt || [];
 (function() {
@@ -202,3 +216,4 @@ var _hmt = _hmt || [];
 </script>
 
 </body>
+</html>

@@ -1,35 +1,36 @@
-
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <title>Shell,scp基本使用</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=a720bb6013">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=c50500171f" />
 
-    <link rel="canonical" href="http:///shell-scpji-ben-shi-yong/">
-    <meta name="referrer" content="origin">
+    <link rel="canonical" href="http:///shell-scpji-ben-shi-yong/" />
+    <meta name="referrer" content="origin" />
     
-    <meta property="og:site_name" content="C'est la vie">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Shell,scp基本使用">
-    <meta property="og:description" content="将本地文件上传到服务器上 scp -P 222 /home/file.tar.gz   root@mq:/root/mq/file.tar.gz   P  - SSH端口 获取远程服务器上的文件   scp -P 222 root@mq:/root/mq/file.tar.gz /home/newfile.tar.gz   获取远程服务器上的目录 scp -P 222 -r root@mq:...">
-    <meta property="og:url" content="http:///shell-scpji-ben-shi-yong/">
-    <meta property="article:published_time" content="2016-02-03T08:03:36.653Z">
-    <meta property="article:modified_time" content="2016-02-03T08:03:36.647Z">
-    <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="Shell Tips">
+    <meta property="og:site_name" content="C'est la vie" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Shell,scp基本使用" />
+    <meta property="og:description" content="将本地文件上传到服务器上 scp -P 222 /home/file.tar.gz   root@mq:/root/mq/file.tar.gz   P  - SSH端口 获取远程服务器上的文件   scp -P 222 root@mq:/root/mq/file.tar.gz /home/newfile.tar.gz   获取远程服务器上的目录 scp -P 222 -r root@mq:..." />
+    <meta property="og:url" content="http:///shell-scpji-ben-shi-yong/" />
+    <meta property="article:published_time" content="2016-02-03T08:03:36.653Z" />
+    <meta property="article:modified_time" content="2016-02-03T08:03:36.647Z" />
+    <meta property="article:tag" content="Linux" />
+    <meta property="article:tag" content="Shell Tips" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Shell,scp基本使用">
-    <meta name="twitter:description" content="将本地文件上传到服务器上 scp -P 222 /home/file.tar.gz   root@mq:/root/mq/file.tar.gz   P  - SSH端口 获取远程服务器上的文件   scp -P 222 root@mq:/root/mq/file.tar.gz /home/newfile.tar.gz   获取远程服务器上的目录 scp -P 222 -r root@mq:...">
-    <meta name="twitter:url" content="http:///shell-scpji-ben-shi-yong/">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Shell,scp基本使用" />
+    <meta name="twitter:description" content="将本地文件上传到服务器上 scp -P 222 /home/file.tar.gz   root@mq:/root/mq/file.tar.gz   P  - SSH端口 获取远程服务器上的文件   scp -P 222 root@mq:/root/mq/file.tar.gz /home/newfile.tar.gz   获取远程服务器上的目录 scp -P 222 -r root@mq:..." />
+    <meta name="twitter:url" content="http:///shell-scpji-ben-shi-yong/" />
     
     <script type="application/ld+json">
 {
@@ -52,8 +53,8 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 0.7">
-    <link rel="alternate" type="application/rss+xml" title="C'est la vie" href="http:///rss/index.rss">
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="C&#x27;est la vie" href="http:///rss/" />
 </head>
 <body class="post-template tag-linux tag-shell-tips nav-closed">
 
@@ -64,8 +65,12 @@
     </a>
     <ul>
             <li class="nav-home" role="presentation"><a href="http://1900.github.io/">Home</a></li>
+            <li class="nav-java" role="presentation"><a href="http://1900.github.io/tag/java/">Java</a></li>
+            <li class="nav-clojure" role="presentation"><a href="http://1900.github.io/tag/clojure/">Clojure</a></li>
+            <li class="nav-python" role="presentation"><a href="http://1900.github.io/tag/python/">Python</a></li>
+            <li class="nav-linux" role="presentation"><a href="http://1900.github.io/tag/linux/">Linux</a></li>
     </ul>
-    <a class="subscribe-button icon-feed" href="http:///rss/index.rss">订阅</a>
+    <a class="subscribe-button icon-feed" href="http:///rss/">订阅</a>
 </div>
 <span class="nav-cover"></span>
 
@@ -91,7 +96,10 @@
             </section>
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 1900.github.io 468*60 -->
-<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="8642310708"></ins>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-5302593884439812"
+     data-ad-slot="8642310708"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -117,7 +125,10 @@ root@mq:/root/mq/file.tar.gz
 </code></pre>
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 1900.github.io 468 text only -->
-<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="1119043901"></ins>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-5302593884439812"
+     data-ad-slot="1119043901"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -140,7 +151,10 @@ root@mq:/root/mq/file.tar.gz
 			<section class="ads">
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 1900.github.io 728 -->
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="4072510300"></ins>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-5302593884439812"
+     data-ad-slot="4072510300"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -175,14 +189,14 @@ var duoshuoQuery = {short_name:"1900"};
 <aside class="read-next">
     <a class="read-next-story no-cover" href="/shell-jiang-dan-yin-hao-ti-huan-wei-shuang-yin-hao/">
         <section class="post">
-            <h2>Shell,将单引号 '替换为双引号"</h2>
-            <p>将单引号 ' 替换为 双引号 " sed 's/\x27/\x22/g' life…</p>
+            <h2>Shell,将单引号 &#x27;替换为双引号&quot;</h2>
+            <p>将单引号 ' 替换为 双引号 " sed 's/\x27/\x22/g' life&hellip;</p>
         </section>
     </a>
     <a class="read-next-story prev no-cover" href="/shell-kuai-su-qing-kong-wen-jian/">
         <section class="post">
             <h2>Shell,快速清空文件</h2>
-            <p>echo "" &gt; test.txt   &gt; test.txt cat/dev/null &gt; test.txt…</p>
+            <p>echo "" &gt; test.txt   &gt; test.txt cat/dev/null &gt; test.txt&hellip;</p>
         </section>
     </a>
 </aside>
@@ -190,7 +204,7 @@ var duoshuoQuery = {short_name:"1900"};
 
 
         <footer class="site-footer clearfix">
-            <section class="copyright"><a href="http://">C'est la vie</a> © 2016</section>
+            <section class="copyright"><a href="http://">C&#x27;est la vie</a> &copy; 2016</section>
             <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a> &amp; <a href="http://www.ghostchina.com">GhostChina</a></section>
         </footer>
 
@@ -200,7 +214,7 @@ var duoshuoQuery = {short_name:"1900"};
 
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/fitvids/1.1.0/jquery.fitvids.min.js"></script>
-    <script src="/assets/js/index.js?v=a720bb6013"></script>
+    <script src="/assets/js/index.js?v=c50500171f"></script>
 	<script>
 var _hmt = _hmt || [];
 (function() {
@@ -212,3 +226,4 @@ var _hmt = _hmt || [];
 </script>
 
 </body>
+</html>

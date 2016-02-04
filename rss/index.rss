@@ -1,444 +1,593 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>C'est la vie</title><description>Never say never!</description><link>http:///</link><generator>Ghost 0.7</generator><lastBuildDate>Wed, 03 Feb 2016 09:52:25 GMT</lastBuildDate><atom:link href="http:///rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>使用Python备份mysql</title><description>&lt;pre&gt;&lt;code class="language-python"&gt;#!/usr/bin/env python
-import osimport time
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[C'est la vie]]></title><description><![CDATA[Never say never!]]></description><link>http:///</link><generator>Ghost 0.7</generator><lastBuildDate>Thu, 04 Feb 2016 06:24:36 GMT</lastBuildDate><atom:link href="http:///rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Groovy去除重复数据]]></title><description><![CDATA[<pre><code class="language-groovy">def list = [a, b, c, c, c,d,e,e]  
+// [a, b, c, d, e] 
+list.unique()  
+</code></pre>]]></description><link>http:///groovy-qu-zhong/</link><guid isPermaLink="false">984537a4-707d-44d3-b29a-855c44a56459</guid><category><![CDATA[Groovy]]></category><dc:creator><![CDATA[Grizzly]]></dc:creator><pubDate>Thu, 04 Feb 2016 06:23:21 GMT</pubDate><content:encoded><![CDATA[<pre><code class="language-groovy">def list = [a, b, c, c, c,d,e,e]  
+// [a, b, c, d, e] 
+list.unique()  
+</code></pre>]]></content:encoded></item><item><title><![CDATA[Groovy 排序]]></title><description><![CDATA[<pre><code class="language-groovy">def list =[1,55,28,9,10,23,16]
 
-username = root  
-password = 123456  
-hostname = localhost
+//升序
+list.sort {a,b -&gt;  
+ return a.compareTo(b)
+}
 
-filestamp = time.strftime('%Y-%m-%d')
+//降序
+list.sort {a,b -&gt;  
+ return b.compareTo(a)
+}
+</code></pre>]]></description><link>http:///groovy-sort/</link><guid isPermaLink="false">35fbd64a-0b5a-41d9-b8ac-24a0c3556de3</guid><category><![CDATA[Groovy]]></category><dc:creator><![CDATA[Grizzly]]></dc:creator><pubDate>Thu, 04 Feb 2016 06:20:50 GMT</pubDate><content:encoded><![CDATA[<pre><code class="language-groovy">def list =[1,55,28,9,10,23,16]
 
-database_list_command="mysql -u %s -p%s -h %s --silent -N -e 'show databases'" % (username, password, hostname)for database in os.popen(database_list_command).readlines():  
-database = database.strip(&lt;/code&gt;&lt;/pre&gt;</description><link>http:///use-python-script-backup-mysql-data/</link><guid isPermaLink="false">04a304b5-a187-4819-be8c-fdf0b000a1c1</guid><category>Python</category><category>MySQL</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 09:51:09 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code class="language-python"&gt;#!/usr/bin/env python
-import osimport time
+//升序
+list.sort {a,b -&gt;  
+ return a.compareTo(b)
+}
 
-username = root  
-password = 123456  
-hostname = localhost
+//降序
+list.sort {a,b -&gt;  
+ return b.compareTo(a)
+}
+</code></pre>]]></content:encoded></item><item><title><![CDATA[grails 命令大全]]></title><description><![CDATA[<h6 id="">常用命令</h6>
 
-filestamp = time.strftime('%Y-%m-%d')
+<p>创建新的Grails应用</p>
 
-database_list_command="mysql -u %s -p%s -h %s --silent -N -e 'show databases'" % (username, password, hostname)for database in os.popen(database_list_command).readlines():  
-database = database.strip()  
-if database == 'information_schema':  
-    continue
-    filename = "/backups/mysql/%s-%s.sql" % (database, filestamp)
-    os.popen("mysqldump -u %s -p%s -h %s -e --opt -c %s | gzip -c &amp;gt; %s.gz" % (username, password, hostname, database, filename))
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>linux结束在线的登录用户</title><description>&lt;p&gt;查明登陆端口 &lt;/p&gt;
+<pre><code class="language-grails">grails create-app  
+</code></pre>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;who  
-&lt;/code&gt;&lt;/pre&gt;
+<p>
+创建新的控制器</p>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;root pts/1 Feb 8 00:06 (192.168.1.58)  
-root pts/2 Feb 8 04:15 (192.168.1.60)  
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code class="language-grails">grails create-controller  
+</code></pre>
 
-&lt;p&gt;通知该用户将要关闭他：&lt;/p&gt;
+<p>创建新的领域类</p>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;# echo "I will close your connection" &amp;gt; /dev/pts/2
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code class="language-grails">grails create-domain-class
+</code></pre>
 
-&lt;p&gt;关闭用户连接&lt;/p&gt;
+<p>创建新的服务类</p>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;fuser -k /dev/pts/2  
-&lt;/code&gt;&lt;/pre&gt;</description><link>http:///linuxguan-bi-zai-xian-deng-lu-yong-hu/</link><guid isPermaLink="false">4ce343a3-c254-4c7a-8a63-721faabdc9d0</guid><category>Linux</category><category>Shell Tips</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 09:43:12 GMT</pubDate><content:encoded>&lt;p&gt;查明登陆端口 &lt;/p&gt;
+<pre><code class="language-grails">grails create-service  
+</code></pre>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;who  
-&lt;/code&gt;&lt;/pre&gt;
+<p>创建新的过滤器</p>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;root pts/1 Feb 8 00:06 (192.168.1.58)  
-root pts/2 Feb 8 04:15 (192.168.1.60)  
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code class="language-grails">grails create-filters
+</code></pre>
 
-&lt;p&gt;通知该用户将要关闭他：&lt;/p&gt;
+<p>创建标签库</p>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;# echo "I will close your connection" &amp;gt; /dev/pts/2
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code class="language-grails">grails create-tag-lib
+</code></pre>
 
-&lt;p&gt;关闭用户连接&lt;/p&gt;
+<p>创建新的Groovy脚本</p>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;fuser -k /dev/pts/2  
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>shell,使用wget整站抓取</title><description>&lt;pre&gt;&lt;code class="language-shell"&gt;wget -r -p -np -k http://baidu.com/  
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code class="language-grails">grails create-script  
+</code></pre>
 
-&lt;p&gt;-r  递归
--p --page-requisites
--np --no-parent
--k  下载的HTML页面中的链接转换为相对链接即本地链接&lt;/p&gt;</description><link>http:///wget/</link><guid isPermaLink="false">891d623d-3d3d-4855-ae7e-739ae9f7ede6</guid><category>Shell Tips</category><category>Linux</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 09:39:01 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code class="language-shell"&gt;wget -r -p -np -k http://baidu.com/  
-&lt;/code&gt;&lt;/pre&gt;
+<p>清除各种资源,如生成的类</p>
 
-&lt;p&gt;-r  递归
--p --page-requisites
--np --no-parent
--k  下载的HTML页面中的链接转换为相对链接即本地链接&lt;/p&gt;</content:encoded></item><item><title>利用Python和gmail发送邮件</title><description>&lt;pre&gt;&lt;code class="language-python"&gt;import smtplib  
-import sys  
-import email.mime.text  
-# my test mail
-mail_username='from@gmail.com'  
-mail_password='123456'  
-from_addr = mail_username  
-to_addrs=('to@gmail.com')
+<pre><code class="language-grails">grails clean  
+</code></pre>
 
-# HOST &amp;amp; PORT
-HOST = 'smtp.gmail.com'  
-PORT = 25
+<p>产生静态组件,含控制器、视图、测试文件等</p>
 
-# Create SMTP Object
-smtp = smtplib.SMTP()  
-print 'connecting ...'
+<pre><code class="language-grails">grails generate-all
+</code></pre>
 
-# show the debug log&lt;/code&gt;&lt;/pre&gt;</description><link>http:///li-yong-pythonhe-gmailfa-song-you-jian/</link><guid isPermaLink="false">99d60a94-3016-4c80-be92-e275721c5696</guid><category>Python</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 09:36:48 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code class="language-python"&gt;import smtplib  
-import sys  
-import email.mime.text  
-# my test mail
-mail_username='from@gmail.com'  
-mail_password='123456'  
-from_addr = mail_username  
-to_addrs=('to@gmail.com')
+<p>产生控制器</p>
 
-# HOST &amp;amp; PORT
-HOST = 'smtp.gmail.com'  
-PORT = 25
+<pre><code class="language-grails">grails generate-controller  
+</code></pre>
 
-# Create SMTP Object
-smtp = smtplib.SMTP()  
-print 'connecting ...'
+<p>产生GSP视图</p>
 
-# show the debug log
-smtp.set_debuglevel(1)
+<pre><code class="language-grails">grails generate-views
+</code></pre>
 
-# connet
-try:  
-    print smtp.connect(HOST,PORT)
-except:  
-    print 'CONNECT ERROR ****'
-    # gmail uses ssl
-    smtp.starttls()
-    # login with username &amp;amp; password
+<p>更新应用到新版本</p>
+
+<pre><code class="language-grails">grails upgrade
+</code></pre>
+
+<p>打成war包</p>
+
+<pre><code class="language-grails">grails war 
+</code></pre>
+
+<p>运行应用</p>
+
+<pre><code class="language-grails">grails run-app
+</code></pre>
+
+<p>运行单元测试与集成测试，并且生成测试报告</p>
+
+<pre><code class="language-grails">grails</code></pre>]]></description><link>http:///grails-chang-yong-ming-ling/</link><guid isPermaLink="false">a0acdea2-c036-48c5-a1d6-5ed66b82b706</guid><category><![CDATA[Grails]]></category><dc:creator><![CDATA[Grizzly]]></dc:creator><pubDate>Thu, 04 Feb 2016 06:17:16 GMT</pubDate><content:encoded><![CDATA[<h6 id="">常用命令</h6>
+
+<p>创建新的Grails应用</p>
+
+<pre><code class="language-grails">grails create-app  
+</code></pre>
+
+<p>
+创建新的控制器</p>
+
+<pre><code class="language-grails">grails create-controller  
+</code></pre>
+
+<p>创建新的领域类</p>
+
+<pre><code class="language-grails">grails create-domain-class
+</code></pre>
+
+<p>创建新的服务类</p>
+
+<pre><code class="language-grails">grails create-service  
+</code></pre>
+
+<p>创建新的过滤器</p>
+
+<pre><code class="language-grails">grails create-filters
+</code></pre>
+
+<p>创建标签库</p>
+
+<pre><code class="language-grails">grails create-tag-lib
+</code></pre>
+
+<p>创建新的Groovy脚本</p>
+
+<pre><code class="language-grails">grails create-script  
+</code></pre>
+
+<p>清除各种资源,如生成的类</p>
+
+<pre><code class="language-grails">grails clean  
+</code></pre>
+
+<p>产生静态组件,含控制器、视图、测试文件等</p>
+
+<pre><code class="language-grails">grails generate-all
+</code></pre>
+
+<p>产生控制器</p>
+
+<pre><code class="language-grails">grails generate-controller  
+</code></pre>
+
+<p>产生GSP视图</p>
+
+<pre><code class="language-grails">grails generate-views
+</code></pre>
+
+<p>更新应用到新版本</p>
+
+<pre><code class="language-grails">grails upgrade
+</code></pre>
+
+<p>打成war包</p>
+
+<pre><code class="language-grails">grails war 
+</code></pre>
+
+<p>运行应用</p>
+
+<pre><code class="language-grails">grails run-app
+</code></pre>
+
+<p>运行单元测试与集成测试，并且生成测试报告</p>
+
+<pre><code class="language-grails">grails test-app
+</code></pre>
+
+<p>指定运行端口为888</p>
+
+<pre><code class="language-grails">Grails –Dserver.port=888 run-app  
+</code></pre>
+
+<p>指定编码为gbk,端口888</p>
+
+<pre><code class="language-grails">Grails -Dfile.encoding=GBK -Dserver.port=888 run-app 
+</code></pre>
+
+<p>以utf-8打war包</p>
+
+<pre><code class="language-grails">Grails -Dfile.encoding=UTF-8 prod war  
+</code></pre>
+
+<p>以utf-8打war包,war包名称test</p>
+
+<pre><code class="language-grails">Grails -Dfile.encoding=UTF-8 prod war test.war  
+</code></pre>
+
+<p>以prod env运行</p>
+
+<pre><code class="language-grails">grails prod run-war  
+</code></pre>
+
+<h6 id="">不太常用命令</h6>
+
+<p>执行容器外的引导程序,可以做初始化工作</p>
+
+<pre><code class="language-grails">grails bootstrap
+</code></pre>
+
+<p>预编译Java与Groovy类</p>
+
+<pre><code class="language-grails">grails compile  
+</code></pre>
+
+<p>产生javadoc和groovydoc文档</p>
+
+<pre><code class="language-grails">grails doc
+</code></pre>
+
+<p>调用Groovy Console GUI工具</p>
+
+<pre><code class="language-grails">grails console
+</code></pre>
+
+<p>在grails-app/conf/hibernate目录下创建hibernate配置文件</p>
+
+<pre><code class="language-grails">grails create-hibernate-cfg-xml  
+</code></pre>
+
+<p>创建新的集成测试</p>
+
+<pre><code class="language-grails">grails create-integration-test  
+</code></pre>
+
+<p>创建新的插件</p>
+
+<pre><code class="language-grails">grails create-plugin
+</code></pre>
+
+<p>创建新的单元测试</p>
+
+<pre><code class="language-grails">grails init  
+</code></pre>
+
+<p>初始化应用</p>
+
+<pre><code class="language-grails">grails create-unit-test
+</code></pre>
+
+<p>安装依赖的jar包</p>
+
+<pre><code class="language-grails">grails install-dependency  
+</code></pre>
+
+<p>安装扩展插件</p>
+
+<pre><code class="language-grails">grails install-plugin
+</code></pre>
+
+<p>允许Grails应用与IDE和构建系统集成</p>
+
+<pre><code class="language-grails">grails integrate-with
+</code></pre>
+
+<p>列出插件更新 </p>
+
+<pre><code class="language-grails">grails list-plugin-updates
+</code></pre>
+
+<p>列出插件更新 </p>
+
+<pre><code class="language-grails">grails list-plugin-updates
+</code></pre>
+
+<p>列出可以使用的插件</p>
+
+<pre><code class="language-grails">grails list-plugins 
+</code></pre>
+
+<p>打包到C:/Documents and Settings/Administrator/.grails/2.<em>.</em>/projects/XXX
+grails package  </p>
+
+<pre><code class="language-grails">grails package  
+</code></pre>
+
+<p>打包可以安装到其他应用的插件</p>
+
+<pre><code class="language-grails">grails package-plugin
+</code></pre>
+
+<p>查看特定插件信息</p>
+
+<pre><code class="language-grails">grails plugin-info 
+</code></pre>
+
+<p>标记和发布插件</p>
+
+<pre><code class="language-grails">grails release-plugin
+</code></pre>
+
+<p>删除代理服务器</p>
+
+<pre><code class="language-grails">grails remove-proxy  
+</code></pre>
+
+<p>打包并运行</p>
+
+<pre><code class="language-grails">grails run-war  
+</code></pre>
+
+<p>导出DDL数据库脚本</p>
+
+<pre><code class="language-grails">grails schema-export  
+</code></pre>
+
+<p>激活代理配置</p>
+
+<pre><code class="language-grails">grails set-proxy  
+</code></pre>
+
+<p>设置应用版本号</p>
+
+<pre><code class="language-grails">grails set-version
+</code></pre>
+
+<p>启动一个Groovy终端shell并初始化了Grails runtime</p>
+
+<pre><code class="language-grails">grails shell  
+</code></pre>
+
+<p>输出本应用的各种统计信息,如有多少领域类等</p>
+
+<pre><code class="language-grails">grails stats 
+</code></pre>
+
+<p>把应用打包并部署到Tomcat</p>
+
+<pre><code class="language-grails">grails tomcat
+</code></pre>
+
+<p>卸载插件</p>
+
+<pre><code class="language-grails">grails uninstall-plugin  
+</code></pre>
+
+<p>查看帮助</p>
+
+<pre><code class="language-grails">grails help  
+</code></pre>]]></content:encoded></item><item><title><![CDATA[shell,使用find批量删除时指定文件个数]]></title><description><![CDATA[<pre><code class="language-shell">find . &gt;list | tail -10000 list | xargs rm -rf {} | xargs rm -rf 
+
+find . -name "*" -exec rm {} \; -print |head -10000 
+</code></pre>]]></description><link>http:///shell-shi-yong-findpi-liang-shan-chu-shi-zhi-ding-wen-jian-ge-shu/</link><guid isPermaLink="false">8bd9d260-57f7-441a-a6dd-5b605cba4250</guid><category><![CDATA[Linux]]></category><category><![CDATA[Shell Tips]]></category><dc:creator><![CDATA[Grizzly]]></dc:creator><pubDate>Thu, 04 Feb 2016 05:08:24 GMT</pubDate><content:encoded><![CDATA[<pre><code class="language-shell">find . &gt;list | tail -10000 list | xargs rm -rf {} | xargs rm -rf 
+
+find . -name "*" -exec rm {} \; -print |head -10000 
+</code></pre>]]></content:encoded></item><item><title><![CDATA[shell,查看cpu及内存占用]]></title><description><![CDATA[<pre><code class="language-shell">top -b -n 1 |grep nginx|awk '{print "cpu:"$9"%","mem:"$10"%"}'  
+</code></pre>]]></description><link>http:///shell-cha-kan-cpuji-nei-cun-zhan-yong/</link><guid isPermaLink="false">51b60bc6-8b8b-4249-9bd2-78288afae847</guid><category><![CDATA[Linux]]></category><category><![CDATA[Shell Tips]]></category><dc:creator><![CDATA[Grizzly]]></dc:creator><pubDate>Thu, 04 Feb 2016 05:02:16 GMT</pubDate><content:encoded><![CDATA[<pre><code class="language-shell">top -b -n 1 |grep nginx|awk '{print "cpu:"$9"%","mem:"$10"%"}'  
+</code></pre>]]></content:encoded></item><item><title><![CDATA[shell,使用touch或find对目录的Modify时间修改]]></title><description><![CDATA[<pre><code>touch -c -m -t 201602010000 /etl/home/gbuser/test/
+
+find . -exec touch -c -m -t 201602010000 {} \;  
+</code></pre>]]></description><link>http:///shell-shi-yong-touchhuo-finddui-mu-lu-de-modifyshi-jian-xiu-gai/</link><guid isPermaLink="false">30f4b2d8-9da6-4a02-a430-aaa5c15ca4ab</guid><category><![CDATA[Linux]]></category><category><![CDATA[Shell Tips]]></category><dc:creator><![CDATA[Grizzly]]></dc:creator><pubDate>Thu, 04 Feb 2016 04:58:01 GMT</pubDate><content:encoded><![CDATA[<pre><code>touch -c -m -t 201602010000 /etl/home/gbuser/test/
+
+find . -exec touch -c -m -t 201602010000 {} \;  
+</code></pre>]]></content:encoded></item><item><title><![CDATA[shell,find查找时排除子目录]]></title><description><![CDATA[<pre><code class="language-shell">find . -path "./*/*" -prune -o -type f -size -10000000c -print| xargs ls -crt -ld | head -1000  
+</code></pre>]]></description><link>http:///shell-findcha-zhao-shi-pai-chu-zi-mu-lu/</link><guid isPermaLink="false">a49179c0-ab25-4402-8bf5-2cfd02e1aad1</guid><category><![CDATA[Shell Tips]]></category><category><![CDATA[Linux]]></category><dc:creator><![CDATA[Grizzly]]></dc:creator><pubDate>Thu, 04 Feb 2016 04:54:57 GMT</pubDate><content:encoded><![CDATA[<pre><code class="language-shell">find . -path "./*/*" -prune -o -type f -size -10000000c -print| xargs ls -crt -ld | head -1000  
+</code></pre>]]></content:encoded></item><item><title><![CDATA[使用python监控进程]]></title><description><![CDATA[<p>eg. <br>
+监控nginx</p>
+
+<pre><code class="language-python"># !/usr/bin/env python
+import os, sys, time
+
+while True:  
+    time.sleep(3)
     try:
-        print 'loginning ...'
-        smtp.login(mail_username,mail_password)
+        ret = os.popen('ps -C nginx -o pid,cmd').readlines()
+        if len(ret) &lt; 2:
+            print "nginx process killed, restarting service in 3 seconds."
+            time.sleep(3)
+            os.system("service nginx restart")
     except:
-        print 'LOGIN ERROR ****'
-        # fill content with MIMEText's object
-        msg = email.mime.text.MIMEText('text')
-        msg['From'] = from_addr
-        msg['To'] = ';'.join(to_addrs)
-        msg['Subject']='hello , today is a special day'
-        print msg.as_string()
-        smtp.sendmail(from_addr,to_addrs,msg.as_string())
-        smtp.quit()### unterminated keywords ###
-    try
-    try
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Linux,使用mysqldump导出数据时对sql文件进行压缩</title><description>&lt;pre&gt;&lt;code&gt;mysqldump -h192.168.1.222 -ubackup -pbackup kds trank  
-| gzip &amp;gt; $backupdir/back.sql.gz
-&lt;/code&gt;&lt;/pre&gt;</description><link>http:///linux-shi-yong-mysqldumpdao-chu-shu-ju-shi-dui-sqlwen-jian-jin-xing-ya-suo/</link><guid isPermaLink="false">2df265a0-3bcb-42b6-8f13-fc238c027e90</guid><category>Linux</category><category>MySQL</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 09:29:06 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code&gt;mysqldump -h192.168.1.222 -ubackup -pbackup kds trank  
-| gzip &amp;gt; $backupdir/back.sql.gz
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Shell,mysql开启远程访问</title><description>&lt;pre&gt;&lt;code class="language-shell"&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;  
-&lt;/code&gt;&lt;/pre&gt;
+        print</code></pre>]]></description><link>http:///shi-yong-pythonjian-kong-jin-cheng/</link><guid isPermaLink="false">0ee79be4-7fb2-42dd-ad28-405d66495fce</guid><category><![CDATA[Python]]></category><dc:creator><![CDATA[Grizzly]]></dc:creator><pubDate>Thu, 04 Feb 2016 04:53:04 GMT</pubDate><content:encoded><![CDATA[<p>eg. <br>
+监控nginx</p>
 
-&lt;p&gt;允许局域网内192.168.访问&lt;/p&gt;
+<pre><code class="language-python"># !/usr/bin/env python
+import os, sys, time
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.%.%' IDENTIFIED BY 'root' WITH GRANT OPTION;  
-FLUSH PRIVILEGES;  
-&lt;/code&gt;&lt;/pre&gt;
+while True:  
+    time.sleep(3)
+    try:
+        ret = os.popen('ps -C nginx -o pid,cmd').readlines()
+        if len(ret) &lt; 2:
+            print "nginx process killed, restarting service in 3 seconds."
+            time.sleep(3)
+            os.system("service nginx restart")
+    except:
+        print "Error", sys.exc_info()[1]
+</code></pre>]]></content:encoded></item><item><title><![CDATA[install MariaDB on debian 8]]></title><description><![CDATA[<pre><code class="language-shell">sudo apt-get install software-properties-common  
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db  
+</code></pre>
 
-&lt;p&gt;修改/etc/mysql/my.cnf,注释bind-address  &lt;/p&gt;
+<pre><code class="language-shell">sudo add-apt-repository 'deb [arch=amd64,i386] http://mirrors.opencas.cn/mariadb/repo/10.1/debian jessie main'  
+</code></pre>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;#bind-address = 127.0.0.1
-&lt;/code&gt;&lt;/pre&gt;</description><link>http:///shell-mysqlkai-qi-yuan-cheng-fang-wen/</link><guid isPermaLink="false">2e10c45c-4df7-4c90-b5c7-cd4dbd44f9a3</guid><category>Linux</category><category>MySQL</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 09:24:29 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code class="language-shell"&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;  
-&lt;/code&gt;&lt;/pre&gt;
+<p>或者是添加</p>
 
-&lt;p&gt;允许局域网内192.168.访问&lt;/p&gt;
+<pre><code class="language-shell">deb [arch=amd64,i386] http://mirrors.opencas.cn/mariadb/repo/10.1/debian jessie main  
+deb-src http://mirrors.opencas.</code></pre>]]></description><link>http:///install-mariadb-on-debian-8/</link><guid isPermaLink="false">b40cf444-32dc-496c-ac77-b692c25114ec</guid><category><![CDATA[Linux]]></category><category><![CDATA[MySQL]]></category><dc:creator><![CDATA[Grizzly]]></dc:creator><pubDate>Thu, 04 Feb 2016 04:47:34 GMT</pubDate><content:encoded><![CDATA[<pre><code class="language-shell">sudo apt-get install software-properties-common  
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db  
+</code></pre>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.%.%' IDENTIFIED BY 'root' WITH GRANT OPTION;  
-FLUSH PRIVILEGES;  
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code class="language-shell">sudo add-apt-repository 'deb [arch=amd64,i386] http://mirrors.opencas.cn/mariadb/repo/10.1/debian jessie main'  
+</code></pre>
 
-&lt;p&gt;修改/etc/mysql/my.cnf,注释bind-address  &lt;/p&gt;
+<p>或者是添加</p>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;#bind-address = 127.0.0.1
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Linux,centos rpm安装时指定路径</title><description>&lt;p&gt;参数 --prefix&lt;/p&gt;
+<pre><code class="language-shell">deb [arch=amd64,i386] http://mirrors.opencas.cn/mariadb/repo/10.1/debian jessie main  
+deb-src http://mirrors.opencas.cn/mariadb/repo/10.1/debian jessie main  
+</code></pre>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt; rpm -ivh --prefix=/usr/local/dir/ rpmfile**.rpm 
-&lt;/code&gt;&lt;/pre&gt;</description><link>http:///linux-centos-rpman-zhuang-shi-zhi-ding-lu-jing/</link><guid isPermaLink="false">25962784-3383-4575-9dd4-213667ce9068</guid><category>Linux</category><category>Shell Tips</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 09:18:40 GMT</pubDate><content:encoded>&lt;p&gt;参数 --prefix&lt;/p&gt;
+<p>到/etc/apt/sources.list</p>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt; rpm -ivh --prefix=/usr/local/dir/ rpmfile**.rpm 
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Linux,清空buffer cache</title><description>&lt;pre&gt;&lt;code class="language-shell"&gt;sync &amp;amp;&amp;amp; echo 3 &amp;gt; /proc/sys/vm/drop_caches  
-&lt;/code&gt;&lt;/pre&gt;</description><link>http:///clean-linux-buffer-cache/</link><guid isPermaLink="false">3508b109-80b2-43ce-a13b-742c3a35ba0a</guid><category>Linux</category><category>Shell Tips</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 09:01:51 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code class="language-shell"&gt;sync &amp;amp;&amp;amp; echo 3 &amp;gt; /proc/sys/vm/drop_caches  
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Shell,使用find,rm删除指定天数前的文件</title><description>&lt;p&gt;eg. &lt;br&gt;
-删除/root/Backup目录下30天前的文件&lt;/p&gt;
+<pre><code class="language-shell">sudo apt-get update  
+sudo apt-get install mariadb-server  
+</code></pre>]]></content:encoded></item><item><title><![CDATA[shell,使用sed对文件截取]]></title><description><![CDATA[<p>截取第1行到第200行</p>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;find /root/Backup -mtime +30 -name "*.*" -exec rm -rf {} \;  
-&lt;/code&gt;&lt;/pre&gt;</description><link>http:///shell-shi-yong-find-rmshan-chu-zhi-ding-tian-shu-qian-de-wen-jian/</link><guid isPermaLink="false">c1e6a3eb-7964-4c04-8cc7-bc1359ebeee3</guid><category>Linux</category><category>Shell Tips</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 08:59:04 GMT</pubDate><content:encoded>&lt;p&gt;eg. &lt;br&gt;
-删除/root/Backup目录下30天前的文件&lt;/p&gt;
+<pre><code class="language-shell">sed -n '1,200p' file &gt;&gt;newfile  
+sed -i '1,200d' file  
+</code></pre>]]></description><link>http:///shell-shi-yong-seddui-wen-jian-fen-ge/</link><guid isPermaLink="false">805b4d21-3ea1-457c-8b36-8f5178b5ce47</guid><category><![CDATA[Linux]]></category><category><![CDATA[Shell Tips]]></category><dc:creator><![CDATA[Grizzly]]></dc:creator><pubDate>Thu, 04 Feb 2016 04:39:10 GMT</pubDate><content:encoded><![CDATA[<p>截取第1行到第200行</p>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;find /root/Backup -mtime +30 -name "*.*" -exec rm -rf {} \;  
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Shell,根据程序名结束进程</title><description>&lt;pre&gt;&lt;code class="language-shell"&gt;kill -9 `ps -aef | grep 'qoute' | grep -v grep | awk '{print $2}'`  
-&lt;/code&gt;&lt;/pre&gt;</description><link>http:///sh-2/</link><guid isPermaLink="false">8bf3a451-d064-4100-b2e2-c4c3e0533cb6</guid><category>Linux</category><category>Shell Tips</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 08:53:50 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code class="language-shell"&gt;kill -9 `ps -aef | grep 'qoute' | grep -v grep | awk '{print $2}'`  
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Linux,常见文件压缩及解压</title><description>&lt;h5 id="bz2"&gt;.bz2&lt;/h5&gt;
+<pre><code class="language-shell">sed -n '1,200p' file &gt;&gt;newfile  
+sed -i '1,200d' file  
+</code></pre>]]></content:encoded></item><item><title><![CDATA[shell,使用find只列出文件名]]></title><description><![CDATA[<pre><code class="language-shell">find . -name "*.c" -exec basename {} \;  
+</code></pre>]]></description><link>http:///shell-shi-yong-findzhi-lie-chu-wen-jian-ming/</link><guid isPermaLink="false">c309d209-ff2c-43d9-99ea-7de6a22d9e73</guid><category><![CDATA[Linux]]></category><category><![CDATA[Shell Tips]]></category><dc:creator><![CDATA[Grizzly]]></dc:creator><pubDate>Thu, 04 Feb 2016 04:25:34 GMT</pubDate><content:encoded><![CDATA[<pre><code class="language-shell">find . -name "*.c" -exec basename {} \;  
+</code></pre>]]></content:encoded></item><item><title><![CDATA[Shell,使用ls,export查找n天前的文件]]></title><description><![CDATA[<pre><code class="language-shell">ls export$(date -d'15 days ago' "+%Y%m%d")*.pn.gz  
+</code></pre>]]></description><link>http:///shell-shi-yong-ls-exportcha-zhao-ntian-qian-de-wen-jian/</link><guid isPermaLink="false">0a8d72fd-39b0-4924-b0a6-f839d8db90c2</guid><category><![CDATA[Linux]]></category><category><![CDATA[Shell Tips]]></category><dc:creator><![CDATA[Grizzly]]></dc:creator><pubDate>Thu, 04 Feb 2016 04:24:28 GMT</pubDate><content:encoded><![CDATA[<pre><code class="language-shell">ls export$(date -d'15 days ago' "+%Y%m%d")*.pn.gz  
+</code></pre>]]></content:encoded></item><item><title><![CDATA[hp unix 常用的一些命令总结]]></title><description><![CDATA[<p>查找目录下的文件</p>
 
-&lt;p&gt;解压&lt;/p&gt;
+<pre><code class="language-shell">find &lt;path&gt; "*" | xargs ls -l  
+</code></pre>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;tar xjvf package.tar.bz2  
-&lt;/code&gt;&lt;/pre&gt;
+<p>删除文件</p>
 
-&lt;p&gt;压缩&lt;/p&gt;
+<pre><code class="language-shell">cd &lt;path&gt;  
+find . -name "*" | xargs rm{}  
+</code></pre>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;tar cjvf package.tar.bz2 package-dir  
-&lt;/code&gt;&lt;/pre&gt;
+<p>移动文件</p>
 
-&lt;h5 id="tar"&gt;.tar&lt;/h5&gt;
+<pre><code class="language-shell">find &lt;source directory&gt; -name "*" | xargs -I {} mv {} &lt;/destination directory&gt;  
+</code></pre>
 
-&lt;p&gt;解包&lt;/p&gt;
+<p>eg.  </p>
 
-&lt;pre&gt;&lt;code class="language-shell "&gt;tar xvf FileName.tar  
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code class="language-shell">find /etl/home/gbuser/reject/ -name "*" | xargs rm{}  
+</code></pre>
 
-&lt;p&gt;打包&lt;/p&gt;
+<p>压缩</p>
+
+<pre><code class="language-shell">tar xvf files.tar -C /etl/home/gbuser/offline/</code></pre>]]></description><link>http:///hp-unix-find/</link><guid isPermaLink="false">2874c228-fc61-458f-a231-5c14f8cc040f</guid><category><![CDATA[Shell Tips]]></category><category><![CDATA[HP UNIX]]></category><dc:creator><![CDATA[Grizzly]]></dc:creator><pubDate>Thu, 04 Feb 2016 04:18:44 GMT</pubDate><content:encoded><![CDATA[<p>查找目录下的文件</p>
+
+<pre><code class="language-shell">find &lt;path&gt; "*" | xargs ls -l  
+</code></pre>
+
+<p>删除文件</p>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;tar cvf FileName.tar package-dir  
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code class="language-shell">cd &lt;path&gt;  
+find . -name "*" | xargs rm{}  
+</code></pre>
 
-&lt;h5 id="gz"&gt;.gz&lt;/h5&gt;
+<p>移动文件</p>
+
+<pre><code class="language-shell">find &lt;source directory&gt; -name "*" | xargs -I {} mv {} &lt;/destination directory&gt;  
+</code></pre>
 
-&lt;p&gt;解压 &lt;/p&gt;
+<p>eg.  </p>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;gunzip FileName.gz  
-gzip -d FileName.gz  
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code class="language-shell">find /etl/home/gbuser/reject/ -name "*" | xargs rm{}  
+</code></pre>
 
-&lt;p&gt;压缩 &lt;/p&gt;
+<p>压缩</p>
 
-&lt;pre&gt;&lt;code class="language-shell"&gt;gzip FileName  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;解压&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;tar zxvf FileName.tar.gz  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;压缩&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;tar zcvf FileName.tar.gz&lt;/code&gt;&lt;/pre&gt;</description><link>http:///linux-zip-and-unzip/</link><guid isPermaLink="false">edce0e7f-1556-4175-9793-021b3e8f3d47</guid><category>Linux</category><category>Shell Tips</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 08:51:09 GMT</pubDate><content:encoded>&lt;h5 id="bz2"&gt;.bz2&lt;/h5&gt;
-
-&lt;p&gt;解压&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;tar xjvf package.tar.bz2  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;压缩&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;tar cjvf package.tar.bz2 package-dir  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id="tar"&gt;.tar&lt;/h5&gt;
-
-&lt;p&gt;解包&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell "&gt;tar xvf FileName.tar  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;打包&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;tar cvf FileName.tar package-dir  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id="gz"&gt;.gz&lt;/h5&gt;
-
-&lt;p&gt;解压 &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;gunzip FileName.gz  
-gzip -d FileName.gz  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;压缩 &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;gzip FileName  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;解压&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;tar zxvf FileName.tar.gz  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;压缩&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;tar zcvf FileName.tar.gz DirName  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id="bz"&gt;.bz&lt;/h5&gt;
-
-&lt;p&gt;解压  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;bzip2 -d FileName.bz  
-bunzip2 FileName.bz  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id="tarbz"&gt;.tar.bz&lt;/h5&gt;
-
-&lt;p&gt;解压&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;tar jxvf FileName.tar.bz  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id="z"&gt;.Z&lt;/h5&gt;
-
-&lt;p&gt;解压&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;uncompress FileName.Z  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;压缩&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;compress FileName  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id="tarz"&gt;.tar.Z&lt;/h5&gt;
-
-&lt;p&gt;解压&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;tar Zxvf FileName.tar.Z  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;压缩&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell "&gt;tar Zcvf FileName.tar.Z DirName  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id="zip"&gt;.zip&lt;/h5&gt;
-
-&lt;p&gt;解压&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;unzip FileName.zip  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;压缩&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;zip FileName.zip DirName  
-zip -r FileName.zip DirName  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;-r 递归&lt;/p&gt;</content:encoded></item><item><title>Linux,查看mysql执行sql时资源占用</title><description>&lt;p&gt;打开profiling 功能：set profiling = 1； &lt;br&gt;
-执行要分析的sql；  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;show profiles；  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;SHOW profile CPU,BLOCK IO io FOR query Query_ID；  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;当前查询&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;show processlist;  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;所有&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;show full processlist;  
-&lt;/code&gt;&lt;/pre&gt;</description><link>http:///linux-cha-kan-mysqlzhi-xing-sqlshi-zi-yuan-zhan-yong/</link><guid isPermaLink="false">0a77cfa3-4ac7-4220-80a0-ad47eb442d23</guid><category>MySQL</category><category>Linux</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 08:46:35 GMT</pubDate><content:encoded>&lt;p&gt;打开profiling 功能：set profiling = 1； &lt;br&gt;
-执行要分析的sql；  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;show profiles；  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;SHOW profile CPU,BLOCK IO io FOR query Query_ID；  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;当前查询&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;show processlist;  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;所有&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;show full processlist;  
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Linux,远程会话管理工具screen的基本使用</title><description>&lt;p&gt;新建一个叫new的session&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;screen -S new  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;
-列出当前所有的session&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;screen -ls  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;回到new这个session&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;screen -r new  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;结束当前session并回到new这个session&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;screen -d -r yourname  
-&lt;/code&gt;&lt;/pre&gt;</description><link>http:///linux-yuan-cheng-hui-hua-guan-li-gong-ju-screende-ji-ben-shi-yong/</link><guid isPermaLink="false">dbdfce3e-f711-4459-96cc-ff9fa8533292</guid><category>Linux</category><category>Shell Tips</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 08:40:54 GMT</pubDate><content:encoded>&lt;p&gt;新建一个叫new的session&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;screen -S new  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;
-列出当前所有的session&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;screen -ls  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;回到new这个session&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;screen -r new  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;结束当前session并回到new这个session&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;screen -d -r yourname  
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Linux,命令后台执行的方法</title><description>&lt;pre&gt;&lt;code class="language-shell"&gt;nohup command &amp;gt; out.log 2&amp;gt;&amp;amp;1 &amp;amp;  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;nohup的作用是将进程的父进程设置为1，即init进程，这样终端关闭时，不会影响该进程。 &lt;br&gt;
-使用2&gt;&amp;amp;1将标准错误输出也重定向到标准输出中，因为预定义的STDIN，STDOUT，STDERR分别是0，1，2。&lt;/p&gt;</description><link>http:///linux-ming-ling-hou-tai-zhi-xing-de-fang-fa/</link><guid isPermaLink="false">fd0c4ceb-4216-4e08-a648-c08a641eb720</guid><category>Linux</category><category>Shell Tips</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 08:33:38 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code class="language-shell"&gt;nohup command &amp;gt; out.log 2&amp;gt;&amp;amp;1 &amp;amp;  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;nohup的作用是将进程的父进程设置为1，即init进程，这样终端关闭时，不会影响该进程。 &lt;br&gt;
-使用2&gt;&amp;amp;1将标准错误输出也重定向到标准输出中，因为预定义的STDIN，STDOUT，STDERR分别是0，1，2。&lt;/p&gt;</content:encoded></item><item><title>Linux,debian网络配置</title><description>&lt;p&gt;gedit /etc/network/interfaces  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;auto lo   #开机自动激活  
-iface lo inet loopback #配置lo回环接口
-
-mapping hotplug  
-script grep  
-map eth0 eth0
-
-auto eth0   #开机自动激活eth0接口  
-iface eth0 inet static   #接口eth0的静态配置  
-address 192.168.10.237   #IP地址  
-netmask 255.255.255.0    #子网掩码  
-network 192.168.10.0     #网络地址  
-gateway 192.168.10.1&lt;/code&gt;&lt;/pre&gt;</description><link>http:///linux-debianwang-luo-pei-zhi/</link><guid isPermaLink="false">704dbfff-21f4-4346-b7dd-26c94535a8e5</guid><category>Linux</category><category>Debian</category><dc:creator>Grizzly</dc:creator><pubDate>Wed, 03 Feb 2016 08:31:36 GMT</pubDate><content:encoded>&lt;p&gt;gedit /etc/network/interfaces  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-shell"&gt;auto lo   #开机自动激活  
-iface lo inet loopback #配置lo回环接口
-
-mapping hotplug  
-script grep  
-map eth0 eth0
-
-auto eth0   #开机自动激活eth0接口  
-iface eth0 inet static   #接口eth0的静态配置  
-address 192.168.10.237   #IP地址  
-netmask 255.255.255.0    #子网掩码  
-network 192.168.10.0     #网络地址  
-gateway 192.168.10.1     #网关  
-broadcast 192.168.10.255 #广播地址  
-dns-nameservers 202.96.134.133  #DNS解析服务器IP地址
-
-auto eth0:1                                           #eth0 接口配置第2个IP地址  
-iface eth0:1 inet static  
-address 192.168.1.111  
-netmask 255.255.255.0  
-gateway 192.168.1.1  
-dns-nameservers 202.96.134.133
-
-auto wlan0    #开机自动激活无线网卡  
-iface wlan0 inet dhcp  #自动配置I  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;/etc/init.d/networking restart  &lt;/p&gt;</content:encoded></item></channel></rss>
+<pre><code class="language-shell">tar xvf files.tar -C /etl/home/gbuser/offline/files  
+</code></pre>
+
+<p>解压</p>
+
+<pre><code class="language-shell">gzip -d *.tar.gz  
+tar xvf *.tar  
+gunzip &lt; FILE.tar.gz | tar xvf -  
+</code></pre>
+
+<p>批量解压</p>
+
+<pre><code class="language-shell">find /etl/home/gbuser/dirs -name "*.gz" | xargs  gzip -d{}  
+find /u1/home/files -type f -name "*.gz" |xargs gzip -d  
+</code></pre>
+
+<p>移动文件</p>
+
+<pre><code class="language-shell">find /etl/home/gbuser/dirs -name "*" | xargs -I {} mv {} /etl/home/gbuser/test_dirs  
+</code></pre>]]></content:encoded></item><item><title><![CDATA[java use stax parse xml]]></title><description><![CDATA[<pre><code class="language-java">import java.io.*;  
+import javax.xml.stream.*;  
+import javax.xml.stream.events.*;
+
+public class StaxDemo {  
+    public static void main(String[] args) {
+        XMLInputFactory inputFactory = XMLInputFactory.newInstance();
+        InputStream input;
+        input = new ByteArrayInputStream(
+                ("&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?&gt;"
+                        + "&lt;work-contact-info&gt;"
+                        + "&lt;Location&gt;Shanghai-shuion-333&lt;/Location&gt;"
+                        + "&lt;Postal&</code></pre>]]></description><link>http:///java-use-stax-parse-xml/</link><guid isPermaLink="false">fe240af9-1d27-4403-836f-5c780b9d7be0</guid><category><![CDATA[Java]]></category><dc:creator><![CDATA[Grizzly]]></dc:creator><pubDate>Thu, 04 Feb 2016 04:00:18 GMT</pubDate><content:encoded><![CDATA[<pre><code class="language-java">import java.io.*;  
+import javax.xml.stream.*;  
+import javax.xml.stream.events.*;
+
+public class StaxDemo {  
+    public static void main(String[] args) {
+        XMLInputFactory inputFactory = XMLInputFactory.newInstance();
+        InputStream input;
+        input = new ByteArrayInputStream(
+                ("&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?&gt;"
+                        + "&lt;work-contact-info&gt;"
+                        + "&lt;Location&gt;Shanghai-shuion-333&lt;/Location&gt;"
+                        + "&lt;Postal&gt;200020&lt;/Postal&gt;"
+                        + "&lt;Tel&gt;&lt;fix&gt;66666666&lt;/fix&gt;&lt;mobile&gt;15800000000&lt;/mobile&gt;&lt;/Tel&gt;"
+                        + "&lt;Appellation&gt;Mr. Hang&lt;/Appellation&gt;"
+                        + "&lt;/work-contact-info&gt;").getBytes());
+
+        try {
+            // input = new FileInputStream(new File(
+            // "C:\\Workspace\\users.xml"));
+
+            XMLEventReader xmlEventReader = inputFactory
+                    .createXMLEventReader(input);
+
+            while (xmlEventReader.hasNext()) {
+                XMLEvent event = xmlEventReader.nextEvent();
+
+                if (event.isStartElement()) {
+                    StartElement startElement = event.asStartElement();
+                    System.out.println("startElement="
+                            + startElement.getName().toString());
+                }
+
+                if (event.isCharacters()) {
+                    Characters text = event.asCharacters();
+
+                    if (!text.isWhiteSpace()) {
+                        System.out.println("isCharacters=" + "\t"
+                                + text.getData());
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>]]></content:encoded></item><item><title><![CDATA[Shell,使用cat,sed或awk删除空行]]></title><description><![CDATA[<p>使用cat  </p>
+
+<pre><code class="language-shell">cat filename|tr -s '\n'  
+</code></pre>
+
+<p>使用sed</p>
+
+<pre><code class="language-shell">sed '/^$/d' filename  
+sed -e '/^\n$/d' file.txt  
+sed '/^ *$/d' list.txt &gt;newlist.txt  
+</code></pre>
+
+<p>使用awk</p>
+
+<pre><code class="language-shell">awk '{if($0!="")print}' filename  
+</code></pre>]]></description><link>http:///shell-shi-yong-cat-sedhuo-awkshan-chu-kong-xing/</link><guid isPermaLink="false">1a8f2d89-ebbf-4a53-9c38-c994bf2f62fb</guid><category><![CDATA[Linux]]></category><category><![CDATA[Shell Tips]]></category><dc:creator><![CDATA[Grizzly]]></dc:creator><pubDate>Thu, 04 Feb 2016 03:56:51 GMT</pubDate><content:encoded><![CDATA[<p>使用cat  </p>
+
+<pre><code class="language-shell">cat filename|tr -s '\n'  
+</code></pre>
+
+<p>使用sed</p>
+
+<pre><code class="language-shell">sed '/^$/d' filename  
+sed -e '/^\n$/d' file.txt  
+sed '/^ *$/d' list.txt &gt;newlist.txt  
+</code></pre>
+
+<p>使用awk</p>
+
+<pre><code class="language-shell">awk '{if($0!="")print}' filename  
+</code></pre>]]></content:encoded></item></channel></rss>

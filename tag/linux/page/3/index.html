@@ -1,24 +1,25 @@
-
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <title>Linux - Page 3 - C'est la vie</title>
-    <meta name="description" content="">
+    <title>Linux - Page 3 - C&#x27;est la vie</title>
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=a720bb6013">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=c50500171f" />
 
-    <link rel="canonical" href="http:///tag/linux/page/3/">
-    <meta name="referrer" content="origin">
-    <link rel="prev" href="http:///tag/linux/page/2/">
-    <link rel="next" href="http:///tag/linux/page/4/">
-    <meta name="generator" content="Ghost 0.7">
-    <link rel="alternate" type="application/rss+xml" title="C'est la vie" href="http:///rss/index.rss">
+    <link rel="canonical" href="http:///tag/linux/page/3/" />
+    <meta name="referrer" content="origin" />
+    <link rel="prev" href="http:///tag/linux/page/2/" />
+    <link rel="next" href="http:///tag/linux/page/4/" />
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="C&#x27;est la vie" href="http:///rss/" />
 </head>
 <body class="tag-template tag-linux paged archive-template nav-closed">
 
@@ -29,8 +30,12 @@
     </a>
     <ul>
             <li class="nav-home" role="presentation"><a href="http://1900.github.io/">Home</a></li>
+            <li class="nav-java" role="presentation"><a href="http://1900.github.io/tag/java/">Java</a></li>
+            <li class="nav-clojure" role="presentation"><a href="http://1900.github.io/tag/clojure/">Clojure</a></li>
+            <li class="nav-python" role="presentation"><a href="http://1900.github.io/tag/python/">Python</a></li>
+            <li class="nav-linux" role="presentation"><a href="http://1900.github.io/tag/linux/">Linux</a></li>
     </ul>
-    <a class="subscribe-button icon-feed" href="http:///rss/index.rss">订阅</a>
+    <a class="subscribe-button icon-feed" href="http:///rss/">订阅</a>
 </div>
 <span class="nav-cover"></span>
 
@@ -46,7 +51,7 @@
         <div class="main-header-content inner">
             <h1 class="page-title">Linux</h1>
             <h2 class="page-description">
-                    共 40 篇文章
+                    共 52 篇文章
             </h2>
         </div>
     </div>
@@ -56,32 +61,46 @@
 
     <div class="extra-pagination inner">
     <nav class="pagination" role="navigation">
-        <a class="newer-posts" href="/tag/linux/page/2/">← 上一页</a>
-    <span class="page-number">第 3 页 ⁄ 共 4 页</span>
-        <a class="older-posts" href="/tag/linux/page/4/">下一页 →</a>
+        <a class="newer-posts" href="/tag/linux/page/2/">&larr; 上一页</a>
+    <span class="page-number">第 3 页 &frasl; 共 6 页</span>
+        <a class="older-posts" href="/tag/linux/page/4/">下一页 &rarr;</a>
 </nav>
 </div>
 
-<article class="post tag-linux tag-mysql">
+<article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/mysql-error-1045-28000-access-denied-for-user-root-localhost/">MySQL,ERROR 1045 (28000): Access denied for user 'root'@'localhost'</a></h2>
+        <h2 class="post-title"><a href="/linux-zip-and-unzip/">Linux,常见文件压缩及解压</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>ERROR 1045 (28000): Access denied for user 'root'@'localhost'   # /etc/init.d/mysql stop # mysqld_safe --user=mysql --skip-grant-tables --sk <a class="read-more" href="/mysql-error-1045-28000-access-denied-for-user-root-localhost/">»</a></p>
+        <p>.bz2 解压 tar xjvf package.tar.bz2   压缩 tar cjvf package.tar.bz2 package-dir   .tar 解包 tar xvf FileName.tar   打包 tar cvf FileName.tar package- <a class="read-more" href="/linux-zip-and-unzip/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/mysql/">MySQL</a>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+    </footer>
+</article>
+<article class="post tag-mysql tag-linux">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/linux-cha-kan-mysqlzhi-xing-sqlshi-zi-yuan-zhan-yong/">Linux,查看mysql执行sql时资源占用</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>打开profiling 功能：set profiling = 1；  执行要分析的sql；   show profiles；   SHOW profile CPU,BLOCK IO io FOR query Query_ID；   当前查询 show processlist; <a class="read-more" href="/linux-cha-kan-mysqlzhi-xing-sqlshi-zi-yuan-zhan-yong/">&raquo;</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/mysql/">MySQL</a>, <a href="/tag/linux/">Linux</a>
         <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
 <article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/shell-jiang-dan-yin-hao-ti-huan-wei-shuang-yin-hao/">Shell,将单引号 '替换为双引号"</a></h2>
+        <h2 class="post-title"><a href="/linux-yuan-cheng-hui-hua-guan-li-gong-ju-screende-ji-ben-shi-yong/">Linux,远程会话管理工具screen的基本使用</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>将单引号 ' 替换为 双引号 " sed 's/\x27/\x22/g' life <a class="read-more" href="/shell-jiang-dan-yin-hao-ti-huan-wei-shuang-yin-hao/">»</a></p>
+        <p>新建一个叫new的session screen -S new   列出当前所有的session screen -ls   回到new这个session screen -r new   结束当前session并回到new这个session screen -d -r yourname <a class="read-more" href="/linux-yuan-cheng-hui-hua-guan-li-gong-ju-screende-ji-ben-shi-yong/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
@@ -92,10 +111,66 @@
 </article>
 <article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/shell-scpji-ben-shi-yong/">Shell,scp基本使用</a></h2>
+        <h2 class="post-title"><a href="/linux-ming-ling-hou-tai-zhi-xing-de-fang-fa/">Linux,命令后台执行的方法</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>将本地文件上传到服务器上 scp -P 222 /home/file.tar.gz   root@mq:/root/mq/file.tar.gz   P  - SSH端口 获取远程服务器上的文件   scp -P 222 root@mq:/root/mq/file.tar.gz <a class="read-more" href="/shell-scpji-ben-shi-yong/">»</a></p>
+        <p>nohup command &gt; out.log 2&gt;&amp;1 &amp;   nohup的作用是将进程的父进程设置为1，即init进程，这样终端关闭时，不会影响该进程。  使用2>&amp;1将标准错误输出也重定向到标准输出中，因为预定义的STDIN，STDOUT <a class="read-more" href="/linux-ming-ling-hou-tai-zhi-xing-de-fang-fa/">&raquo;</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+    </footer>
+</article>
+<article class="post tag-linux tag-debian">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/linux-debianwang-luo-pei-zhi/">Linux,debian网络配置</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>gedit /etc/network/interfaces   auto lo   #开机自动激活   iface lo inet loopback #配置lo回环接口 mapping hotplug   script grep   map eth0 eth0 auto eth0 <a class="read-more" href="/linux-debianwang-luo-pei-zhi/">&raquo;</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/debian/">Debian</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+    </footer>
+</article>
+<article class="post tag-linux tag-shell-tips">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/shell-shi-yong-findpi-liang-jie-ya-suo/">Shell,使用find批量解压缩</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>find -maxdepth 1 -name "*.tar.gz"|xargs -i tar zxvf {} <a class="read-more" href="/shell-shi-yong-findpi-liang-jie-ya-suo/">&raquo;</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+    </footer>
+</article>
+<article class="post tag-linux">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/linux-centosshi-jian-tong-bu/">Linux,Centos时间同步</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>查看时区 cat /etc/sysconfig/clock   设置时区 yum install -y ntpdate   ntpdate us.pool.ntp.org   设置定时计划任务，每隔10分钟同步一次 crontab -e   0-59/10 * * * * /us <a class="read-more" href="/linux-centosshi-jian-tong-bu/">&raquo;</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/linux/">Linux</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+    </footer>
+</article>
+<article class="post tag-linux tag-shell-tips">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/shell-wen-jian-fen-ge-yu-he-bing/">Shell,split与cat 对文件分割及合并</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>指定分割后文件行数   split -l 300 large_file.txt new_file_prefix   指定分割后文件大小 split -b 10m large_file.bin new_file_prefix   用cat进行文件合并   cat small_fil <a class="read-more" href="/shell-wen-jian-fen-ge-yu-he-bing/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
@@ -106,10 +181,10 @@
 </article>
 <article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/shell-kuai-su-qing-kong-wen-jian/">Shell,快速清空文件</a></h2>
+        <h2 class="post-title"><a href="/shell-shan-chu-wen-jian-shi-pai-chu-te-ding-wen-jian/">Shell,删除文件时排除特定文件</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>echo "" &gt; test.txt   &gt; test.txt cat/dev/null &gt; test.txt <a class="read-more" href="/shell-kuai-su-qing-kong-wen-jian/">»</a></p>
+        <p>删除文件时排除特定文件  删除当前目录下所有 *.log文件，除了nginx.log rm `ls *.log|egrep -v nginx.log`   rm `ls *.log|awk '{if($0 != "nginx.log") print $0}'`   排除多个文件 <a class="read-more" href="/shell-shan-chu-wen-jian-shi-pai-chu-te-ding-wen-jian/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
@@ -120,80 +195,10 @@
 </article>
 <article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/shell-shi-yong-sedhuo-awkguo-lu-zi-fu/">Shell,使用sed或awk过滤字符</a></h2>
+        <h2 class="post-title"><a href="/shell-gen-ju-duan-kou-cha-xun-jin-cheng/">Shell,根据端口查询进程</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>eg.  过滤clean之后的字符   sed 's/\(.*clean\).*/\1/' file.txt   awk -F 'clean' '{print $1""FS}' file.txt <a class="read-more" href="/shell-shi-yong-sedhuo-awkguo-lu-zi-fu/">»</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
-    </footer>
-</article>
-<article class="post tag-linux tag-shell-tips">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/shell/">Shell,在文件的每行开头添加关键字</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>sed 's/^/keyword/' oldfile.txt &gt;newfile.txt <a class="read-more" href="/shell/">»</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
-    </footer>
-</article>
-<article class="post tag-linux tag-shell-tips">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/shell-shi-yong-wgethe-curlduan-dian-xia-zai/">Shell,使用wget和curl断点续传下载</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>wget -c   curl -C   curl -C - #自动续传   eg. wget -c http://baidu.com/   curl -C   curl -C - http://baidu.com/   wget  -t 0 反复尝试的次数，0为不限次数  -O <a class="read-more" href="/shell-shi-yong-wgethe-curlduan-dian-xia-zai/">»</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
-    </footer>
-</article>
-<article class="post tag-linux tag-mysql tag-shell-tips">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/linux-shelljiao-ben-mysqlde-shi-yong/">Linux,shell脚本mysql的使用</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>#!/bin/sh mysql -uroot -p123456 &lt;use test;   select * from test where a=10000; <a class="read-more" href="/linux-shelljiao-ben-mysqlde-shi-yong/">»</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/mysql/">MySQL</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
-    </footer>
-</article>
-<article class="post tag-linux tag-shell-tips">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/sh/">Shell,find 与rm 结合使用</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>find /home/mq/ -name 'test-*' | xargs rm -rf <a class="read-more" href="/sh/">»</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
-    </footer>
-</article>
-<article class="post tag-linux tag-shell-tips">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/shell-find-yu-cp-jie-he-shi-yong/">Shell,find 与cp 结合使用</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>find /home/mq/ -name '*.conf'|xargs -I {} cp -r {} /home/mq/conf/ <a class="read-more" href="/shell-find-yu-cp-jie-he-shi-yong/">»</a></p>
+        <p>ps -ef|awk '{print $2"\t"$8$9}'|grep `netstat -tlnp|grep 8080|awk '{print $7}'|awk -F '/' '{print $1}'` <a class="read-more" href="/shell-gen-ju-duan-kou-cha-xun-jin-cheng/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
@@ -204,16 +209,16 @@
 </article>
 
 <nav class="pagination" role="navigation">
-        <a class="newer-posts" href="/tag/linux/page/2/">← 上一页</a>
-    <span class="page-number">第 3 页 ⁄ 共 4 页</span>
-        <a class="older-posts" href="/tag/linux/page/4/">下一页 →</a>
+        <a class="newer-posts" href="/tag/linux/page/2/">&larr; 上一页</a>
+    <span class="page-number">第 3 页 &frasl; 共 6 页</span>
+        <a class="older-posts" href="/tag/linux/page/4/">下一页 &rarr;</a>
 </nav>
 
 </main>
 
 
         <footer class="site-footer clearfix">
-            <section class="copyright"><a href="http://">C'est la vie</a> © 2016</section>
+            <section class="copyright"><a href="http://">C&#x27;est la vie</a> &copy; 2016</section>
             <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a> &amp; <a href="http://www.ghostchina.com">GhostChina</a></section>
         </footer>
 
@@ -223,7 +228,7 @@
 
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/fitvids/1.1.0/jquery.fitvids.min.js"></script>
-    <script src="/assets/js/index.js?v=a720bb6013"></script>
+    <script src="/assets/js/index.js?v=c50500171f"></script>
 	<script>
 var _hmt = _hmt || [];
 (function() {
@@ -235,3 +240,4 @@ var _hmt = _hmt || [];
 </script>
 
 </body>
+</html>

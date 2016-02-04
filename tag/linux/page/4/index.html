@@ -1,23 +1,25 @@
-
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <title>Linux - Page 4 - C'est la vie</title>
-    <meta name="description" content="">
+    <title>Linux - Page 4 - C&#x27;est la vie</title>
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=a720bb6013">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=c50500171f" />
 
-    <link rel="canonical" href="http:///tag/linux/page/4/">
-    <meta name="referrer" content="origin">
-    <link rel="prev" href="http:///tag/linux/page/3/">
-    <meta name="generator" content="Ghost 0.7">
-    <link rel="alternate" type="application/rss+xml" title="C'est la vie" href="http:///rss/index.rss">
+    <link rel="canonical" href="http:///tag/linux/page/4/" />
+    <meta name="referrer" content="origin" />
+    <link rel="prev" href="http:///tag/linux/page/3/" />
+    <link rel="next" href="http:///tag/linux/page/5/" />
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="C&#x27;est la vie" href="http:///rss/" />
 </head>
 <body class="tag-template tag-linux paged archive-template nav-closed">
 
@@ -28,8 +30,12 @@
     </a>
     <ul>
             <li class="nav-home" role="presentation"><a href="http://1900.github.io/">Home</a></li>
+            <li class="nav-java" role="presentation"><a href="http://1900.github.io/tag/java/">Java</a></li>
+            <li class="nav-clojure" role="presentation"><a href="http://1900.github.io/tag/clojure/">Clojure</a></li>
+            <li class="nav-python" role="presentation"><a href="http://1900.github.io/tag/python/">Python</a></li>
+            <li class="nav-linux" role="presentation"><a href="http://1900.github.io/tag/linux/">Linux</a></li>
     </ul>
-    <a class="subscribe-button icon-feed" href="http:///rss/index.rss">订阅</a>
+    <a class="subscribe-button icon-feed" href="http:///rss/">订阅</a>
 </div>
 <span class="nav-cover"></span>
 
@@ -45,7 +51,7 @@
         <div class="main-header-content inner">
             <h1 class="page-title">Linux</h1>
             <h2 class="page-description">
-                    共 40 篇文章
+                    共 52 篇文章
             </h2>
         </div>
     </div>
@@ -55,17 +61,18 @@
 
     <div class="extra-pagination inner">
     <nav class="pagination" role="navigation">
-        <a class="newer-posts" href="/tag/linux/page/3/">← 上一页</a>
-    <span class="page-number">第 4 页 ⁄ 共 4 页</span>
+        <a class="newer-posts" href="/tag/linux/page/3/">&larr; 上一页</a>
+    <span class="page-number">第 4 页 &frasl; 共 6 页</span>
+        <a class="older-posts" href="/tag/linux/page/5/">下一页 &rarr;</a>
 </nav>
 </div>
 
 <article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/linux-shi-yong-sedshan-chu-bao-han-guan-jian-zi-de-xing/">Linux,使用sed删除包含关键字的行</a></h2>
+        <h2 class="post-title"><a href="/shell-shi-yong-grepsou-suo-guan-jian-zi/">Shell,使用grep,find搜索关键字</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>sed -i -e '/\/home\/this\//!d' file.txt <a class="read-more" href="/linux-shi-yong-sedshan-chu-bao-han-guan-jian-zi-de-xing/">»</a></p>
+        <p>grep 'keyword' /etc -r   find / -name "keyword" -print <a class="read-more" href="/shell-shi-yong-grepsou-suo-guan-jian-zi/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
@@ -76,10 +83,38 @@
 </article>
 <article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/linux-qu-chu-bao-han-guan-jian-zi-de-xing/">Linux,使用grep取出包含关键字的行并保存到新的文件中</a></h2>
+        <h2 class="post-title"><a href="/shell-shi-yong-findcha-xun-mu-lu-xia-chao-guo-500mde-wen-jian/">Shell,使用find查询目录下超过500M的文件</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>grep "keyword" oldfile.txt&gt; newfile.txt <a class="read-more" href="/linux-qu-chu-bao-han-guan-jian-zi-de-xing/">»</a></p>
+        <p>find / -type f -size +500M   find / -type f -size +5000000k <a class="read-more" href="/shell-shi-yong-findcha-xun-mu-lu-xia-chao-guo-500mde-wen-jian/">&raquo;</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+    </footer>
+</article>
+<article class="post tag-linux tag-mysql">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/mysql-error-1045-28000-access-denied-for-user-root-localhost/">MySQL,ERROR 1045 (28000): Access denied for user &#x27;root&#x27;@&#x27;localhost&#x27;</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>ERROR 1045 (28000): Access denied for user 'root'@'localhost'   # /etc/init.d/mysql stop # mysqld_safe --user=mysql --skip-grant-tables --sk <a class="read-more" href="/mysql-error-1045-28000-access-denied-for-user-root-localhost/">&raquo;</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/mysql/">MySQL</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+    </footer>
+</article>
+<article class="post tag-linux tag-shell-tips">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/shell-jiang-dan-yin-hao-ti-huan-wei-shuang-yin-hao/">Shell,将单引号 &#x27;替换为双引号&quot;</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>将单引号 ' 替换为 双引号 " sed 's/\x27/\x22/g' life <a class="read-more" href="/shell-jiang-dan-yin-hao-ti-huan-wei-shuang-yin-hao/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
@@ -90,10 +125,10 @@
 </article>
 <article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/shell-shi-yong-sedguo-lu-fan-xie-gang/">Shell,使用sed过滤反斜杠</a></h2>
+        <h2 class="post-title"><a href="/shell-scpji-ben-shi-yong/">Shell,scp基本使用</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>sed -r 's:\\::g' oldfile.txt &gt;newfile.txt <a class="read-more" href="/shell-shi-yong-sedguo-lu-fan-xie-gang/">»</a></p>
+        <p>将本地文件上传到服务器上 scp -P 222 /home/file.tar.gz   root@mq:/root/mq/file.tar.gz   P  - SSH端口 获取远程服务器上的文件   scp -P 222 root@mq:/root/mq/file.tar.gz <a class="read-more" href="/shell-scpji-ben-shi-yong/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
@@ -104,10 +139,10 @@
 </article>
 <article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/shell-gen-ju-jin-cheng-pidjie-shu-gai-jin-cheng/">Shell,根据进程pid结束该进程</a></h2>
+        <h2 class="post-title"><a href="/shell-kuai-su-qing-kong-wen-jian/">Shell,快速清空文件</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>#!/bin/sh  PIDFILE=/tmp/app.pid   echo 'Kill process from PID file'   if test -f $PIDFILE  ; then       PID=`cat $PIDFILE`     kill -3 $PID <a class="read-more" href="/shell-gen-ju-jin-cheng-pidjie-shu-gai-jin-cheng/">»</a></p>
+        <p>echo "" &gt; test.txt   &gt; test.txt cat/dev/null &gt; test.txt <a class="read-more" href="/shell-kuai-su-qing-kong-wen-jian/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
@@ -118,10 +153,10 @@
 </article>
 <article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/shi-yong-shelljiao-ben-gen-ju-jin-cheng-guan-jian-zi-de-dao-jin-cheng-hao/">Shell,根据进程关键字得到进程id</a></h2>
+        <h2 class="post-title"><a href="/shell-shi-yong-sedhuo-awkguo-lu-zi-fu/">Shell,使用sed或awk过滤字符</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>ps -aef | grep nginx | grep -v grep | awk '{print $2}' <a class="read-more" href="/shi-yong-shelljiao-ben-gen-ju-jin-cheng-guan-jian-zi-de-dao-jin-cheng-hao/">»</a></p>
+        <p>eg.  过滤clean之后的字符   sed 's/\(.*clean\).*/\1/' file.txt   awk -F 'clean' '{print $1""FS}' file.txt <a class="read-more" href="/shell-shi-yong-sedhuo-awkguo-lu-zi-fu/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
@@ -130,87 +165,60 @@
         <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
-<article class="post tag-linux">
+<article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/install-mongodb-3-on-centos-2/">Centos,iptables设置</a></h2>
+        <h2 class="post-title"><a href="/shell/">Shell,在文件的每行开头添加关键字</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>允许访问80及8080端口  vim /etc/sysconfig/iptables   -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW <a class="read-more" href="/install-mongodb-3-on-centos-2/">»</a></p>
+        <p>sed 's/^/keyword/' oldfile.txt &gt;newfile.txt <a class="read-more" href="/shell/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>
-        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
-<article class="post tag-linux tag-mongodb">
+<article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/install-mongodb-3-on-centos/">Install MongoDB 3 on Centos</a></h2>
+        <h2 class="post-title"><a href="/shell-shi-yong-wgethe-curlduan-dian-xia-zai/">Shell,使用wget和curl断点续传下载</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>下载 cd /data/mongo   wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel62-3.0.4.tgz   解压 tar zxvf mongodb-linux-x86_64-rhel62-3. <a class="read-more" href="/install-mongodb-3-on-centos/">»</a></p>
+        <p>wget -c   curl -C   curl -C - #自动续传   eg. wget -c http://baidu.com/   curl -C   curl -C - http://baidu.com/   wget  -t 0 反复尝试的次数，0为不限次数  -O <a class="read-more" href="/shell-shi-yong-wgethe-curlduan-dian-xia-zai/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/mongodb/">MongoDB</a>
-        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
-<article class="post tag-linux tag-nginx">
+<article class="post tag-linux tag-mysql tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/install-nginx-on-centos/">Install Nginx  On Centos</a></h2>
+        <h2 class="post-title"><a href="/linux-shelljiao-ben-mysqlde-shi-yong/">Linux,shell脚本mysql的使用</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>安装依赖包 yum -y install pcre pcre-devel openssl openssl-devel gcc automake autoconf libtool make   下载nginx   wget  http://nginx.org/download/ng <a class="read-more" href="/install-nginx-on-centos/">»</a></p>
+        <p>#!/bin/sh mysql -uroot -p123456 &lt;use test;   select * from test where a=10000; <a class="read-more" href="/linux-shelljiao-ben-mysqlde-shi-yong/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/nginx/">Nginx</a>
-        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
-    </footer>
-</article>
-<article class="post tag-linux tag-how-to">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/install-tomcat-7-on-linux/">Install Tomcat 7  On Linux</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>下载 wget http://mirror.esocc.com/apache/tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63.tar.gz   解压 tar -zxvf apache-tomcat-7.0.63.tar.gz <a class="read-more" href="/install-tomcat-7-on-linux/">»</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/how-to/">How To</a>
-        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
-    </footer>
-</article>
-<article class="post tag-how-to tag-linux">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/install-jdk-on-centos-2/">Install JDK On CentOS</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>安装依赖包 yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib- <a class="read-more" href="/install-jdk-on-centos-2/">»</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/how-to/">How To</a>, <a href="/tag/linux/">Linux</a>
-        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/mysql/">MySQL</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
 
 <nav class="pagination" role="navigation">
-        <a class="newer-posts" href="/tag/linux/page/3/">← 上一页</a>
-    <span class="page-number">第 4 页 ⁄ 共 4 页</span>
+        <a class="newer-posts" href="/tag/linux/page/3/">&larr; 上一页</a>
+    <span class="page-number">第 4 页 &frasl; 共 6 页</span>
+        <a class="older-posts" href="/tag/linux/page/5/">下一页 &rarr;</a>
 </nav>
 
 </main>
 
 
         <footer class="site-footer clearfix">
-            <section class="copyright"><a href="http://">C'est la vie</a> © 2016</section>
+            <section class="copyright"><a href="http://">C&#x27;est la vie</a> &copy; 2016</section>
             <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a> &amp; <a href="http://www.ghostchina.com">GhostChina</a></section>
         </footer>
 
@@ -220,7 +228,7 @@
 
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/fitvids/1.1.0/jquery.fitvids.min.js"></script>
-    <script src="/assets/js/index.js?v=a720bb6013"></script>
+    <script src="/assets/js/index.js?v=c50500171f"></script>
 	<script>
 var _hmt = _hmt || [];
 (function() {
@@ -232,3 +240,4 @@ var _hmt = _hmt || [];
 </script>
 
 </body>
+</html>

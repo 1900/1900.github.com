@@ -11,7 +11,7 @@
 
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=a720bb6013">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=c50500171f">
 
     <link rel="canonical" href="http:///">
     <meta name="referrer" content="origin">
@@ -53,6 +53,10 @@
     </a>
     <ul>
             <li class="nav-home" role="presentation"><a href="http://1900.github.io/">Home</a></li>
+            <li class="nav-java" role="presentation"><a href="http://1900.github.io/tag/java/">Java</a></li>
+            <li class="nav-clojure" role="presentation"><a href="http://1900.github.io/tag/clojure/">Clojure</a></li>
+            <li class="nav-python" role="presentation"><a href="http://1900.github.io/tag/python/">Python</a></li>
+            <li class="nav-linux" role="presentation"><a href="http://1900.github.io/tag/linux/">Linux</a></li>
     </ul>
     <a class="subscribe-button icon-feed" href="http:///rss/index.rss">订阅</a>
 </div>
@@ -79,154 +83,154 @@
 
     <div class="extra-pagination inner">
     <nav class="pagination" role="navigation">
-    <span class="page-number">第 1 页 ⁄ 共 5 页</span>
+    <span class="page-number">第 1 页 ⁄ 共 7 页</span>
         <a class="older-posts" href="/page/2/">下一页 →</a>
 </nav>
 </div>
 
-<article class="post tag-python tag-mysql">
+<article class="post tag-groovy">
     <header class="post-header">
-        <h2 class="post-title"><a href="/use-python-script-backup-mysql-data/">使用Python备份mysql</a></h2>
+        <h2 class="post-title"><a href="/groovy-qu-zhong/">Groovy去除重复数据</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>#!/usr/bin/env python import osimport time username = root   password = 123456   hostname = localhost filestamp = time.strftime('%Y-%m-%d') <a class="read-more" href="/use-python-script-backup-mysql-data/">»</a></p>
+        <p>def list = [a, b, c, c, c,d,e,e]   // [a, b, c, d, e]  list.unique() <a class="read-more" href="/groovy-qu-zhong/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/python/">Python</a>, <a href="/tag/mysql/">MySQL</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+         标签：<a href="/tag/groovy/">Groovy</a>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
+    </footer>
+</article>
+<article class="post tag-groovy">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/groovy-sort/">Groovy 排序</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>def list =[1,55,28,9,10,23,16] //升序 list.sort {a,b -&gt;    return a.compareTo(b) } //降序 list.sort {a,b -&gt;    return b.compareTo(a) } <a class="read-more" href="/groovy-sort/">»</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/groovy/">Groovy</a>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
+    </footer>
+</article>
+<article class="post tag-grails">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/grails-chang-yong-ming-ling/">grails 命令大全</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>常用命令 创建新的Grails应用 grails create-app   创建新的控制器 grails create-controller   创建新的领域类 grails create-domain-class 创建新的服务类 grails create-service <a class="read-more" href="/grails-chang-yong-ming-ling/">»</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/grails/">Grails</a>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
     </footer>
 </article>
 <article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/linuxguan-bi-zai-xian-deng-lu-yong-hu/">linux结束在线的登录用户</a></h2>
+        <h2 class="post-title"><a href="/shell-shi-yong-findpi-liang-shan-chu-shi-zhi-ding-wen-jian-ge-shu/">shell,使用find批量删除时指定文件个数</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>查明登陆端口  who   root pts/1 Feb 8 00:06 (192.168.1.58)   root pts/2 Feb 8 04:15 (192.168.1.60)   通知该用户将要关闭他： # echo "I will close your connecti <a class="read-more" href="/linuxguan-bi-zai-xian-deng-lu-yong-hu/">»</a></p>
+        <p>find . &gt;list | tail -10000 list | xargs rm -rf {} | xargs rm -rf  find . -name "*" -exec rm {} \; -print |head -10000 <a class="read-more" href="/shell-shi-yong-findpi-liang-shan-chu-shi-zhi-ding-wen-jian-ge-shu/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
          标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
+    </footer>
+</article>
+<article class="post tag-linux tag-shell-tips">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/shell-cha-kan-cpuji-nei-cun-zhan-yong/">shell,查看cpu及内存占用</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>top -b -n 1 |grep nginx|awk '{print "cpu:"$9"%","mem:"$10"%"}' <a class="read-more" href="/shell-cha-kan-cpuji-nei-cun-zhan-yong/">»</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
+    </footer>
+</article>
+<article class="post tag-linux tag-shell-tips">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/shell-shi-yong-touchhuo-finddui-mu-lu-de-modifyshi-jian-xiu-gai/">shell,使用touch或find对目录的Modify时间修改</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>touch -c -m -t 201602010000 /etl/home/gbuser/test/ find . -exec touch -c -m -t 201602010000 {} \; <a class="read-more" href="/shell-shi-yong-touchhuo-finddui-mu-lu-de-modifyshi-jian-xiu-gai/">»</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="/author/grizzly/">Grizzly</a>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
     </footer>
 </article>
 <article class="post tag-shell-tips tag-linux">
     <header class="post-header">
-        <h2 class="post-title"><a href="/wget/">shell,使用wget整站抓取</a></h2>
+        <h2 class="post-title"><a href="/shell-findcha-zhao-shi-pai-chu-zi-mu-lu/">shell,find查找时排除子目录</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>wget -r -p -np -k http://baidu.com/   -r  递归 -p --page-requisites -np --no-parent -k  下载的HTML页面中的链接转换为相对链接即本地链接 <a class="read-more" href="/wget/">»</a></p>
+        <p>find . -path "./*/*" -prune -o -type f -size -10000000c -print| xargs ls -crt -ld | head -1000 <a class="read-more" href="/shell-findcha-zhao-shi-pai-chu-zi-mu-lu/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
          标签：<a href="/tag/shell-tips/">Shell Tips</a>, <a href="/tag/linux/">Linux</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
     </footer>
 </article>
 <article class="post tag-python">
     <header class="post-header">
-        <h2 class="post-title"><a href="/li-yong-pythonhe-gmailfa-song-you-jian/">利用Python和gmail发送邮件</a></h2>
+        <h2 class="post-title"><a href="/shi-yong-pythonjian-kong-jin-cheng/">使用python监控进程</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>import smtplib   import sys   import email.mime.text   # my test mail mail_username='from@gmail.com'   mail_password='123456'   from_addr = <a class="read-more" href="/li-yong-pythonhe-gmailfa-song-you-jian/">»</a></p>
+        <p>eg.  监控nginx # !/usr/bin/env python import os, sys, time while True:       time.sleep(3)     try:         ret = os.popen('ps -C nginx -o pid <a class="read-more" href="/shi-yong-pythonjian-kong-jin-cheng/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
          标签：<a href="/tag/python/">Python</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
     </footer>
 </article>
 <article class="post tag-linux tag-mysql">
     <header class="post-header">
-        <h2 class="post-title"><a href="/linux-shi-yong-mysqldumpdao-chu-shu-ju-shi-dui-sqlwen-jian-jin-xing-ya-suo/">Linux,使用mysqldump导出数据时对sql文件进行压缩</a></h2>
+        <h2 class="post-title"><a href="/install-mariadb-on-debian-8/">install MariaDB on debian 8</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>mysqldump -h192.168.1.222 -ubackup -pbackup kds trank   | gzip &gt; $backupdir/back.sql.gz <a class="read-more" href="/linux-shi-yong-mysqldumpdao-chu-shu-ju-shi-dui-sqlwen-jian-jin-xing-ya-suo/">»</a></p>
+        <p>sudo apt-get install software-properties-common   sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db   sudo ad <a class="read-more" href="/install-mariadb-on-debian-8/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
          标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/mysql/">MySQL</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
-    </footer>
-</article>
-<article class="post tag-linux tag-mysql">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/shell-mysqlkai-qi-yuan-cheng-fang-wen/">Shell,mysql开启远程访问</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;   允许局域网内192.168.访问 GRANT ALL PRIVILEGES ON *.* TO 'root'@' <a class="read-more" href="/shell-mysqlkai-qi-yuan-cheng-fang-wen/">»</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/mysql/">MySQL</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
     </footer>
 </article>
 <article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/linux-centos-rpman-zhuang-shi-zhi-ding-lu-jing/">Linux,centos rpm安装时指定路径</a></h2>
+        <h2 class="post-title"><a href="/shell-shi-yong-seddui-wen-jian-fen-ge/">shell,使用sed对文件截取</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>参数 --prefix  rpm -ivh --prefix=/usr/local/dir/ rpmfile**.rpm <a class="read-more" href="/linux-centos-rpman-zhuang-shi-zhi-ding-lu-jing/">»</a></p>
+        <p>截取第1行到第200行 sed -n '1,200p' file &gt;&gt;newfile   sed -i '1,200d' file <a class="read-more" href="/shell-shi-yong-seddui-wen-jian-fen-ge/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
          标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
-    </footer>
-</article>
-<article class="post tag-linux tag-shell-tips">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/clean-linux-buffer-cache/">Linux,清空buffer cache</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>sync &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches <a class="read-more" href="/clean-linux-buffer-cache/">»</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
-    </footer>
-</article>
-<article class="post tag-linux tag-shell-tips">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/shell-shi-yong-find-rmshan-chu-zhi-ding-tian-shu-qian-de-wen-jian/">Shell,使用find,rm删除指定天数前的文件</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>eg.  删除/root/Backup目录下30天前的文件 find /root/Backup -mtime +30 -name "*.*" -exec rm -rf {} \; <a class="read-more" href="/shell-shi-yong-find-rmshan-chu-zhi-ding-tian-shu-qian-de-wen-jian/">»</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
-    </footer>
-</article>
-<article class="post tag-linux tag-shell-tips">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/sh-2/">Shell,根据程序名结束进程</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>kill -9 `ps -aef | grep 'qoute' | grep -v grep | awk '{print $2}'` <a class="read-more" href="/sh-2/">»</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
-        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
+        <time class="post-date" datetime="2016-02-04">2016年02月04日</time>
     </footer>
 </article>
 
 <nav class="pagination" role="navigation">
-    <span class="page-number">第 1 页 ⁄ 共 5 页</span>
+    <span class="page-number">第 1 页 ⁄ 共 7 页</span>
         <a class="older-posts" href="/page/2/">下一页 →</a>
 </nav>
 
@@ -244,7 +248,7 @@
 
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/fitvids/1.1.0/jquery.fitvids.min.js"></script>
-    <script src="/assets/js/index.js?v=a720bb6013"></script>
+    <script src="/assets/js/index.js?v=c50500171f"></script>
 	<script>
 var _hmt = _hmt || [];
 (function() {

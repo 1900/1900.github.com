@@ -11,11 +11,12 @@
 
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=a720bb6013">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=c50500171f">
 
     <link rel="canonical" href="http:///author/grizzly/page/5/">
     <meta name="referrer" content="origin">
     <link rel="prev" href="http:///author/grizzly/page/4/">
+    <link rel="next" href="http:///author/grizzly/page/6/">
     <meta name="generator" content="Ghost 0.7">
     <link rel="alternate" type="application/rss+xml" title="C'est la vie" href="http:///rss/index.rss">
 </head>
@@ -28,6 +29,10 @@
     </a>
     <ul>
             <li class="nav-home" role="presentation"><a href="http://1900.github.io/">Home</a></li>
+            <li class="nav-java" role="presentation"><a href="http://1900.github.io/tag/java/">Java</a></li>
+            <li class="nav-clojure" role="presentation"><a href="http://1900.github.io/tag/clojure/">Clojure</a></li>
+            <li class="nav-python" role="presentation"><a href="http://1900.github.io/tag/python/">Python</a></li>
+            <li class="nav-linux" role="presentation"><a href="http://1900.github.io/tag/linux/">Linux</a></li>
     </ul>
     <a class="subscribe-button icon-feed" href="http:///rss/index.rss">订阅</a>
 </div>
@@ -50,7 +55,7 @@
         <div class="author-meta">
             
             
-            <span class="author-stats"><i class="icon-stats"></i> 50 篇文章</span>
+            <span class="author-stats"><i class="icon-stats"></i> 69 篇文章</span>
         </div>
     </section>
 
@@ -59,154 +64,156 @@
     <div class="extra-pagination inner">
     <nav class="pagination" role="navigation">
         <a class="newer-posts" href="/author/grizzly/page/4/">← 上一页</a>
-    <span class="page-number">第 5 页 ⁄ 共 5 页</span>
+    <span class="page-number">第 5 页 ⁄ 共 7 页</span>
+        <a class="older-posts" href="/author/grizzly/page/6/">下一页 →</a>
 </nav>
 </div>
 
-<article class="post tag-linux tag-how-to">
+<article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/install-tomcat-7-on-linux/">Install Tomcat 7  On Linux</a></h2>
+        <h2 class="post-title"><a href="/shell-shi-yong-findcha-xun-mu-lu-xia-chao-guo-500mde-wen-jian/">Shell,使用find查询目录下超过500M的文件</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>下载 wget http://mirror.esocc.com/apache/tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63.tar.gz   解压 tar -zxvf apache-tomcat-7.0.63.tar.gz <a class="read-more" href="/install-tomcat-7-on-linux/">»</a></p>
+        <p>find / -type f -size +500M   find / -type f -size +5000000k <a class="read-more" href="/shell-shi-yong-findcha-xun-mu-lu-xia-chao-guo-500mde-wen-jian/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/how-to/">How To</a>
-        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
-<article class="post tag-how-to tag-linux">
+<article class="post tag-linux tag-mysql">
     <header class="post-header">
-        <h2 class="post-title"><a href="/install-jdk-on-centos-2/">Install JDK On CentOS</a></h2>
+        <h2 class="post-title"><a href="/mysql-error-1045-28000-access-denied-for-user-root-localhost/">MySQL,ERROR 1045 (28000): Access denied for user 'root'@'localhost'</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>安装依赖包 yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib- <a class="read-more" href="/install-jdk-on-centos-2/">»</a></p>
+        <p>ERROR 1045 (28000): Access denied for user 'root'@'localhost'   # /etc/init.d/mysql stop # mysqld_safe --user=mysql --skip-grant-tables --sk <a class="read-more" href="/mysql-error-1045-28000-access-denied-for-user-root-localhost/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/how-to/">How To</a>, <a href="/tag/linux/">Linux</a>
-        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/mysql/">MySQL</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
-<article class="post tag-clojure tag-how-to">
+<article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/clojure-diao-yong-java-jie-kou/">clojure 调用java 接口</a></h2>
+        <h2 class="post-title"><a href="/shell-jiang-dan-yin-hao-ti-huan-wei-shuang-yin-hao/">Shell,将单引号 '替换为双引号"</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Java Interface   public interface ReceiverDecode {       public void decodeBytes(byte[] data); } 使用 proxy  (proxy [ReceiverDecode] []   (dec <a class="read-more" href="/clojure-diao-yong-java-jie-kou/">»</a></p>
+        <p>将单引号 ' 替换为 双引号 " sed 's/\x27/\x22/g' life <a class="read-more" href="/shell-jiang-dan-yin-hao-ti-huan-wei-shuang-yin-hao/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/clojure/">Clojure</a>, <a href="/tag/how-to/">How To</a>
-        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
-<article class="post tag-python">
+<article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/python-shi-yong-yi-xing-ming-ling-qi-dong-http-server/">python,使用一行命令启动http server</a></h2>
+        <h2 class="post-title"><a href="/shell-scpji-ben-shi-yong/">Shell,scp基本使用</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>python -m SimpleHTTPServer   默认端口 8000  指定端口   python -m SimpleHTTPServer 888 <a class="read-more" href="/python-shi-yong-yi-xing-ming-ling-qi-dong-http-server/">»</a></p>
+        <p>将本地文件上传到服务器上 scp -P 222 /home/file.tar.gz   root@mq:/root/mq/file.tar.gz   P  - SSH端口 获取远程服务器上的文件   scp -P 222 root@mq:/root/mq/file.tar.gz <a class="read-more" href="/shell-scpji-ben-shi-yong/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/python/">Python</a>
-        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
-<article class="post tag-clojure tag-lein">
+<article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/clojure-leiningen/">clojure - Leiningen</a></h2>
+        <h2 class="post-title"><a href="/shell-kuai-su-qing-kong-wen-jian/">Shell,快速清空文件</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Leiningen是一个命令行工具，用来解决Clojure项目的包管理、依赖、打包、部署等问题。 安装   1.Download the lein script (or on Windows lein.bat)    2.Place it on your $PATH where <a class="read-more" href="/clojure-leiningen/">»</a></p>
+        <p>echo "" &gt; test.txt   &gt; test.txt cat/dev/null &gt; test.txt <a class="read-more" href="/shell-kuai-su-qing-kong-wen-jian/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/clojure/">Clojure</a>, <a href="/tag/lein/">Lein</a>
-        <time class="post-date" datetime="2016-02-02">2016年02月02日</time>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
-<article class="post tag-clojure tag-how-to">
+<article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/use-clj-time/">clj-time 简单使用</a></h2>
+        <h2 class="post-title"><a href="/shell-shi-yong-sedhuo-awkguo-lu-zi-fu/">Shell,使用sed或awk过滤字符</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>clj-time 是一个Clojure语言的日期和时间处理库，封装自 Joda Time 库。 (ns test.test-clj   (:use [clj-time.format])   (:require [clj-time.local :as loc] <a class="read-more" href="/use-clj-time/">»</a></p>
+        <p>eg.  过滤clean之后的字符   sed 's/\(.*clean\).*/\1/' file.txt   awk -F 'clean' '{print $1""FS}' file.txt <a class="read-more" href="/shell-shi-yong-sedhuo-awkguo-lu-zi-fu/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/clojure/">Clojure</a>, <a href="/tag/how-to/">How To</a>
-        <time class="post-date" datetime="2016-02-01">2016年02月01日</time>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
-<article class="post tag-clojure">
+<article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/clojure-file-reader-writer/">Clojure 读写文件</a></h2>
+        <h2 class="post-title"><a href="/shell/">Shell,在文件的每行开头添加关键字</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Clojure读取文件 简单读文件(slurp)   Clojure IO标准库 使用java io   写文件 简单写文件(split)   Clojure IO 写文件   Clojure读取文件   Clojure读取文件 简单读文件(slurp) 最简单的读取文件可以采用 <a class="read-more" href="/clojure-file-reader-writer/">»</a></p>
+        <p>sed 's/^/keyword/' oldfile.txt &gt;newfile.txt <a class="read-more" href="/shell/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/clojure/">Clojure</a>
-        <time class="post-date" datetime="2016-01-29">2016年01月29日</time>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
-<article class="post tag-clojure tag-how-to">
+<article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/byte-collection-to-string-on-clojure/">How to convert byte to string and  convert string to byte on Clojure</a></h2>
+        <h2 class="post-title"><a href="/shell-shi-yong-wgethe-curlduan-dian-xia-zai/">Shell,使用wget和curl断点续传下载</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Byte,String 在clojure中互转： (ns test   (:require [clojure.string]             [clojure.stacktrace]             [clojure.tools.logging :as log] <a class="read-more" href="/byte-collection-to-string-on-clojure/">»</a></p>
+        <p>wget -c   curl -C   curl -C - #自动续传   eg. wget -c http://baidu.com/   curl -C   curl -C - http://baidu.com/   wget  -t 0 反复尝试的次数，0为不限次数  -O <a class="read-more" href="/shell-shi-yong-wgethe-curlduan-dian-xia-zai/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/clojure/">Clojure</a>, <a href="/tag/how-to/">How To</a>
-        <time class="post-date" datetime="2016-01-29">2016年01月29日</time>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
-<article class="post tag-emacs">
+<article class="post tag-linux tag-mysql tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/emacssu-cha-shou-ce/">Emacs速查手册</a></h2>
+        <h2 class="post-title"><a href="/linux-shelljiao-ben-mysqlde-shi-yong/">Linux,shell脚本mysql的使用</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>环境配置 基础概念 基本命令 副模式命令 文件操作命令 光标移动命令 文本删除命令 文本块常用操作步骤 文本块操作命令 段落重排 编辑技巧 递增查找命令 查找－替换操作 窗口命令 缓冲区命令 书签 Shell交互 环境配置 Emacs启动时会寻找主目录的~/.emacs配置文件 <a class="read-more" href="/emacssu-cha-shou-ce/">»</a></p>
+        <p>#!/bin/sh mysql -uroot -p123456 &lt;use test;   select * from test where a=10000; <a class="read-more" href="/linux-shelljiao-ben-mysqlde-shi-yong/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/emacs/">Emacs</a>
-        <time class="post-date" datetime="2016-01-27">2016年01月27日</time>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/mysql/">MySQL</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
-<article class="post tag-getting-started">
+<article class="post tag-linux tag-shell-tips">
     <header class="post-header">
-        <h2 class="post-title"><a href="/welcome-to-ghost-2/">Welcome to Ghost</a></h2>
+        <h2 class="post-title"><a href="/sh/">Shell,find 与rm 结合使用</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>You're live! Nice. We've put together a little post to introduce you to the Ghost editor and get you started. You can manage your content by <a class="read-more" href="/welcome-to-ghost-2/">»</a></p>
+        <p>find /home/mq/ -name 'test-*' | xargs rm -rf <a class="read-more" href="/sh/">»</a></p>
     </section>
     <footer class="post-meta">
         
         <a href="/author/grizzly/">Grizzly</a>
-         标签：<a href="/tag/getting-started/">Getting Started</a>
-        <time class="post-date" datetime="2016-01-25">2016年01月25日</time>
+         标签：<a href="/tag/linux/">Linux</a>, <a href="/tag/shell-tips/">Shell Tips</a>
+        <time class="post-date" datetime="2016-02-03">2016年02月03日</time>
     </footer>
 </article>
 
 <nav class="pagination" role="navigation">
         <a class="newer-posts" href="/author/grizzly/page/4/">← 上一页</a>
-    <span class="page-number">第 5 页 ⁄ 共 5 页</span>
+    <span class="page-number">第 5 页 ⁄ 共 7 页</span>
+        <a class="older-posts" href="/author/grizzly/page/6/">下一页 →</a>
 </nav>
 
 </main>
@@ -223,7 +230,7 @@
 
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/fitvids/1.1.0/jquery.fitvids.min.js"></script>
-    <script src="/assets/js/index.js?v=a720bb6013"></script>
+    <script src="/assets/js/index.js?v=c50500171f"></script>
 	<script>
 var _hmt = _hmt || [];
 (function() {

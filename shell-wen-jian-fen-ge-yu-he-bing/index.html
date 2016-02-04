@@ -1,35 +1,36 @@
-
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <title>Shell,split与cat 对文件分割及合并</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=a720bb6013">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=c50500171f" />
 
-    <link rel="canonical" href="http:///shell-wen-jian-fen-ge-yu-he-bing/">
-    <meta name="referrer" content="origin">
+    <link rel="canonical" href="http:///shell-wen-jian-fen-ge-yu-he-bing/" />
+    <meta name="referrer" content="origin" />
     
-    <meta property="og:site_name" content="C'est la vie">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Shell,split与cat 对文件分割及合并">
-    <meta property="og:description" content="指定分割后文件行数   split -l 300 large_file.txt new_file_prefix   指定分割后文件大小 split -b 10m large_file.bin new_file_prefix   用cat进行文件合并   cat small_files* &amp;gt; large_file   cat file1.out file2.out &amp;gt; file3.out...">
-    <meta property="og:url" content="http:///shell-wen-jian-fen-ge-yu-he-bing/">
-    <meta property="article:published_time" content="2016-02-03T08:24:08.937Z">
-    <meta property="article:modified_time" content="2016-02-03T08:24:08.936Z">
-    <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="Shell Tips">
+    <meta property="og:site_name" content="C'est la vie" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Shell,split与cat 对文件分割及合并" />
+    <meta property="og:description" content="指定分割后文件行数   split -l 300 large_file.txt new_file_prefix   指定分割后文件大小 split -b 10m large_file.bin new_file_prefix   用cat进行文件合并   cat small_files* &amp;gt; large_file   cat file1.out file2.out &amp;gt; file3.out..." />
+    <meta property="og:url" content="http:///shell-wen-jian-fen-ge-yu-he-bing/" />
+    <meta property="article:published_time" content="2016-02-03T08:24:08.937Z" />
+    <meta property="article:modified_time" content="2016-02-03T08:24:08.936Z" />
+    <meta property="article:tag" content="Linux" />
+    <meta property="article:tag" content="Shell Tips" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Shell,split与cat 对文件分割及合并">
-    <meta name="twitter:description" content="指定分割后文件行数   split -l 300 large_file.txt new_file_prefix   指定分割后文件大小 split -b 10m large_file.bin new_file_prefix   用cat进行文件合并   cat small_files* &amp;gt; large_file   cat file1.out file2.out &amp;gt; file3.out...">
-    <meta name="twitter:url" content="http:///shell-wen-jian-fen-ge-yu-he-bing/">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Shell,split与cat 对文件分割及合并" />
+    <meta name="twitter:description" content="指定分割后文件行数   split -l 300 large_file.txt new_file_prefix   指定分割后文件大小 split -b 10m large_file.bin new_file_prefix   用cat进行文件合并   cat small_files* &amp;gt; large_file   cat file1.out file2.out &amp;gt; file3.out..." />
+    <meta name="twitter:url" content="http:///shell-wen-jian-fen-ge-yu-he-bing/" />
     
     <script type="application/ld+json">
 {
@@ -52,8 +53,8 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 0.7">
-    <link rel="alternate" type="application/rss+xml" title="C'est la vie" href="http:///rss/index.rss">
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="C&#x27;est la vie" href="http:///rss/" />
 </head>
 <body class="post-template tag-linux tag-shell-tips nav-closed">
 
@@ -64,8 +65,12 @@
     </a>
     <ul>
             <li class="nav-home" role="presentation"><a href="http://1900.github.io/">Home</a></li>
+            <li class="nav-java" role="presentation"><a href="http://1900.github.io/tag/java/">Java</a></li>
+            <li class="nav-clojure" role="presentation"><a href="http://1900.github.io/tag/clojure/">Clojure</a></li>
+            <li class="nav-python" role="presentation"><a href="http://1900.github.io/tag/python/">Python</a></li>
+            <li class="nav-linux" role="presentation"><a href="http://1900.github.io/tag/linux/">Linux</a></li>
     </ul>
-    <a class="subscribe-button icon-feed" href="http:///rss/index.rss">订阅</a>
+    <a class="subscribe-button icon-feed" href="http:///rss/">订阅</a>
 </div>
 <span class="nav-cover"></span>
 
@@ -91,7 +96,10 @@
             </section>
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 1900.github.io 468*60 -->
-<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="8642310708"></ins>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-5302593884439812"
+     data-ad-slot="8642310708"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -117,7 +125,10 @@
 </code></pre>
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 1900.github.io 468 text only -->
-<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="1119043901"></ins>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-5302593884439812"
+     data-ad-slot="1119043901"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -140,7 +151,10 @@
 			<section class="ads">
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 1900.github.io 728 -->
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="4072510300"></ins>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-5302593884439812"
+     data-ad-slot="4072510300"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -176,13 +190,13 @@ var duoshuoQuery = {short_name:"1900"};
     <a class="read-next-story no-cover" href="/linux-centosshi-jian-tong-bu/">
         <section class="post">
             <h2>Linux,Centos时间同步</h2>
-            <p>查看时区 cat /etc/sysconfig/clock   设置时区 yum install -y ntpdate   ntpdate us.pool.ntp.org   设置定时计划任务，每隔10分钟同步一次 crontab -e…</p>
+            <p>查看时区 cat /etc/sysconfig/clock   设置时区 yum install -y ntpdate   ntpdate us.pool.ntp.org   设置定时计划任务，每隔10分钟同步一次 crontab -e&hellip;</p>
         </section>
     </a>
     <a class="read-next-story prev no-cover" href="/shell-shan-chu-wen-jian-shi-pai-chu-te-ding-wen-jian/">
         <section class="post">
             <h2>Shell,删除文件时排除特定文件</h2>
-            <p>删除文件时排除特定文件  删除当前目录下所有 *.log文件，除了nginx.log rm `ls *.log|egrep -v nginx.log`   rm `ls *.log|awk '{if($0…</p>
+            <p>删除文件时排除特定文件  删除当前目录下所有 *.log文件，除了nginx.log rm `ls *.log|egrep -v nginx.log`   rm `ls *.log|awk '{if($0&hellip;</p>
         </section>
     </a>
 </aside>
@@ -190,7 +204,7 @@ var duoshuoQuery = {short_name:"1900"};
 
 
         <footer class="site-footer clearfix">
-            <section class="copyright"><a href="http://">C'est la vie</a> © 2016</section>
+            <section class="copyright"><a href="http://">C&#x27;est la vie</a> &copy; 2016</section>
             <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a> &amp; <a href="http://www.ghostchina.com">GhostChina</a></section>
         </footer>
 
@@ -200,7 +214,7 @@ var duoshuoQuery = {short_name:"1900"};
 
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/fitvids/1.1.0/jquery.fitvids.min.js"></script>
-    <script src="/assets/js/index.js?v=a720bb6013"></script>
+    <script src="/assets/js/index.js?v=c50500171f"></script>
 	<script>
 var _hmt = _hmt || [];
 (function() {
@@ -212,3 +226,4 @@ var _hmt = _hmt || [];
 </script>
 
 </body>
+</html>

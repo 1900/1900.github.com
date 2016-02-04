@@ -1,35 +1,36 @@
-
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <title>Shell,删除文件时排除特定文件</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=a720bb6013">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=c50500171f" />
 
-    <link rel="canonical" href="http:///shell-shan-chu-wen-jian-shi-pai-chu-te-ding-wen-jian/">
-    <meta name="referrer" content="origin">
+    <link rel="canonical" href="http:///shell-shan-chu-wen-jian-shi-pai-chu-te-ding-wen-jian/" />
+    <meta name="referrer" content="origin" />
     
-    <meta property="og:site_name" content="C'est la vie">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Shell,删除文件时排除特定文件">
-    <meta property="og:description" content="删除文件时排除特定文件  删除当前目录下所有 *.log文件，除了nginx.log rm `ls *.log|egrep -v nginx.log`   rm `ls *.log|awk '{if($0 != &quot;nginx.log&quot;) print $0}'`   排除多个文件 rm `ls *.log|egrep -v '(nginx.log|mysqld.log|http.log)'`   rm `find...">
-    <meta property="og:url" content="http:///shell-shan-chu-wen-jian-shi-pai-chu-te-ding-wen-jian/">
-    <meta property="article:published_time" content="2016-02-03T08:21:04.438Z">
-    <meta property="article:modified_time" content="2016-02-03T08:21:04.436Z">
-    <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="Shell Tips">
+    <meta property="og:site_name" content="C'est la vie" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Shell,删除文件时排除特定文件" />
+    <meta property="og:description" content="删除文件时排除特定文件  删除当前目录下所有 *.log文件，除了nginx.log rm &#x60;ls *.log|egrep -v nginx.log&#x60;   rm &#x60;ls *.log|awk &#x27;{if($0 != &quot;nginx.log&quot;) print $0}&#x27;&#x60;   排除多个文件 rm &#x60;ls *.log|egrep -v &#x27;(nginx.log|mysqld.log|http.log)&#x27;&#x60;   rm &#x60;find..." />
+    <meta property="og:url" content="http:///shell-shan-chu-wen-jian-shi-pai-chu-te-ding-wen-jian/" />
+    <meta property="article:published_time" content="2016-02-03T08:21:04.438Z" />
+    <meta property="article:modified_time" content="2016-02-03T08:21:04.436Z" />
+    <meta property="article:tag" content="Linux" />
+    <meta property="article:tag" content="Shell Tips" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Shell,删除文件时排除特定文件">
-    <meta name="twitter:description" content="删除文件时排除特定文件  删除当前目录下所有 *.log文件，除了nginx.log rm `ls *.log|egrep -v nginx.log`   rm `ls *.log|awk '{if($0 != &quot;nginx.log&quot;) print $0}'`   排除多个文件 rm `ls *.log|egrep -v '(nginx.log|mysqld.log|http.log)'`   rm `find...">
-    <meta name="twitter:url" content="http:///shell-shan-chu-wen-jian-shi-pai-chu-te-ding-wen-jian/">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Shell,删除文件时排除特定文件" />
+    <meta name="twitter:description" content="删除文件时排除特定文件  删除当前目录下所有 *.log文件，除了nginx.log rm &#x60;ls *.log|egrep -v nginx.log&#x60;   rm &#x60;ls *.log|awk &#x27;{if($0 != &quot;nginx.log&quot;) print $0}&#x27;&#x60;   排除多个文件 rm &#x60;ls *.log|egrep -v &#x27;(nginx.log|mysqld.log|http.log)&#x27;&#x60;   rm &#x60;find..." />
+    <meta name="twitter:url" content="http:///shell-shan-chu-wen-jian-shi-pai-chu-te-ding-wen-jian/" />
     
     <script type="application/ld+json">
 {
@@ -52,8 +53,8 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 0.7">
-    <link rel="alternate" type="application/rss+xml" title="C'est la vie" href="http:///rss/index.rss">
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="C&#x27;est la vie" href="http:///rss/" />
 </head>
 <body class="post-template tag-linux tag-shell-tips nav-closed">
 
@@ -64,8 +65,12 @@
     </a>
     <ul>
             <li class="nav-home" role="presentation"><a href="http://1900.github.io/">Home</a></li>
+            <li class="nav-java" role="presentation"><a href="http://1900.github.io/tag/java/">Java</a></li>
+            <li class="nav-clojure" role="presentation"><a href="http://1900.github.io/tag/clojure/">Clojure</a></li>
+            <li class="nav-python" role="presentation"><a href="http://1900.github.io/tag/python/">Python</a></li>
+            <li class="nav-linux" role="presentation"><a href="http://1900.github.io/tag/linux/">Linux</a></li>
     </ul>
-    <a class="subscribe-button icon-feed" href="http:///rss/index.rss">订阅</a>
+    <a class="subscribe-button icon-feed" href="http:///rss/">订阅</a>
 </div>
 <span class="nav-cover"></span>
 
@@ -91,14 +96,17 @@
             </section>
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 1900.github.io 468*60 -->
-<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="8642310708"></ins>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-5302593884439812"
+     data-ad-slot="8642310708"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
         </header>
 
         <section class="post-content">
-            <p>删除文件时排除特定文件 <br>
+            <p>删除文件时排除特定文件 <br />
 删除当前目录下所有 *.log文件，除了nginx.log</p>
 
 <pre><code class="language-shell">rm `ls *.log|egrep -v nginx.log`  
@@ -116,7 +124,10 @@
 </code></pre>
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 1900.github.io 468 text only -->
-<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="1119043901"></ins>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-5302593884439812"
+     data-ad-slot="1119043901"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -139,7 +150,10 @@
 			<section class="ads">
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 1900.github.io 728 -->
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="4072510300"></ins>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-5302593884439812"
+     data-ad-slot="4072510300"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -175,13 +189,13 @@ var duoshuoQuery = {short_name:"1900"};
     <a class="read-next-story no-cover" href="/shell-wen-jian-fen-ge-yu-he-bing/">
         <section class="post">
             <h2>Shell,split与cat 对文件分割及合并</h2>
-            <p>指定分割后文件行数   split -l 300 large_file.txt new_file_prefix   指定分割后文件大小 split -b 10m large_file.bin new_file_…</p>
+            <p>指定分割后文件行数   split -l 300 large_file.txt new_file_prefix   指定分割后文件大小 split -b 10m large_file.bin new_file_&hellip;</p>
         </section>
     </a>
     <a class="read-next-story prev no-cover" href="/shell-gen-ju-duan-kou-cha-xun-jin-cheng/">
         <section class="post">
             <h2>Shell,根据端口查询进程</h2>
-            <p>ps -ef|awk '{print $2"\t"$8$9}'|grep `netstat -tlnp|grep 8080|awk '{print $7}…</p>
+            <p>ps -ef|awk '{print $2"\t"$8$9}'|grep `netstat -tlnp|grep 8080|awk '{print $7}&hellip;</p>
         </section>
     </a>
 </aside>
@@ -189,7 +203,7 @@ var duoshuoQuery = {short_name:"1900"};
 
 
         <footer class="site-footer clearfix">
-            <section class="copyright"><a href="http://">C'est la vie</a> © 2016</section>
+            <section class="copyright"><a href="http://">C&#x27;est la vie</a> &copy; 2016</section>
             <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a> &amp; <a href="http://www.ghostchina.com">GhostChina</a></section>
         </footer>
 
@@ -199,7 +213,7 @@ var duoshuoQuery = {short_name:"1900"};
 
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/fitvids/1.1.0/jquery.fitvids.min.js"></script>
-    <script src="/assets/js/index.js?v=a720bb6013"></script>
+    <script src="/assets/js/index.js?v=c50500171f"></script>
 	<script>
 var _hmt = _hmt || [];
 (function() {
@@ -211,3 +225,4 @@ var _hmt = _hmt || [];
 </script>
 
 </body>
+</html>

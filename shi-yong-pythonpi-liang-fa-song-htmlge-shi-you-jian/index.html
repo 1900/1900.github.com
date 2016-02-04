@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>使用python批量发送html格式邮件</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=c50500171f" />
+
+    <link rel="canonical" href="http:///shi-yong-pythonpi-liang-fa-song-htmlge-shi-you-jian/" />
+    <meta name="referrer" content="origin" />
+    
+    <meta property="og:site_name" content="C'est la vie" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="使用python批量发送html格式邮件" />
+    <meta property="og:description" content="#!/usr/bin/env python #-*- coding: utf-8 -*- import email   import smtplib   import mimetypes   from email.MIMEMultipart import MIMEMultipart   from email.MIMEText import MIMEText # 邮件列表文件(每行一个邮件地址) MAIL_FILE_PATH = &#x27;/root/mail/emails.txt&#x27; # 邮件内容文件 MAIL_CONTENT_PATH..." />
+    <meta property="og:url" content="http:///shi-yong-pythonpi-liang-fa-song-htmlge-shi-you-jian/" />
+    <meta property="article:published_time" content="2016-02-04T01:53:59.699Z" />
+    <meta property="article:modified_time" content="2016-02-04T01:53:59.697Z" />
+    <meta property="article:tag" content="Python" />
+    <meta property="article:tag" content="Mail" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="使用python批量发送html格式邮件" />
+    <meta name="twitter:description" content="#!/usr/bin/env python #-*- coding: utf-8 -*- import email   import smtplib   import mimetypes   from email.MIMEMultipart import MIMEMultipart   from email.MIMEText import MIMEText # 邮件列表文件(每行一个邮件地址) MAIL_FILE_PATH = &#x27;/root/mail/emails.txt&#x27; # 邮件内容文件 MAIL_CONTENT_PATH..." />
+    <meta name="twitter:url" content="http:///shi-yong-pythonpi-liang-fa-song-htmlge-shi-you-jian/" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "C'est la vie",
+    "author": {
+        "@type": "Person",
+        "name": "Grizzly",
+        "url": "http:///author/grizzly",
+        "sameAs": null,
+        "description": "Never say never!"
+    },
+    "headline": "使用python批量发送html格式邮件",
+    "url": "http:///shi-yong-pythonpi-liang-fa-song-htmlge-shi-you-jian/",
+    "datePublished": "2016-02-04T01:53:59.699Z",
+    "dateModified": "2016-02-04T01:53:59.697Z",
+    "keywords": "Python, Mail",
+    "description": "#!/usr/bin/env python #-*- coding: utf-8 -*- import email   import smtplib   import mimetypes   from email.MIMEMultipart import MIMEMultipart   from email.MIMEText import MIMEText # 邮件列表文件(每行一个邮件地址) MAIL_FILE_PATH = &#x27;/root/mail/emails.txt&#x27; # 邮件内容文件 MAIL_CONTENT_PATH..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="C&#x27;est la vie" href="http:///rss/" />
+</head>
+<body class="post-template tag-python tag-mail nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">菜单</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">关闭</span>
+    </a>
+    <ul>
+            <li class="nav-home" role="presentation"><a href="http://1900.github.io/">Home</a></li>
+            <li class="nav-java" role="presentation"><a href="http://1900.github.io/tag/java/">Java</a></li>
+            <li class="nav-clojure" role="presentation"><a href="http://1900.github.io/tag/clojure/">Clojure</a></li>
+            <li class="nav-python" role="presentation"><a href="http://1900.github.io/tag/python/">Python</a></li>
+            <li class="nav-linux" role="presentation"><a href="http://1900.github.io/tag/linux/">Linux</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="http:///rss/">订阅</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">菜单</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-python tag-mail">
+
+        <header class="post-header">
+            <h1 class="post-title">使用python批量发送html格式邮件</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-02-04">2016年02月04日</time>  标签：<a href="/tag/python/">Python</a>, <a href="/tag/mail/">Mail</a>
+            </section>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 1900.github.io 468*60 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-5302593884439812"
+     data-ad-slot="8642310708"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </header>
+
+        <section class="post-content">
+            <pre><code class="language-python">#!/usr/bin/env python
+#-*- coding: utf-8 -*-
+
+import email  
+import smtplib  
+import mimetypes  
+from email.MIMEMultipart import MIMEMultipart  
+from email.MIMEText import MIMEText
+
+# 邮件列表文件(每行一个邮件地址)
+MAIL_FILE_PATH = '/root/mail/emails.txt'
+
+# 邮件内容文件
+MAIL_CONTENT_PATH = '/root/mail/htmlpage.html'
+
+# 发件人名称
+SENDER_NAME = 'grizzly'
+
+# 发件人邮箱
+SENDER_MAIL = 'postmaster@test.mailgun.org'
+
+# 发件人邮箱密码
+SENDER_PSWD = '12345678'
+
+# SMTP 服务器
+SMTP_SERVER = 'smtp.mailgun.org'
+
+# SMTP 端口
+SMTP_PORT = '25'
+
+# 每次发送给几人
+RECEIVER_LIMIT_PER_TIME = 10
+
+# 获取收件人列表
+def GetReceivers(limit = 10):  
+    f = open(MAIL_FILE_PATH, 'r+')
+
+    try:
+        lines = f.readlines()
+    finally:
+        f.close()
+
+    receivers = lines[:RECEIVER_LIMIT_PER_TIME]
+    lines     = lines[RECEIVER_LIMIT_PER_TIME:]
+
+    f = open(MAIL_FILE_PATH, 'w+')
+    f.writelines(lines)
+    f.close()
+
+    return receivers
+
+# 批量发送邮件
+def SendEmail(sender, senderName, receivers, subject, body):  
+    smtp = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+    smtp.login(SENDER_MAIL, SENDER_PSWD)
+
+    if(senderName != ''):
+        sender = senderName + '&lt;' + sender + '&gt;'
+
+    for receiver in receivers:
+        receiver = receiver.strip()
+
+        msg = MIMEMultipart('alternative')
+        msg['Subject'] = subject
+        msg['From'] = sender
+        msg['To'] = receiver
+        msg.attach(MIMEText(body, 'html', 'utf-8'))
+
+        smtp.sendmail(sender, receiver, msg.as_string())
+
+    smtp.quit()
+
+if __name__ == '__main__':  
+    '''
+    发送邮件开始
+    '''
+
+    # 获取本次要发送的邮件地址
+    receivers = GetReceivers(RECEIVER_LIMIT_PER_TIME)
+
+    # 获取邮件标题和内容
+    f = open(MAIL_CONTENT_PATH, 'r');
+    lines = f.readlines()
+    f.close()
+
+    subject = lines[0].strip()
+    body = ''.join(lines[1:])
+
+    # 发送
+    SendEmail(SENDER_MAIL, SENDER_NAME, receivers, subject, body)
+</code></pre>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 1900.github.io 468 text only -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-5302593884439812"
+     data-ad-slot="1119043901"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </section>
+
+        <footer class="post-footer">
+
+
+
+            <section class="author">
+                <h4><a href="/author/grizzly/">Grizzly</a></h4>
+
+                    <p>Never say never!</p>
+                <div class="author-meta">
+                    
+                    
+                </div>
+            </section>
+
+			<section class="ads">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 1900.github.io 728 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-5302593884439812"
+     data-ad-slot="4072510300"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br>
+</section>
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+            </section>
+		<section class="post-comments">
+        <div class="ds-thread" data-thread-key="shi-yong-pythonpi-liang-fa-song-htmlge-shi-you-jian" data-title="使用python批量发送html格式邮件" data-url="http:///shi-yong-pythonpi-liang-fa-song-htmlge-shi-you-jian/"></div>
+		<script type="text/javascript">
+var duoshuoQuery = {short_name:"1900"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+    </section>
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+    <a class="read-next-story no-cover" href="/shell-2/">
+        <section class="post">
+            <h2>Shell,使用sed删除关键字之前的字符</h2>
+            <p>删除 >>> 之前的 sed 's/&gt;&gt;&gt;/\n/;s/.*\n//' test.txt &gt;new.txt&hellip;</p>
+        </section>
+    </a>
+    <a class="read-next-story prev no-cover" href="/use-python-script-backup-mysql-data/">
+        <section class="post">
+            <h2>使用Python备份mysql</h2>
+            <p>#!/usr/bin/env python import osimport time username = root   password = 123456   hostname = localhost filestamp = time.strftime('%Y-%m-%&hellip;</p>
+        </section>
+    </a>
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="http://">C&#x27;est la vie</a> &copy; 2016</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a> &amp; <a href="http://www.ghostchina.com">GhostChina</a></section>
+        </footer>
+
+    </div>
+
+    
+
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/fitvids/1.1.0/jquery.fitvids.min.js"></script>
+    <script src="/assets/js/index.js?v=c50500171f"></script>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?f55c526b561f3da50f420ad2a26d946a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>
