@@ -1,0 +1,371 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>JSch使用密钥通过SSH访问SFTP</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=bd4c86d6d6">
+
+    <link rel="canonical" href="http:///jschshi-yong-mi-yao-tong-guo-sshfang-wen-sftp/">
+    <meta name="referrer" content="origin">
+    
+    <meta property="og:site_name" content="C'est la vie">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="JSch使用密钥通过SSH访问SFTP">
+    <meta property="og:description" content="import com.jcraft.jsch.*;   import java.io.BufferedOutputStream;   import java.io.File;   import java.io.FileOutputStream;   import java.io.FilterOutputStream;   import java.text.DateFormat;   import java.text.SimpleDateFormat;   import java.util.Calendar;   import java.util.Date;   import java.util.Vector;...">
+    <meta property="og:url" content="http:///jschshi-yong-mi-yao-tong-guo-sshfang-wen-sftp/">
+    <meta property="article:published_time" content="2016-02-04T09:37:20.003Z">
+    <meta property="article:modified_time" content="2016-02-04T09:37:19.997Z">
+    <meta property="article:tag" content="Java">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="JSch使用密钥通过SSH访问SFTP">
+    <meta name="twitter:description" content="import com.jcraft.jsch.*;   import java.io.BufferedOutputStream;   import java.io.File;   import java.io.FileOutputStream;   import java.io.FilterOutputStream;   import java.text.DateFormat;   import java.text.SimpleDateFormat;   import java.util.Calendar;   import java.util.Date;   import java.util.Vector;...">
+    <meta name="twitter:url" content="http:///jschshi-yong-mi-yao-tong-guo-sshfang-wen-sftp/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "C'est la vie",
+    "author": {
+        "@type": "Person",
+        "name": "Grizzly",
+        "url": "http:///author/grizzly",
+        "sameAs": null,
+        "description": "Never say never!"
+    },
+    "headline": "JSch使用密钥通过SSH访问SFTP",
+    "url": "http:///jschshi-yong-mi-yao-tong-guo-sshfang-wen-sftp/",
+    "datePublished": "2016-02-04T09:37:20.003Z",
+    "dateModified": "2016-02-04T09:37:19.997Z",
+    "keywords": "Java",
+    "description": "import com.jcraft.jsch.*;   import java.io.BufferedOutputStream;   import java.io.File;   import java.io.FileOutputStream;   import java.io.FilterOutputStream;   import java.text.DateFormat;   import java.text.SimpleDateFormat;   import java.util.Calendar;   import java.util.Date;   import java.util.Vector;..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7">
+    <link rel="alternate" type="application/rss+xml" title="C'est la vie" href="http:///rss/index.rss">
+</head>
+<body class="post-template tag-java nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">菜单</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">关闭</span>
+    </a>
+    <ul>
+            <li class="nav-home" role="presentation"><a href="http://1900.github.io/">Home</a></li>
+            <li class="nav-java" role="presentation"><a href="http://1900.github.io/tag/java/">Java</a></li>
+            <li class="nav-clojure" role="presentation"><a href="http://1900.github.io/tag/clojure/">Clojure</a></li>
+            <li class="nav-python" role="presentation"><a href="http://1900.github.io/tag/python/">Python</a></li>
+            <li class="nav-linux" role="presentation"><a href="http://1900.github.io/tag/linux/">Linux</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss/index.rss">订阅</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">菜单</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-java">
+
+        <header class="post-header">
+            <h1 class="post-title">JSch使用密钥通过SSH访问SFTP</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-02-04">2016年02月04日</time>  标签：<a href="/tag/java/">Java</a>
+            </section>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 1900.github.io 468*60 -->
+<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="8642310708"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </header>
+
+        <section class="post-content">
+            <pre><code class="language-java">import com.jcraft.jsch.*;  
+import java.io.BufferedOutputStream;  
+import java.io.File;  
+import java.io.FileOutputStream;  
+import java.io.FilterOutputStream;  
+import java.text.DateFormat;  
+import java.text.SimpleDateFormat;  
+import java.util.Calendar;  
+import java.util.Date;  
+import java.util.Vector;  
+import java.sql.Connection;  
+import java.sql.DriverManager;  
+import java.sql.ResultSet;  
+import java.sql.ResultSetMetaData;  
+import java.sql.SQLException;  
+import java.sql.Statement;
+
+import com.jcraft.jsch.ChannelSftp.LsEntry;
+
+import org.apache.commons.configuration.ConfigurationException;  
+import org.apache.commons.configuration.XMLConfiguration;
+
+public class getFiles {  
+    public static void main(String[] arg) {
+        try {
+            getFilesFromSftp();
+        } catch (ConfigurationException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public static void uploadFilesToServer() {
+        try {
+            JSch jsch = new JSch();
+
+            String user = "user";
+            String host = "host";
+            int port = 22;
+            String privateKey = "E:/grizzly/key.ppk";
+
+            jsch.addIdentity(privateKey);
+
+            Session session = jsch.getSession(user, host, port);
+            System.out.println("session created");
+
+            java.util.Properties config = new java.util.Properties();
+            config.put("StrictHostKeyChecking", "no");
+            session.setConfig(config);
+
+            session.connect();
+            System.out.println("session connected");
+
+            Channel channel = session.openChannel("sftp");
+            channel.setInputStream(System.in);
+            channel.setOutputStream(System.out);
+            channel.connect();
+            System.out.println("channel connected");
+
+            ChannelSftp c = (ChannelSftp) channel;
+
+            String fileName = "E:/grizzly/key.ppk";
+            c.put(fileName,
+                    "/var/lib/544f289b4382ec0d450009c6/app-root/runtime/repo/key.ppk");
+            c.exit();
+            System.out.println("done!");
+
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+    }
+
+    public static void getFilesFromSftp() throws ConfigurationException {
+        try {
+            JSch jsch = new JSch();
+
+            Date date = new Date();
+
+            String configfile = "dist//config.xml";
+            XMLConfiguration config = new XMLConfiguration(configfile);
+            String user = config.getString("hosting.user");
+            String host = config.getString("hosting.host");
+            int port = Integer.parseInt(config.getString("hosting.port"));
+            String privateKey = config.getString("hosting.privateKey");
+            String remotePath = config.getString("hosting.remotePath");
+            String localPath = config.getString("hosting.localPath");
+
+            String dburl = config.getString("jdbc.url");
+            String driver = config.getString("jdbc.driver");
+
+            BufferedOutputStream bufferedOutput = null;
+            String updateProgressSql = config
+                    .getString("jdbc.updateProgressSql");
+
+            String logFilePath = config.getString("hosting.logFilePath");
+
+            // String user = "544f289b4382ec0d450009c6";
+            // String host = "host";
+            // int port = 22;
+            // String privateKey = "/local/key.ppk";
+            // String remotePath =
+            // "/var/lib/544f289b4382ec0d450009c6/app-root/runtime/repo/";
+            // String localPath = "E:/grizzly/test/";
+
+            jsch.addIdentity(privateKey);
+
+            Session session = jsch.getSession(user, host, port);
+            System.out.println("Session created");
+
+            java.util.Properties config1 = new java.util.Properties();
+            config1.put("StrictHostKeyChecking", "no");
+            session.setConfig(config1);
+
+            session.connect();
+            System.out.println("session connected");
+
+            Channel channel = session.openChannel("sftp");
+            channel.setInputStream(System.in);
+            channel.setOutputStream(System.out);
+            channel.connect();
+            System.out.println("Channel connected");
+
+            ChannelSftp c = (ChannelSftp) channel;
+
+
+            c.get(remotePath + "/report.csv", localPath
+                    + "/report.csv");
+
+            // log
+            String logFile = logFilePath + "log.txt";
+            bufferedOutput = new BufferedOutputStream(new FileOutputStream(
+                    logFile, true));
+            bufferedOutput.write("\r\n".getBytes());
+            bufferedOutput.write((date + " downloaded file: " + "cust.csv")
+                    .getBytes());
+
+            bufferedOutput.write("-----".getBytes());
+
+
+            c.exit();
+
+            try {
+                Class.forName(driver);
+                Connection con = DriverManager.getConnection(dburl);
+                Statement stmt = con.createStatement();
+                stmt.executeUpdate(updateProgressSql);
+                stmt.close();
+                con.close();
+
+            } catch (SQLException ex) {
+                System.err.println(ex);
+            }
+
+            System.out.println("done!");
+
+            if (bufferedOutput != null) {
+                bufferedOutput.flush();
+                bufferedOutput.close();
+            }
+
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+    }
+
+    public Vector&lt;LsEntry&gt; listFiles(String directory, ChannelSftp sftp)
+            throws SftpException {
+        return sftp.ls(directory);
+    }
+
+    public static void mkdirs(String createLocalPath) {
+        java.io.File f = new File(createLocalPath);
+        f.mkdirs();
+    }
+
+}
+</code></pre>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 1900.github.io 468 text only -->
+<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="1119043901"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </section>
+
+        <footer class="post-footer">
+
+
+
+            <section class="author">
+                <h4><a href="/author/grizzly/">Grizzly</a></h4>
+
+                    <p>Never say never!</p>
+                <div class="author-meta">
+                    
+                    
+                </div>
+            </section>
+
+			<section class="ads">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 1900.github.io 728 -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5302593884439812" data-ad-slot="4072510300"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br>
+</section>
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+            </section>
+		<section class="post-comments">
+        <div class="ds-thread" data-thread-key="jschshi-yong-mi-yao-tong-guo-sshfang-wen-sftp" data-title="JSch使用密钥通过SSH访问SFTP" data-url="http:///jschshi-yong-mi-yao-tong-guo-sshfang-wen-sftp/"></div>
+		<script type="text/javascript">
+var duoshuoQuery = {short_name:"1900"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+    </section>
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+    <a class="read-next-story prev no-cover" href="/groovy-qu-zhong/">
+        <section class="post">
+            <h2>Groovy去除重复数据</h2>
+            <p>def list = [a, b, c, c, c,d,e,e]   // [a, b, c, d, e]  list.unique()…</p>
+        </section>
+    </a>
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="http://">C'est la vie</a> © 2016</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a> &amp; <a href="http://www.ghostchina.com">GhostChina</a></section>
+        </footer>
+
+    </div>
+
+    
+
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/fitvids/1.1.0/jquery.fitvids.min.js"></script>
+    <script src="/assets/js/index.js?v=bd4c86d6d6"></script>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?f55c526b561f3da50f420ad2a26d946a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>

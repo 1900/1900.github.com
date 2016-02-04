@@ -1,4 +1,192 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[C'est la vie]]></title><description><![CDATA[Never say never!]]></description><link>http:///</link><generator>Ghost 0.7</generator><lastBuildDate>Thu, 04 Feb 2016 06:24:36 GMT</lastBuildDate><atom:link href="http:///rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Groovy去除重复数据]]></title><description><![CDATA[<pre><code class="language-groovy">def list = [a, b, c, c, c,d,e,e]  
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[C'est la vie]]></title><description><![CDATA[Never say never!]]></description><link>http:///</link><generator>Ghost 0.7</generator><lastBuildDate>Thu, 04 Feb 2016 09:38:04 GMT</lastBuildDate><atom:link href="http:///rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[JSch使用密钥通过SSH访问SFTP]]></title><description><![CDATA[<pre><code class="language-java">import com.jcraft.jsch.*;  
+import java.io.BufferedOutputStream;  
+import java.io.File;  
+import java.io.FileOutputStream;  
+import java.io.FilterOutputStream;  
+import java.text.DateFormat;  
+import java.text.SimpleDateFormat;  
+import java.util.Calendar;  
+import java.util.Date;  
+import java.util.Vector;  
+import java.sql.Connection;  
+import java.sql.DriverManager;  
+import java.</code></pre>]]></description><link>http:///jschshi-yong-mi-yao-tong-guo-sshfang-wen-sftp/</link><guid isPermaLink="false">5ebebdb6-4912-473d-94fb-88f5c45f77c1</guid><category><![CDATA[Java]]></category><dc:creator><![CDATA[Grizzly]]></dc:creator><pubDate>Thu, 04 Feb 2016 09:37:20 GMT</pubDate><content:encoded><![CDATA[<pre><code class="language-java">import com.jcraft.jsch.*;  
+import java.io.BufferedOutputStream;  
+import java.io.File;  
+import java.io.FileOutputStream;  
+import java.io.FilterOutputStream;  
+import java.text.DateFormat;  
+import java.text.SimpleDateFormat;  
+import java.util.Calendar;  
+import java.util.Date;  
+import java.util.Vector;  
+import java.sql.Connection;  
+import java.sql.DriverManager;  
+import java.sql.ResultSet;  
+import java.sql.ResultSetMetaData;  
+import java.sql.SQLException;  
+import java.sql.Statement;
+
+import com.jcraft.jsch.ChannelSftp.LsEntry;
+
+import org.apache.commons.configuration.ConfigurationException;  
+import org.apache.commons.configuration.XMLConfiguration;
+
+public class getFiles {  
+    public static void main(String[] arg) {
+        try {
+            getFilesFromSftp();
+        } catch (ConfigurationException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public static void uploadFilesToServer() {
+        try {
+            JSch jsch = new JSch();
+
+            String user = "user";
+            String host = "host";
+            int port = 22;
+            String privateKey = "E:/grizzly/key.ppk";
+
+            jsch.addIdentity(privateKey);
+
+            Session session = jsch.getSession(user, host, port);
+            System.out.println("session created");
+
+            java.util.Properties config = new java.util.Properties();
+            config.put("StrictHostKeyChecking", "no");
+            session.setConfig(config);
+
+            session.connect();
+            System.out.println("session connected");
+
+            Channel channel = session.openChannel("sftp");
+            channel.setInputStream(System.in);
+            channel.setOutputStream(System.out);
+            channel.connect();
+            System.out.println("channel connected");
+
+            ChannelSftp c = (ChannelSftp) channel;
+
+            String fileName = "E:/grizzly/key.ppk";
+            c.put(fileName,
+                    "/var/lib/544f289b4382ec0d450009c6/app-root/runtime/repo/key.ppk");
+            c.exit();
+            System.out.println("done!");
+
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+    }
+
+    public static void getFilesFromSftp() throws ConfigurationException {
+        try {
+            JSch jsch = new JSch();
+
+            Date date = new Date();
+
+            String configfile = "dist//config.xml";
+            XMLConfiguration config = new XMLConfiguration(configfile);
+            String user = config.getString("hosting.user");
+            String host = config.getString("hosting.host");
+            int port = Integer.parseInt(config.getString("hosting.port"));
+            String privateKey = config.getString("hosting.privateKey");
+            String remotePath = config.getString("hosting.remotePath");
+            String localPath = config.getString("hosting.localPath");
+
+            String dburl = config.getString("jdbc.url");
+            String driver = config.getString("jdbc.driver");
+
+            BufferedOutputStream bufferedOutput = null;
+            String updateProgressSql = config
+                    .getString("jdbc.updateProgressSql");
+
+            String logFilePath = config.getString("hosting.logFilePath");
+
+            // String user = "544f289b4382ec0d450009c6";
+            // String host = "host";
+            // int port = 22;
+            // String privateKey = "/local/key.ppk";
+            // String remotePath =
+            // "/var/lib/544f289b4382ec0d450009c6/app-root/runtime/repo/";
+            // String localPath = "E:/grizzly/test/";
+
+            jsch.addIdentity(privateKey);
+
+            Session session = jsch.getSession(user, host, port);
+            System.out.println("Session created");
+
+            java.util.Properties config1 = new java.util.Properties();
+            config1.put("StrictHostKeyChecking", "no");
+            session.setConfig(config1);
+
+            session.connect();
+            System.out.println("session connected");
+
+            Channel channel = session.openChannel("sftp");
+            channel.setInputStream(System.in);
+            channel.setOutputStream(System.out);
+            channel.connect();
+            System.out.println("Channel connected");
+
+            ChannelSftp c = (ChannelSftp) channel;
+
+
+            c.get(remotePath + "/report.csv", localPath
+                    + "/report.csv");
+
+            // log
+            String logFile = logFilePath + "log.txt";
+            bufferedOutput = new BufferedOutputStream(new FileOutputStream(
+                    logFile, true));
+            bufferedOutput.write("\r\n".getBytes());
+            bufferedOutput.write((date + " downloaded file: " + "cust.csv")
+                    .getBytes());
+
+            bufferedOutput.write("-----".getBytes());
+
+
+            c.exit();
+
+            try {
+                Class.forName(driver);
+                Connection con = DriverManager.getConnection(dburl);
+                Statement stmt = con.createStatement();
+                stmt.executeUpdate(updateProgressSql);
+                stmt.close();
+                con.close();
+
+            } catch (SQLException ex) {
+                System.err.println(ex);
+            }
+
+            System.out.println("done!");
+
+            if (bufferedOutput != null) {
+                bufferedOutput.flush();
+                bufferedOutput.close();
+            }
+
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+    }
+
+    public Vector&lt;LsEntry&gt; listFiles(String directory, ChannelSftp sftp)
+            throws SftpException {
+        return sftp.ls(directory);
+    }
+
+    public static void mkdirs(String createLocalPath) {
+        java.io.File f = new File(createLocalPath);
+        f.mkdirs();
+    }
+
+}
+</code></pre>]]></content:encoded></item><item><title><![CDATA[Groovy去除重复数据]]></title><description><![CDATA[<pre><code class="language-groovy">def list = [a, b, c, c, c,d,e,e]  
 // [a, b, c, d, e] 
 list.unique()  
 </code></pre>]]></description><link>http:///groovy-qu-zhong/</link><guid isPermaLink="false">984537a4-707d-44d3-b29a-855c44a56459</guid><category><![CDATA[Groovy]]></category><dc:creator><![CDATA[Grizzly]]></dc:creator><pubDate>Thu, 04 Feb 2016 06:23:21 GMT</pubDate><content:encoded><![CDATA[<pre><code class="language-groovy">def list = [a, b, c, c, c,d,e,e]  
@@ -560,34 +748,4 @@ public class StaxDemo {
         }
     }
 }
-</code></pre>]]></content:encoded></item><item><title><![CDATA[Shell,使用cat,sed或awk删除空行]]></title><description><![CDATA[<p>使用cat  </p>
-
-<pre><code class="language-shell">cat filename|tr -s '\n'  
-</code></pre>
-
-<p>使用sed</p>
-
-<pre><code class="language-shell">sed '/^$/d' filename  
-sed -e '/^\n$/d' file.txt  
-sed '/^ *$/d' list.txt &gt;newlist.txt  
-</code></pre>
-
-<p>使用awk</p>
-
-<pre><code class="language-shell">awk '{if($0!="")print}' filename  
-</code></pre>]]></description><link>http:///shell-shi-yong-cat-sedhuo-awkshan-chu-kong-xing/</link><guid isPermaLink="false">1a8f2d89-ebbf-4a53-9c38-c994bf2f62fb</guid><category><![CDATA[Linux]]></category><category><![CDATA[Shell Tips]]></category><dc:creator><![CDATA[Grizzly]]></dc:creator><pubDate>Thu, 04 Feb 2016 03:56:51 GMT</pubDate><content:encoded><![CDATA[<p>使用cat  </p>
-
-<pre><code class="language-shell">cat filename|tr -s '\n'  
-</code></pre>
-
-<p>使用sed</p>
-
-<pre><code class="language-shell">sed '/^$/d' filename  
-sed -e '/^\n$/d' file.txt  
-sed '/^ *$/d' list.txt &gt;newlist.txt  
-</code></pre>
-
-<p>使用awk</p>
-
-<pre><code class="language-shell">awk '{if($0!="")print}' filename  
 </code></pre>]]></content:encoded></item></channel></rss>
